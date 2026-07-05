@@ -8,7 +8,6 @@
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
 USEFORM("src\Forms\MainForm.cpp", FMain);
-USEFORM("src\Forms\CustomDlgForm.cpp", FCustomDlg);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
@@ -16,7 +15,6 @@ extern "C" int FMXmain()
 	{
 		Application->Initialize();
 		Application->CreateForm(__classid(TFMain), &FMain);
-		Application->CreateForm(__classid(TFCustomDlg), &FCustomDlg);
 		Application->Run();
 	}
 	catch (Exception &exception)
