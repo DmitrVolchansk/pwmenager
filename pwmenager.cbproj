@@ -119,6 +119,8 @@
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
         <SanitizedProjectName>pwmenager</SanitizedProjectName>
+        <IncludePath>src\Forms\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>src\Forms\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android64)'!=''">
         <IncludePath>$(BDSINCLUDE)\android\fmx;$(IncludePath)</IncludePath>
@@ -229,6 +231,13 @@
             <BuildOrder>2</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="src\Forms\MainForm.cpp">
+            <Form>FMain</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>src\Forms\MainForm.h</DependentOn>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <FormResources Include="src\Forms\MainForm.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

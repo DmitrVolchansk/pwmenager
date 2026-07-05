@@ -7,10 +7,15 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
-TForm1 *Form1;
+TFMain *FMain;
 //---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner)
+__fastcall TFMain::TFMain(TComponent* Owner)
 	: TForm(Owner)
 {
+}
+//---------------------------------------------------------------------------
+void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
+{
+    SearchPanel->Visible = !(SearchPanel->Visible);
 }
 //---------------------------------------------------------------------------
