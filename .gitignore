@@ -1,0 +1,61 @@
+# RAD Studio / C++Builder
+*.dcu
+*.ddp
+*.dsk
+*.identcache
+*.local
+*.projdata
+*.tvsconfig
+*.stat
+*.drc
+*.map
+*.tds
+*.rsm
+*.dres
+*.ilc
+*.ild
+*.ilf
+*.ils
+*.ilp
+*.cfg_*
+*.exe
+*.dll
+*.bpl
+*.bpi
+*.lib
+*.obj
+*.hpp
+*.o
+
+# Debug / Release folders
+Debug/
+Release/
+Win32/Debug/
+Win32/Release/
+Win64/Debug/
+Win64/Release/
+
+# C++Builder generated files
+*.cbproj.local
+*.deployproj.local
+*.skincfg
+
+# Backup / temp files
+*.bak
+*.tmp
+*.temp
+*~
+.~*
+*.~*
+
+# IDE / user-specific files
+*.desktop
+__history/
+__recovery/
+
+# Logs
+*.log
+
+# Version control / OS noise
+.DS_Store
+Thumbs.db
