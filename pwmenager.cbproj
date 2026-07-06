@@ -193,6 +193,10 @@
             <BuildOrder>2</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="src\Classes\UDataSendler.cpp">
+            <DependentOn>src\Classes\UDataSendler.h</DependentOn>
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
         <CppCompile Include="src\Forms\CustomDlgForm.cpp">
             <Form>FCustomDlg</Form>
             <FormType>fmx</FormType>
@@ -239,11 +243,11 @@
             <DependentOn>src\Frames\ViewingFrame.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
+        <FormResources Include="src\Forms\MainForm.fmx"/>
         <FormResources Include="src\Frames\AddingFrame.fmx"/>
         <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
         <FormResources Include="src\Frames\ViewingFrame.fmx"/>
-        <FormResources Include="src\Forms\MainForm.fmx"/>
         <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <FormResources Include="src\Forms\GeneratorForm.fmx"/>
         <BuildConfiguration Include="Base">
