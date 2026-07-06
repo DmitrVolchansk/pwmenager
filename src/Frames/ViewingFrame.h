@@ -14,18 +14,17 @@
 //---------------------------------------------------------------------------
 class TFViewing : public TFBase
 {
-__published:	// IDE-managed Components
-	TCornerButton *OpenEditBtn;
-	TCornerButton *CopyLoginBtn;
-	TCornerButton *CopyPasswordBtn;
-	TButton *CloseBtn;
-	void __fastcall SpeedButton1Click(TObject *Sender);
-	void __fastcall FrameClick(TObject *Sender);
-private:	// User declarations
-public:		// User declarations
-	__fastcall TFViewing(TComponent* Owner);
+  __published: // IDE-managed Components
+    TCornerButton* OpenEditBtn;
+    TCornerButton* CopyLoginBtn;
+    TCornerButton* CopyPasswordBtn;
+    TButton* CloseBtn;
+  private: // User declarations
+  public: // User declarations
+    __fastcall TFViewing(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFViewing *FViewing;
+extern PACKAGE TFViewing* FViewing;
 //---------------------------------------------------------------------------
 #endif
+

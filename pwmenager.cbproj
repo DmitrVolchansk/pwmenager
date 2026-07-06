@@ -233,10 +233,10 @@
         </CppCompile>
         <FormResources Include="src\Frames\AddingFrame.fmx"/>
         <FormResources Include="src\Frames\BaseFrame.fmx"/>
-        <FormResources Include="src\Frames\ViewingFrame.fmx"/>
-        <FormResources Include="src\Forms\MainForm.fmx"/>
-        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
+        <FormResources Include="src\Frames\ViewingFrame.fmx"/>
+        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
+        <FormResources Include="src\Forms\MainForm.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

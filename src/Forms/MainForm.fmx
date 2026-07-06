@@ -17,37 +17,6 @@ object FMain: TFMain
     TabOrder = 1
     Viewport.Width = 640.000000000000000000
     Viewport.Height = 480.000000000000000000
-    object SearchPanel: TPanel
-      Align = Top
-      Size.Width = 640.000000000000000000
-      Size.Height = 49.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
-      object CloseButton: TSpeedButton
-        Align = FitRight
-        Position.X = 591.000000000000000000
-        Size.Width = 49.000000000000000000
-        Size.Height = 49.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Trimming = None
-        OnClick = SwitchSearchPnlVisible
-      end
-      object SearchEdit: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Client
-        TabOrder = 1
-        TextSettings.Font.Family = 'Arial'
-        TextSettings.Font.Size = 16.000000000000000000
-        Hint = 'Search something'
-        Size.Width = 591.000000000000000000
-        Size.Height = 49.000000000000000000
-        Size.PlatformDefault = False
-        TextPrompt = 'Search something'
-        StyledSettings = [FontColor]
-        ParentShowHint = False
-        ShowHint = True
-      end
-    end
   end
   object MainMenu: TMainMenu
     object Add: TMenuItem
@@ -66,6 +35,38 @@ object FMain: TFMain
     object Settings: TMenuItem
       ShortCut = 16451
       Text = 'Settings'
+    end
+  end
+  object SearchPanel: TPanel
+    Align = Top
+    Size.Width = 640.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 0
+    object CloseButton: TSpeedButton
+      Align = FitRight
+      Position.X = 591.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Trimming = None
+      OnClick = SwitchSearchPnlVisible
+    end
+    object SearchEdit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 1
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 16.000000000000000000
+      Hint = 'Search something'
+      Size.Width = 591.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = 'Search something'
+      StyledSettings = [FontColor]
+      ParentShowHint = False
+      ShowHint = True
     end
   end
 end
