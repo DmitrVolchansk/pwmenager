@@ -1,0 +1,24 @@
+object FShowCase: TFShowCase
+  Size.Width = 536.000000000000000000
+  Size.Height = 48.000000000000000000
+  Size.PlatformDefault = False
+  object OpenViewBtn: TCornerButton
+    Align = Top
+    Sides = [Top, Left, Bottom, Right]
+    Size.Width = 488.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    TextSettings.Trimming = None
+    XRadius = 3.000000000000000000
+    YRadius = 3.000000000000000000
+  end
+  object DeleteBtn: TSpeedButton
+    Align = MostRight
+    Position.X = 488.000000000000000000
+    Size.Width = 48.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Trimming = None
+  end
+end
