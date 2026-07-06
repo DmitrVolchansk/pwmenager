@@ -27,6 +27,7 @@ __published:	// IDE-managed Components
 	TEdit *SearchEdit;
 	void __fastcall SwitchSearchPnlVisible(TObject *Sender);
 	void __fastcall GenerateClick(TObject *Sender);
+	void __fastcall AddClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);

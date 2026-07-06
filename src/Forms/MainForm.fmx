@@ -22,6 +22,7 @@ object FMain: TFMain
     object Add: TMenuItem
       ShortCut = 16449
       Text = 'Add'
+      OnClick = AddClick
     end
     object Search: TMenuItem
       ShortCut = 16454

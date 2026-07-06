@@ -4,6 +4,8 @@
 #pragma hdrstop
 
 #include "MainForm.h"
+#include "CustomDlgForm.h"
+#include "AddingFrame.h"
 #include "GeneratorForm.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -28,6 +30,13 @@ void __fastcall TFMain::GenerateClick(TObject *Sender)
 	} __finally {
 		delete generator;
 	}
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFMain::AddClick(TObject *Sender)
+{
+	TCustomDlg *addingForm = new TCustomDlg(this);
 }
 //---------------------------------------------------------------------------
 
