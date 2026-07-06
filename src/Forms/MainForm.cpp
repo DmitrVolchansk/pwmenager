@@ -16,6 +16,6 @@ __fastcall TFMain::TFMain(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
 {
-    SearchPanel->Visible = !(SearchPanel->Visible);
+    this->SearchPanel->Visible = !(this->SearchPanel->Visible);
 }
 //---------------------------------------------------------------------------
