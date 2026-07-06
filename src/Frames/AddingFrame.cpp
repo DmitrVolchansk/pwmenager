@@ -17,7 +17,7 @@ __fastcall TFAdding::TFAdding(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TFAdding::switchCompliteBtnEnable(TObject *Sender)
 {
-	CompliteBtn->Enabled = (ShortNameEdit->Text & 1) ||
-		(LoginEdit->Text & 1) || (PasswordEdit->Text & 1);
+	CompliteBtn->Enabled = (ShortNameEdit->Text != "") ||
+		(LoginEdit->Text != "") || (PasswordEdit->Text != "");
 }
 //---------------------------------------------------------------------------
