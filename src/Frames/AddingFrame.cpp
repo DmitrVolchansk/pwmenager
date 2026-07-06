@@ -21,4 +21,3 @@ void __fastcall TFAdding::switchCompliteBtnEnable(TObject *Sender)
 		(LoginEdit->Text & 1) || (PasswordEdit->Text & 1);
 }
 //---------------------------------------------------------------------------
-
