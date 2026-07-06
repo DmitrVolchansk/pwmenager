@@ -5,6 +5,7 @@ inherited FViewing: TFViewing
     inherited NameHolderPanel: TPanel
       TabOrder = 39
       inherited ShortNameEdit: TEdit
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
       end
       object OpenEditBtn: TCornerButton
@@ -26,6 +27,7 @@ inherited FViewing: TFViewing
       TabOrder = 38
       inherited PasswordEdit: TEdit
         TabOrder = 2
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
       end
       object CopyPasswordBtn: TCornerButton
@@ -48,6 +50,7 @@ inherited FViewing: TFViewing
       TabOrder = 37
       inherited LoginEdit: TEdit
         TabOrder = 2
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
       end
       object CopyLoginBtn: TCornerButton
