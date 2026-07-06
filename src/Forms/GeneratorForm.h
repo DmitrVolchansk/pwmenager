@@ -27,9 +27,10 @@ __published:	// IDE-managed Components
 	TCheckBox *LettersCheck;
 	TCheckBox *DigitsCheck;
 	TCheckBox *SCharsCheck;
-	TCheckBox *UnderWork;
+	TCheckBox *SeedCheck;
 	TCornerButton *SelectButton;
-	TEdit *CoreEdit;
+	TEdit *SeedEdit;
+	void __fastcall SwitchSeedVisible(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFGenerator(TComponent* Owner);

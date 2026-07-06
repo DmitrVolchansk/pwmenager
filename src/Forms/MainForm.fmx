@@ -30,7 +30,8 @@ object FMain: TFMain
     end
     object Generate: TMenuItem
       ShortCut = 16455
-      Text = 'Generate'
+      Text = 'Generator'
+      OnClick = GenerateClick
     end
     object Settings: TMenuItem
       ShortCut = 16451

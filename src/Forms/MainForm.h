@@ -26,6 +26,7 @@ __published:	// IDE-managed Components
 	TSpeedButton *CloseButton;
 	TEdit *SearchEdit;
 	void __fastcall SwitchSearchPnlVisible(TObject *Sender);
+	void __fastcall GenerateClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);

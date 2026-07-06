@@ -21,9 +21,12 @@ object FGenerator: TFGenerator
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
       TabOrder = 38
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 14.000000000000000000
       Size.Width = 314.000000000000000000
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
+      StyledSettings = [Style, FontColor]
     end
     object CopyBtn: TSpeedButton
       Align = Right
@@ -90,7 +93,7 @@ object FGenerator: TFGenerator
         TabOrder = 40
         Text = 'Special characters'
       end
-      object UnderWork: TCheckBox
+      object SeedCheck: TCheckBox
         Align = Top
         Margins.Top = 10.000000000000000000
         Position.Y = 107.000000000000000000
@@ -98,17 +101,24 @@ object FGenerator: TFGenerator
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 41
-        Text = 'UnderWork'
+        Text = 'SeedCheck'
+        OnChange = SwitchSeedVisible
       end
-      object CoreEdit: TEdit
+      object SeedEdit: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Bottom
         TabOrder = 42
+        TextSettings.Font.Family = 'Arial'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
         Position.Y = 136.000000000000000000
         Margins.Bottom = 20.000000000000000000
         Size.Width = 225.000000000000000000
         Size.Height = 31.000000000000000000
         Size.PlatformDefault = False
+        TextPrompt = 'Enter mnemonic phrase'
+        StyledSettings = [FontColor]
+        Visible = False
       end
     end
     object LengthHolderGBox: TGroupBox
@@ -140,6 +150,7 @@ object FGenerator: TFGenerator
   end
   object SelectButton: TCornerButton
     Align = Bottom
+    ModalResult = 6
     Position.Y = 248.000000000000000000
     Sides = [Top, Left, Bottom, Right]
     Size.Width = 412.000000000000000000

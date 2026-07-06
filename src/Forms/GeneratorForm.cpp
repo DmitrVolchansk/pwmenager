@@ -14,3 +14,10 @@ __fastcall TFGenerator::TFGenerator(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TFGenerator::SwitchSeedVisible(TObject *Sender)
+{
+    SeedEdit->Visible = SeedCheck->IsChecked;
+}
+//---------------------------------------------------------------------------
+
