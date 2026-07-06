@@ -203,6 +203,13 @@
             <DependentOn>src\Forms\MainForm.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <CppCompile Include="src\Frames\AddingFrame.cpp">
+            <Form>FAdding</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>src\Frames\AddingFrame.h</DependentOn>
+            <BuildOrder>5</BuildOrder>
+        </CppCompile>
         <CppCompile Include="src\Frames\BaseFrame.cpp">
             <Form>FBase</Form>
             <FormType>fmx</FormType>
@@ -210,16 +217,9 @@
             <DependentOn>src\Frames\BaseFrame.h</DependentOn>
             <BuildOrder>4</BuildOrder>
         </CppCompile>
-        <CppCompile Include="src\Frames\ShowCaseFrame.cpp">
-            <Form>FShowCase</Form>
-            <FormType>fmx</FormType>
-            <DesignClass>TFrame</DesignClass>
-            <DependentOn>src\Frames\ShowCaseFrame.h</DependentOn>
-            <BuildOrder>5</BuildOrder>
-        </CppCompile>
         <FormResources Include="src\Forms\MainForm.fmx"/>
+        <FormResources Include="src\Frames\AddingFrame.fmx"/>
         <FormResources Include="src\Frames\BaseFrame.fmx"/>
-        <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
         <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
