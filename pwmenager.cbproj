@@ -162,6 +162,8 @@
         <LinkPackageImports>rtl.bpi;fmx.bpi</LinkPackageImports>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -196,6 +198,12 @@
             <FormType>fmx</FormType>
             <DependentOn>src\Forms\CustomDlgForm.h</DependentOn>
             <BuildOrder>3</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="src\Forms\GeneratorForm.cpp">
+            <Form>FGenerator</Form>
+            <FormType>fmx</FormType>
+            <DependentOn>src\Forms\GeneratorForm.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
         </CppCompile>
         <CppCompile Include="src\Forms\MainForm.cpp">
             <Form>FMain</Form>
@@ -237,6 +245,7 @@
         <FormResources Include="src\Frames\ViewingFrame.fmx"/>
         <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <FormResources Include="src\Forms\MainForm.fmx"/>
+        <FormResources Include="src\Forms\GeneratorForm.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -263,6 +272,10 @@
                 <Source>
                     <Source Name="MainSource">pwmenager.cpp</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">

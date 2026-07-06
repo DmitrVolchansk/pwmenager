@@ -1,0 +1,154 @@
+object FGenerator: TFGenerator
+  Left = 0
+  Top = 0
+  BorderIcons = [biMinimize]
+  BorderStyle = Single
+  Caption = 'Password generator'
+  ClientHeight = 300
+  ClientWidth = 412
+  Position = OwnerFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GeneratorGBox: TGroupBox
+    Align = Top
+    Size.Width = 412.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object GeneratorEdit: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Client
+      TabOrder = 38
+      Size.Width = 314.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object CopyBtn: TSpeedButton
+      Align = Right
+      Cursor = crHandPoint
+      Position.X = 363.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Trimming = None
+    end
+    object ReroleBtn: TSpeedButton
+      Align = Right
+      Cursor = crHandPoint
+      Position.X = 314.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Trimming = None
+    end
+  end
+  object SettingsHolderGBox: TGroupBox
+    Align = Client
+    Size.Width = 412.000000000000000000
+    Size.Height = 207.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Generation settings'
+    TabOrder = 1
+    object UsesCheckHolderGBox: TGroupBox
+      Align = MostLeft
+      Margins.Top = 20.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 187.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Uses:'
+      TabOrder = 38
+      object LettersCheck: TCheckBox
+        Align = Top
+        Margins.Top = 20.000000000000000000
+        Position.Y = 20.000000000000000000
+        Size.Width = 225.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 38
+        Text = 'Letters'
+      end
+      object DigitsCheck: TCheckBox
+        Align = Top
+        Margins.Top = 10.000000000000000000
+        Position.Y = 49.000000000000000000
+        Size.Width = 225.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 39
+        Text = 'Digits'
+      end
+      object SCharsCheck: TCheckBox
+        Align = Top
+        Margins.Top = 10.000000000000000000
+        Position.Y = 78.000000000000000000
+        Size.Width = 225.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 40
+        Text = 'Special characters'
+      end
+      object UnderWork: TCheckBox
+        Align = Top
+        Margins.Top = 10.000000000000000000
+        Position.Y = 107.000000000000000000
+        Size.Width = 225.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 41
+        Text = 'UnderWork'
+      end
+      object CoreEdit: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Bottom
+        TabOrder = 42
+        Position.Y = 136.000000000000000000
+        Margins.Bottom = 20.000000000000000000
+        Size.Width = 225.000000000000000000
+        Size.Height = 31.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object LengthHolderGBox: TGroupBox
+      Align = MostLeft
+      Margins.Top = 20.000000000000000000
+      Position.X = 225.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 272.400024414062500000
+      Size.Height = 187.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Length'
+      TabOrder = 39
+      object LengthSpin: TSpinBox
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 38
+        Cursor = crIBeam
+        Value = 10.000000000000000000
+        Position.X = 30.000000000000000000
+        Position.Y = 20.000000000000000000
+        Margins.Left = 30.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 100.000000000000000000
+        Size.Width = 142.400024414062500000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+  object SelectButton: TCornerButton
+    Align = Bottom
+    Position.Y = 248.000000000000000000
+    Sides = [Top, Left, Bottom, Right]
+    Size.Width = 412.000000000000000000
+    Size.Height = 52.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Select'
+    TextSettings.Trimming = None
+    XRadius = 5.000000000000000000
+    YRadius = 30.000000000000000000
+  end
+end

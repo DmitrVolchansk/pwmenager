@@ -9,10 +9,11 @@
 //---------------------------------------------------------------------------
 USEFORM("src\Frames\AddingFrame.cpp", FAdding); /* TFrame: File Type */
 USEFORM("src\Frames\BaseFrame.cpp", FBase); /* TFrame: File Type */
-USEFORM("src\Frames\ViewingFrame.cpp", FViewing); /* TFrame: File Type */
-USEFORM("src\Forms\MainForm.cpp", FMain);
-USEFORM("src\Forms\CustomDlgForm.cpp", FCustomDlg);
 USEFORM("src\Frames\ShowCaseFrame.cpp", FShowCase); /* TFrame: File Type */
+USEFORM("src\Frames\ViewingFrame.cpp", FViewing); /* TFrame: File Type */
+USEFORM("src\Forms\CustomDlgForm.cpp", FCustomDlg);
+USEFORM("src\Forms\MainForm.cpp", FMain);
+USEFORM("src\Forms\GeneratorForm.cpp", FGenerator);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
