@@ -94,8 +94,8 @@
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
         <SanitizedProjectName>pwmenager</SanitizedProjectName>
-        <IncludePath>src\DataModules\;src\Forms\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>src\DataModules\;src\Forms\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>src\Frames\;src\DataModules\;src\Forms\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>src\Frames\;src\DataModules\;src\Forms\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;FireDAC;FireDACADSDriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;Skia;soapmidas;soaprtl;soapserver;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
@@ -203,8 +203,40 @@
             <DependentOn>src\Forms\MainForm.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <CppCompile Include="src\Frames\AddingFrame.cpp">
+            <Form>FAdding</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>src\Frames\AddingFrame.h</DependentOn>
+            <BuildOrder>5</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="src\Frames\BaseFrame.cpp">
+            <Form>FBase</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>src\Frames\BaseFrame.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="src\Frames\ShowCaseFrame.cpp">
+            <Form>FShowCase</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>src\Frames\ShowCaseFrame.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="src\Frames\ViewingFrame.cpp">
+            <Form>FViewing</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>src\Frames\ViewingFrame.h</DependentOn>
+            <BuildOrder>5</BuildOrder>
+        </CppCompile>
+        <FormResources Include="src\Frames\AddingFrame.fmx"/>
+        <FormResources Include="src\Frames\BaseFrame.fmx"/>
+        <FormResources Include="src\Frames\ViewingFrame.fmx"/>
         <FormResources Include="src\Forms\MainForm.fmx"/>
         <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
+        <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
