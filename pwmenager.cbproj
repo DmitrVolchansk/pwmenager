@@ -217,10 +217,10 @@
             <DependentOn>src\Frames\ShowCaseFrame.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
-        <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\Forms\MainForm.fmx"/>
-        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
+        <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
+        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
