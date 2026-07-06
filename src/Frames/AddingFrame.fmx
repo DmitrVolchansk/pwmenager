@@ -1,0 +1,43 @@
+inherited FAdding: TFAdding
+  inherited LoginHolderGroupBox: TGroupBox
+    StyledSettings = []
+    Size.Height = 323.333496093750000000
+    inherited NameHolderPanel: TPanel
+      TabOrder = 39
+      inherited ShortNameEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 372.000000000000000000
+        OnChange = switchCompliteBtnEnable
+      end
+    end
+    inherited PasswordHolderPanel: TPanel
+      TabOrder = 38
+      inherited PasswordEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 372.000000000000000000
+        OnChange = switchCompliteBtnEnable
+      end
+    end
+    inherited LoginHolderPanel: TPanel
+      TabOrder = 37
+      inherited LoginEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 372.000000000000000000
+        OnChange = switchCompliteBtnEnable
+      end
+    end
+  end
+  object CompliteBtn: TButton
+    Align = Bottom
+    Cursor = crHandPoint
+    Enabled = False
+    ModalResult = 6
+    Position.Y = 528.000000000000000000
+    Size.Width = 388.000000000000000000
+    Size.Height = 60.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Complite'
+    TextSettings.Trimming = None
+  end
+end
