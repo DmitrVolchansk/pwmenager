@@ -1,0 +1,82 @@
+inherited FViewing: TFViewing
+  Margins.Top = 50.000000000000000000
+  inherited LoginHolderGroupBox: TGroupBox
+    Size.Height = 376.000000000000000000
+    inherited NameHolderPanel: TPanel
+      TabOrder = 39
+      inherited ShortNameEdit: TEdit
+        ReadOnly = True
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+      end
+      object OpenEditBtn: TCornerButton
+        Align = MostRight
+        Cursor = crHandPoint
+        Position.X = 323.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 65.000000000000000000
+        Size.Height = 65.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        TextSettings.Trimming = None
+        XRadius = 15.000000000000000000
+        YRadius = 15.000000000000000000
+      end
+    end
+    inherited PasswordHolderPanel: TPanel
+      Position.Y = 180.000000000000000000
+      TabOrder = 38
+      inherited PasswordEdit: TEdit
+        TabOrder = 2
+        ReadOnly = True
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+      end
+      object CopyPasswordBtn: TCornerButton
+        Align = MostRight
+        Cursor = crHandPoint
+        Position.X = 323.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 65.000000000000000000
+        Size.Height = 65.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        TextSettings.Trimming = None
+        XRadius = 15.000000000000000000
+        YRadius = 15.000000000000000000
+      end
+    end
+    inherited LoginHolderPanel: TPanel
+      Margins.Top = 50.000000000000000000
+      Position.Y = 115.000000000000000000
+      TabOrder = 37
+      inherited LoginEdit: TEdit
+        TabOrder = 2
+        ReadOnly = True
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+      end
+      object CopyLoginBtn: TCornerButton
+        Align = MostRight
+        Cursor = crHandPoint
+        Position.X = 323.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 65.000000000000000000
+        Size.Height = 65.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        TextSettings.Trimming = None
+        XRadius = 15.000000000000000000
+        YRadius = 15.000000000000000000
+      end
+    end
+  end
+  object CloseBtn: TButton
+    Align = Bottom
+    Cursor = crHandPoint
+    ModalResult = 8
+    Position.Y = 528.000000000000000000
+    Size.Width = 388.000000000000000000
+    Size.Height = 60.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    TextSettings.Trimming = None
+  end
+end
