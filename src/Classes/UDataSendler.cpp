@@ -13,17 +13,17 @@ TDataSendler::TDataSendler(std::string& name,
 {
 }
 //---------------------------------------------------------------------------
-__fastcall std::string TDataSendler::get_shortName() const noexcept
+std::string __fastcall TDataSendler::get_shortName() const noexcept
 {
 	return this->shortName;
 }
 //---------------------------------------------------------------------------
-__fastcall std::string TDataSendler::get_login() const noexcept
+ std::string __fastcall TDataSendler::get_login() const noexcept
 {
 	return this->login;
 }
 //---------------------------------------------------------------------------
-__fastcall std::string TDataSendler::get_password() const noexcept
+std::string __fastcall TDataSendler::get_password() const noexcept
 {
 	return this->password;
 }

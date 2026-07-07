@@ -39,7 +39,15 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 	delete addingFrame;
 	auto newShowCase = new TFShowCase(this, cases_count++,
 								ShowCaseContainer, result->get_shortName());
-    delete result;
+    newShowCase->OnRequestDelete = [this](TFShowCase* f) {
+		auto ref = f;
+		TThread::ForceQueue(nullptr, [ref]() {
+			ref->Parent = nullptr;
+			delete ref;
+		});
+	};
+	delete result;
+    // TODO: connect to db
 }
 //---------------------------------------------------------------------------
 

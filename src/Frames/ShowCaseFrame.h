@@ -23,8 +23,11 @@ __published:	// IDE-managed Components
 	TCornerButton *OpenViewBtn;
 	TSpeedButton *DeleteBtn;
 	void __fastcall OpenViewBtnClick(TObject *Sender);
+	void __fastcall DeleteBtnClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
+	std::function<void(TFShowCase*)> OnRequestDelete;
+
 	__fastcall TFShowCase(TComponent* Owner, const int id,
 		TScrollBox* Parent, const std::string& text);
 };

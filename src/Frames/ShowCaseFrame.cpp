@@ -19,7 +19,7 @@ __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
 {
 	this->Name += id;
 	this->Parent = Parent->Content;
-    this->OpenViewBtn->Text = text.c_str();
+	this->OpenViewBtn->Text = text.c_str();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
@@ -30,6 +30,13 @@ void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 	viewForm->ShowModal();
 	delete data;
     // TODO: config connection to db
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
+{
+	OnRequestDelete(this);
+	// TODO: connection to db del
 }
 //---------------------------------------------------------------------------
 

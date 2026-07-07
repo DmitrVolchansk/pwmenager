@@ -22,5 +22,6 @@ object FShowCase: TFShowCase
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Trimming = None
+    OnClick = DeleteBtnClick
   end
 end
