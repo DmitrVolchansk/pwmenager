@@ -16,10 +16,9 @@
 class TFViewing : public TFBase
 {
   __published: // IDE-managed Components
-    TCornerButton* OpenEditBtn;
-    TCornerButton* CopyLoginBtn;
-    TCornerButton* CopyPasswordBtn;
-    TButton* CloseBtn;
+	TSpeedButton *SpeedButton1;
+	TSpeedButton *SpeedButton2;
+	TSpeedButton *SpeedButton3;
   private: // User declarations
   public: // User declarations
 	__fastcall TFViewing(TComponent* Owner, const TDataHolder* data);

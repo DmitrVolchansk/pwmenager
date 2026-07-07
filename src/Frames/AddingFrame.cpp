@@ -28,7 +28,7 @@ TDataHolder* __fastcall TFAdding::getReport()
 //---------------------------------------------------------------------------
 void __fastcall TFAdding::switchCompliteBtnEnable(TObject* Sender)
 {
-	CompliteBtn->Enabled = !((ShortNameEdit->Text == "") ||
+	CloseBtn->Enabled = !((ShortNameEdit->Text == "") ||
 		(LoginEdit->Text == "") || (PasswordEdit->Text == ""));
 }
 //---------------------------------------------------------------------------

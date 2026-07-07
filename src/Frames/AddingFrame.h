@@ -16,7 +16,6 @@
 class TFAdding : public TFBase
 {
 __published:	// IDE-managed Components
-	TButton *CompliteBtn;
 	void __fastcall switchCompliteBtnEnable(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

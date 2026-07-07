@@ -1,7 +1,7 @@
 object FCustomDlg: TFCustomDlg
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
+  BorderIcons = [biSystemMenu]
   BorderStyle = Single
   ClientHeight = 588
   ClientWidth = 388

@@ -17,4 +17,5 @@ __fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder* data) :
 	this->LoginEdit->Text += data->login.c_str();
 	this->PasswordEdit->Text += data->pword.c_str();
 }
+//---------------------------------------------------------------------------
 

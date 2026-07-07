@@ -15,13 +15,14 @@ class TFBase : public TFrame
 {
 __published:	// IDE-managed Components
 	TGroupBox *LoginHolderGroupBox;
-	TPanel *NameHolderPanel;
-	TPanel *LoginHolderPanel;
-	TPanel *PasswordHolderPanel;
 	TEdit *LoginEdit;
 	TEdit *ShortNameEdit;
 	TEdit *PasswordEdit;
 	TCheckBox *PasswordHideCheck;
+	TGroupBox *NameGBox;
+	TGroupBox *LoginGBox;
+	TGroupBox *PWordGBox;
+	TButton *CloseBtn;
 	void __fastcall SwitchPasswordHide(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

@@ -5,82 +5,114 @@ object FBase: TFBase
   object LoginHolderGroupBox: TGroupBox
     Align = Fit
     Size.Width = 388.000000000000000000
-    Size.Height = 323.333374023437500000
+    Size.Height = 474.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object NameHolderPanel: TPanel
+    object NameGBox: TGroupBox
       Align = Top
+      Margins.Bottom = 40.000000000000000000
       Size.Width = 388.000000000000000000
-      Size.Height = 65.000000000000000000
+      Size.Height = 64.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 40
+      Text = 'Name'
+      TabOrder = 38
       object ShortNameEdit: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
         TabOrder = 0
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00040000000100000004000000}
-        Position.X = 8.000000000000000000
-        Position.Y = 8.000000000000000000
-        Size.Width = 295.000000000000000000
-        Size.Height = 49.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 20.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 368.000000000000000000
+        Size.Height = 37.000000000000000000
         Size.PlatformDefault = False
-        TextPrompt = 'Enter short name'
         StyledSettings = [FontColor]
       end
     end
-    object PasswordHolderPanel: TPanel
+    object LoginGBox: TGroupBox
       Align = Top
-      Position.Y = 130.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.Y = 104.000000000000000000
       Size.Width = 388.000000000000000000
-      Size.Height = 87.000000000000000000
+      Size.Height = 64.000000000000000000
       Size.PlatformDefault = False
+      Text = 'Login'
       TabOrder = 39
+      object LoginEdit: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 1
+        TextSettings.Font.Family = 'Arial'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Position.X = 10.000000000000000000
+        Position.Y = 20.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 368.000000000000000000
+        Size.Height = 37.000000000000000000
+        Size.PlatformDefault = False
+        StyledSettings = [FontColor]
+        ParentShowHint = False
+        ShowHint = False
+      end
+    end
+    object PWordGBox: TGroupBox
+      Align = Top
+      Position.Y = 178.000000000000000000
+      Size.Width = 388.000000000000000000
+      Size.Height = 64.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Password'
+      TabOrder = 40
       object PasswordEdit: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
         TabOrder = 1
         Password = True
         TextSettings.Font.Family = 'Arial'
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.Font.StyleExt = {00040000000100000004000000}
-        Position.X = 8.000000000000000000
-        Position.Y = 9.000000000000000000
-        Size.Width = 295.000000000000000000
-        Size.Height = 48.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 20.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 368.000000000000000000
+        Size.Height = 37.000000000000000000
         Size.PlatformDefault = False
-        TextPrompt = 'Enter password'
         StyledSettings = [FontColor]
       end
       object PasswordHideCheck: TCheckBox
+        Align = Top
         IsChecked = True
-        Position.X = 8.000000000000000000
-        Position.Y = 64.000000000000000000
+        Margins.Left = 20.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Position.X = 20.000000000000000000
+        Position.Y = 62.000000000000000000
+        Size.Width = 368.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 3
         Text = 'Hide password'
         OnChange = SwitchPasswordHide
       end
     end
-    object LoginHolderPanel: TPanel
-      Align = Top
-      Position.Y = 65.000000000000000000
-      Size.Width = 388.000000000000000000
-      Size.Height = 65.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 38
-      object LoginEdit: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        TabOrder = 1
-        TextSettings.Font.Family = 'Arial'
-        TextSettings.Font.Size = 14.000000000000000000
-        TextSettings.Font.StyleExt = {00040000000100000004000000}
-        Position.X = 8.000000000000000000
-        Position.Y = 8.000000000000000000
-        Size.Width = 295.000000000000000000
-        Size.Height = 49.000000000000000000
-        Size.PlatformDefault = False
-        TextPrompt = 'Enter login'
-        StyledSettings = [FontColor]
-      end
-    end
+  end
+  object CloseBtn: TButton
+    Align = Bottom
+    Position.Y = 524.000000000000000000
+    Size.Width = 388.000000000000000000
+    Size.Height = 64.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Close'
+    TextSettings.Trimming = None
   end
 end

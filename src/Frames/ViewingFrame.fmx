@@ -2,80 +2,66 @@ inherited FViewing: TFViewing
   Margins.Top = 50.000000000000000000
   inherited LoginHolderGroupBox: TGroupBox
     Size.Height = 376.000000000000000000
-    inherited NameHolderPanel: TPanel
+    inherited NameGBox: TGroupBox
+      Size.Height = 73.000000000000000000
       inherited ShortNameEdit: TEdit
-        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 304.000000000000000000
       end
-      object OpenEditBtn: TCornerButton
+      object SpeedButton1: TSpeedButton
         Align = MostRight
-        Cursor = crHandPoint
+        Margins.Top = 10.000000000000000000
         Position.X = 324.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
+        Position.Y = 10.000000000000000000
         Size.Width = 64.000000000000000000
-        Size.Height = 65.000000000000000000
+        Size.Height = 63.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 1
         TextSettings.Trimming = None
-        XRadius = 15.000000000000000000
-        YRadius = 15.000000000000000000
       end
     end
-    inherited PasswordHolderPanel: TPanel
-      Position.Y = 180.000000000000000000
-      inherited PasswordEdit: TEdit
-        TabOrder = 3
-        ReadOnly = True
+    inherited LoginGBox: TGroupBox
+      Position.Y = 113.000000000000000000
+      Size.Height = 73.000000000000000000
+      inherited LoginEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 304.000000000000000000
       end
-      object CopyPasswordBtn: TCornerButton
+      object SpeedButton2: TSpeedButton
         Align = MostRight
-        Cursor = crHandPoint
-        Margins.Bottom = 23.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Bottom = 3.000000000000000000
         Position.X = 324.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
+        Position.Y = 10.000000000000000000
+        Size.Width = 64.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+      end
+    end
+    inherited PWordGBox: TGroupBox
+      Position.Y = 196.000000000000000000
+      Size.Height = 96.000000000000000000
+      inherited PasswordEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 304.000000000000000000
+      end
+      inherited PasswordHideCheck: TCheckBox
+        Size.Width = 304.000000000000000000
+      end
+      object SpeedButton3: TSpeedButton
+        Align = MostRight
+        Margins.Top = 16.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Position.X = 324.000000000000000000
+        Position.Y = 16.000000000000000000
         Size.Width = 64.000000000000000000
         Size.Height = 64.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 1
         TextSettings.Trimming = None
-        XRadius = 15.000000000000000000
-        YRadius = 15.000000000000000000
-      end
-    end
-    inherited LoginHolderPanel: TPanel
-      Margins.Top = 50.000000000000000000
-      Position.Y = 115.000000000000000000
-      inherited LoginEdit: TEdit
-        TabOrder = 2
-        ReadOnly = True
-        TextSettings.Font.StyleExt = {00040000000100000004000000}
-      end
-      object CopyLoginBtn: TCornerButton
-        Align = MostRight
-        Cursor = crHandPoint
-        Position.X = 324.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
-        Size.Width = 64.000000000000000000
-        Size.Height = 65.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        TextSettings.Trimming = None
-        XRadius = 15.000000000000000000
-        YRadius = 15.000000000000000000
       end
     end
   end
-  object CloseBtn: TButton
-    Align = Bottom
-    Cursor = crHandPoint
+  inherited CloseBtn: TButton
     ModalResult = 8
-    Position.Y = 528.000000000000000000
-    Size.Width = 388.000000000000000000
-    Size.Height = 60.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    Text = 'Close'
-    TextSettings.Trimming = None
   end
 end
