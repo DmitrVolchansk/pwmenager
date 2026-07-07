@@ -7,7 +7,7 @@
 #include "CustomDlgForm.h"
 #include "ViewingFrame.h"
 
-#include "UDataSendler.h" // remove
+#include "UTypes.h" // remove
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
@@ -20,15 +20,22 @@ __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
 	this->Name += id;
 	this->Parent = Parent->Content;
 	this->OpenViewBtn->Text = text.c_str();
+    OnRequestDelete = [this](TFShowCase* f) {
+		auto ref = f;
+		TThread::ForceQueue(nullptr, [ref]() {
+			ref->Parent = nullptr;
+			delete ref;
+		});
+	};
 }
 //---------------------------------------------------------------------------
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
-	TDataSendler* data = new TDataSendler();
+	auto data = new TDataHolder;
 	auto viewFrame = std::make_unique<TFViewing>(nullptr, data);
 	auto viewForm = std::make_unique<TFCustomDlg>(nullptr, viewFrame.release());
 	viewForm->ShowModal();
-	delete data;
+
     // TODO: config connection to db
 }
 //---------------------------------------------------------------------------
@@ -37,6 +44,7 @@ void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
 {
 	OnRequestDelete(this);
 	// TODO: connection to db del
+    // TODO: add confirm dlg
 }
 //---------------------------------------------------------------------------
 

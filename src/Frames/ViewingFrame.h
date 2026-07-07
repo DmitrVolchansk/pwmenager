@@ -11,7 +11,7 @@
 #include <FMX.Edit.hpp>
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
-#include "UDataSendler.h"
+#include "UTypes.h"
 //---------------------------------------------------------------------------
 class TFViewing : public TFBase
 {
@@ -22,7 +22,7 @@ class TFViewing : public TFBase
     TButton* CloseBtn;
   private: // User declarations
   public: // User declarations
-	__fastcall TFViewing(TComponent* Owner, const TDataSendler* data);
+	__fastcall TFViewing(TComponent* Owner, const TDataHolder* data);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFViewing* FViewing;

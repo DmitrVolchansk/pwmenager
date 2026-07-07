@@ -16,12 +16,13 @@ __fastcall TFAdding::TFAdding(TComponent* Owner)
 {
 }
 
-TDataSendler* __fastcall TFAdding::getReport()
+TDataHolder* __fastcall TFAdding::getReport()
 {
-	std::string name = AnsiString(ShortNameEdit->Text).c_str();
-	std::string login = AnsiString(LoginEdit->Text).c_str();
-	std::string pw = AnsiString(PasswordEdit->Text).c_str();
-	return new TDataSendler(name, login, pw);
+	auto dataHolder = new TDataHolder;
+	dataHolder->name = AnsiString(ShortNameEdit->Text).c_str();
+	dataHolder->login = AnsiString(LoginEdit->Text).c_str();
+	dataHolder->pword = AnsiString(PasswordEdit->Text).c_str();
+	return dataHolder;
 }
 
 //---------------------------------------------------------------------------

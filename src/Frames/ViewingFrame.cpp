@@ -10,13 +10,11 @@
 #pragma resource "*.fmx"
 TFViewing *FViewing;
 //---------------------------------------------------------------------------
-
-
-__fastcall TFViewing::TFViewing(TComponent* Owner, const TDataSendler* data) :
+__fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder* data) :
 	TFBase(Owner)
 {
-	this->ShortNameEdit->Text += data->get_shortName().c_str();
-	this->LoginEdit->Text += data->get_login().c_str();
-	this->PasswordEdit->Text += data->get_password().c_str();
+	this->ShortNameEdit->Text += data->name.c_str();
+	this->LoginEdit->Text += data->login.c_str();
+	this->PasswordEdit->Text += data->pword.c_str();
 }
 

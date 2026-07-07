@@ -33,19 +33,12 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 {
 	auto addingFrame = new TFAdding(nullptr);
 	auto addingForm = std::make_unique<TFCustomDlg>(nullptr, addingFrame);
-	addingForm->ShowModal();
+	if (addingForm->ShowModal() != mrYes) return;
 
-	TDataSendler* result = addingFrame->getReport();
+	TDataHolder* result = addingFrame->getReport();
 	delete addingFrame;
 	auto newShowCase = new TFShowCase(this, cases_count++,
-								ShowCaseContainer, result->get_shortName());
-    newShowCase->OnRequestDelete = [this](TFShowCase* f) {
-		auto ref = f;
-		TThread::ForceQueue(nullptr, [ref]() {
-			ref->Parent = nullptr;
-			delete ref;
-		});
-	};
+								ShowCaseContainer, result->name);
 	delete result;
     // TODO: connect to db
 }
