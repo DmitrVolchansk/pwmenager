@@ -9,8 +9,9 @@
 #pragma resource "*.fmx"
 TFCustomDlg *FCustomDlg;
 //---------------------------------------------------------------------------
-__fastcall TFCustomDlg::TFCustomDlg(TComponent* Owner)
+__fastcall TFCustomDlg::TFCustomDlg(TComponent* Owner, TFBase* frame)
 	: TForm(Owner)
 {
+	frame->Parent = this;
 }
 //---------------------------------------------------------------------------

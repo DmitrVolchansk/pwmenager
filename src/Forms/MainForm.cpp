@@ -24,19 +24,18 @@ void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::GenerateClick(TObject *Sender)
 {
-	TFGenerator *generator = new TFGenerator(this);
-	try {
-		generator->ShowModal();
-	} __finally {
-		delete generator;
-	}
+	auto generator = std::make_unique<TFGenerator>(nullptr);
+	generator->ShowModal();
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
-	TCustomDlg *addingForm = new TCustomDlg(this);
+	auto addingFrame = std::make_unique<TFAdding>(nullptr);
+	auto addingForm = std::make_unique<TFCustomDlg>(nullptr, addingFrame.release());
+	addingForm->ShowModal();
+
 }
 //---------------------------------------------------------------------------
 

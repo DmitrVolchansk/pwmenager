@@ -7,7 +7,7 @@ inherited FAdding: TFAdding
       inherited ShortNameEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 372.000000000000000000
-        OnChange = switchCompliteBtnEnable
+        OnTyping = switchCompliteBtnEnable
       end
     end
     inherited PasswordHolderPanel: TPanel
@@ -15,7 +15,7 @@ inherited FAdding: TFAdding
       inherited PasswordEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 372.000000000000000000
-        OnChange = switchCompliteBtnEnable
+        OnTyping = switchCompliteBtnEnable
       end
     end
     inherited LoginHolderPanel: TPanel
@@ -23,7 +23,7 @@ inherited FAdding: TFAdding
       inherited LoginEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 372.000000000000000000
-        OnChange = switchCompliteBtnEnable
+        OnTyping = switchCompliteBtnEnable
       end
     end
   end
