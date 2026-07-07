@@ -3,7 +3,6 @@ inherited FAdding: TFAdding
     StyledSettings = []
     Size.Height = 323.333496093750000000
     inherited NameHolderPanel: TPanel
-      TabOrder = 39
       inherited ShortNameEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 372.000000000000000000
@@ -11,7 +10,6 @@ inherited FAdding: TFAdding
       end
     end
     inherited PasswordHolderPanel: TPanel
-      TabOrder = 38
       inherited PasswordEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 372.000000000000000000
@@ -19,7 +17,6 @@ inherited FAdding: TFAdding
       end
     end
     inherited LoginHolderPanel: TPanel
-      TabOrder = 37
       inherited LoginEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 372.000000000000000000

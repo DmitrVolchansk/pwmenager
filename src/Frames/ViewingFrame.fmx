@@ -3,7 +3,6 @@ inherited FViewing: TFViewing
   inherited LoginHolderGroupBox: TGroupBox
     Size.Height = 376.000000000000000000
     inherited NameHolderPanel: TPanel
-      TabOrder = 39
       inherited ShortNameEdit: TEdit
         ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
@@ -11,9 +10,9 @@ inherited FViewing: TFViewing
       object OpenEditBtn: TCornerButton
         Align = MostRight
         Cursor = crHandPoint
-        Position.X = 323.000000000000000000
+        Position.X = 324.000000000000000000
         Sides = [Top, Left, Bottom, Right]
-        Size.Width = 65.000000000000000000
+        Size.Width = 64.000000000000000000
         Size.Height = 65.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -24,19 +23,19 @@ inherited FViewing: TFViewing
     end
     inherited PasswordHolderPanel: TPanel
       Position.Y = 180.000000000000000000
-      TabOrder = 38
       inherited PasswordEdit: TEdit
-        TabOrder = 2
+        TabOrder = 3
         ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
       end
       object CopyPasswordBtn: TCornerButton
         Align = MostRight
         Cursor = crHandPoint
-        Position.X = 323.000000000000000000
+        Margins.Bottom = 23.000000000000000000
+        Position.X = 324.000000000000000000
         Sides = [Top, Left, Bottom, Right]
-        Size.Width = 65.000000000000000000
-        Size.Height = 65.000000000000000000
+        Size.Width = 64.000000000000000000
+        Size.Height = 64.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         TextSettings.Trimming = None
@@ -47,7 +46,6 @@ inherited FViewing: TFViewing
     inherited LoginHolderPanel: TPanel
       Margins.Top = 50.000000000000000000
       Position.Y = 115.000000000000000000
-      TabOrder = 37
       inherited LoginEdit: TEdit
         TabOrder = 2
         ReadOnly = True
@@ -56,9 +54,9 @@ inherited FViewing: TFViewing
       object CopyLoginBtn: TCornerButton
         Align = MostRight
         Cursor = crHandPoint
-        Position.X = 323.000000000000000000
+        Position.X = 324.000000000000000000
         Sides = [Top, Left, Bottom, Right]
-        Size.Width = 65.000000000000000000
+        Size.Width = 64.000000000000000000
         Size.Height = 65.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -77,6 +75,7 @@ inherited FViewing: TFViewing
     Size.Height = 60.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
+    Text = 'Close'
     TextSettings.Trimming = None
   end
 end

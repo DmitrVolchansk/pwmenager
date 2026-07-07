@@ -21,6 +21,8 @@ __published:	// IDE-managed Components
 	TEdit *LoginEdit;
 	TEdit *ShortNameEdit;
 	TEdit *PasswordEdit;
+	TCheckBox *PasswordHideCheck;
+	void __fastcall SwitchPasswordHide(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFBase(TComponent* Owner);

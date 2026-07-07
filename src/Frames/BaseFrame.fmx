@@ -33,7 +33,7 @@ object FBase: TFBase
       Align = Top
       Position.Y = 130.000000000000000000
       Size.Width = 388.000000000000000000
-      Size.Height = 65.000000000000000000
+      Size.Height = 87.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 39
       object PasswordEdit: TEdit
@@ -50,6 +50,14 @@ object FBase: TFBase
         Size.PlatformDefault = False
         TextPrompt = 'Enter password'
         StyledSettings = [FontColor]
+      end
+      object PasswordHideCheck: TCheckBox
+        IsChecked = True
+        Position.X = 8.000000000000000000
+        Position.Y = 64.000000000000000000
+        TabOrder = 3
+        Text = 'Hide password'
+        OnChange = SwitchPasswordHide
       end
     end
     object LoginHolderPanel: TPanel

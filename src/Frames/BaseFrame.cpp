@@ -15,3 +15,9 @@ __fastcall TFBase::TFBase(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+void __fastcall TFBase::SwitchPasswordHide(TObject *Sender)
+{
+    PasswordEdit->Password = !(PasswordEdit->Password);
+}
+//---------------------------------------------------------------------------
+
