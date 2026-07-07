@@ -13,6 +13,7 @@ object FShowCase: TFShowCase
     TextSettings.Trimming = None
     XRadius = 3.000000000000000000
     YRadius = 3.000000000000000000
+    OnClick = OpenViewBtnClick
   end
   object DeleteBtn: TSpeedButton
     Align = MostRight

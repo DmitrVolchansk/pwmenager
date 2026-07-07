@@ -8,9 +8,9 @@
 class TDataSendler {
 	private:
 
-		const std::string shortName;
-		const std::string login;
-		const std::string password;
+		const std::string shortName = "name";
+		const std::string login = "login";
+		const std::string password = "password";
 
 	public:
 

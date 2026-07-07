@@ -22,6 +22,7 @@ class TFShowCase : public TFrame
 __published:	// IDE-managed Components
 	TCornerButton *OpenViewBtn;
 	TSpeedButton *DeleteBtn;
+	void __fastcall OpenViewBtnClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFShowCase(TComponent* Owner, const int id,
