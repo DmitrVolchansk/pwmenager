@@ -6,6 +6,7 @@
 #include "MainForm.h"
 #include "CustomDlgForm.h"
 #include "AddingFrame.h"
+#include "ShowCaseFrame.h"
 #include "GeneratorForm.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -28,14 +29,17 @@ void __fastcall TFMain::GenerateClick(TObject *Sender)
 	generator->ShowModal();
 }
 //---------------------------------------------------------------------------
-
-
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
-	auto addingFrame = std::make_unique<TFAdding>(nullptr);
-	auto addingForm = std::make_unique<TFCustomDlg>(nullptr, addingFrame.release());
+	auto addingFrame = new TFAdding(nullptr);
+	auto addingForm = std::make_unique<TFCustomDlg>(nullptr, addingFrame);
 	addingForm->ShowModal();
 
+	TDataSendler* result = addingFrame->getReport();
+	delete addingFrame;
+	auto newShowCase = new TFShowCase(this, cases_count++,
+								ShowCaseContainer, result->get_shortName());
+    delete result;
 }
 //---------------------------------------------------------------------------
 

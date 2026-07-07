@@ -12,6 +12,9 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 //---------------------------------------------------------------------------
+#include <string>
+#include "UDataSendler.h"
+//---------------------------------------------------------------------------
 class TFAdding : public TFBase
 {
 __published:	// IDE-managed Components
@@ -20,6 +23,8 @@ __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFAdding(TComponent* Owner);
+	TDataSendler* __fastcall getReport();
+
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFAdding *FAdding;

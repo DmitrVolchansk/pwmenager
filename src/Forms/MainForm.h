@@ -29,6 +29,7 @@ __published:	// IDE-managed Components
 	void __fastcall GenerateClick(TObject *Sender);
 	void __fastcall AddClick(TObject *Sender);
 private:	// User declarations
+    int cases_count = 0;
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);
 };
