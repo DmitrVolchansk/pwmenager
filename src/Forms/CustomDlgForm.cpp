@@ -12,6 +12,7 @@ TFCustomDlg *FCustomDlg;
 __fastcall TFCustomDlg::TFCustomDlg(TComponent* Owner, TFBase* frame)
 	: TForm(Owner)
 {
-	frame->Parent = this;
+    frame->Parent = this;
 }
 //---------------------------------------------------------------------------
+

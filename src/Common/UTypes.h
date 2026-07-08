@@ -6,9 +6,9 @@
 using TString = std::string;
 //---------------------------------------------------------------------------
 struct TDataHolder {
-	TString name;
-	TString login;
-    TString pword;
+	const TString name = "name";
+	const TString login = "login";
+	const TString pword = "password";
 };
 //---------------------------------------------------------------------------
 #endif

@@ -1,0 +1,36 @@
+inherited FEdit: TFEdit
+  inherited LoginHolderGroupBox: TGroupBox
+    inherited NameGBox: TGroupBox
+      inherited ShortNameEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+      end
+    end
+    inherited LoginGBox: TGroupBox
+      inherited LoginEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+      end
+    end
+    inherited PWordGBox: TGroupBox
+      inherited PasswordEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+      end
+    end
+  end
+  inherited CloseBtnPnl: TPanel
+    inherited CloseBtn: TButton
+      Align = Top
+      Position.X = 194.000000000000000000
+      Size.Width = 194.000000000000000000
+    end
+    object CancelBtn: TButton
+      Align = MostLeft
+      ModalResult = 2
+      Size.Width = 194.000000000000000000
+      Size.Height = 68.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Cancel'
+      TextSettings.Trimming = None
+    end
+  end
+end

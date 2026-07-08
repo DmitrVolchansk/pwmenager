@@ -5,6 +5,7 @@ inherited FViewing: TFViewing
     inherited NameGBox: TGroupBox
       Size.Height = 73.000000000000000000
       inherited ShortNameEdit: TEdit
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
@@ -17,12 +18,14 @@ inherited FViewing: TFViewing
         Size.Height = 63.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Trimming = None
+        OnClick = SpeedButton1Click
       end
     end
     inherited LoginGBox: TGroupBox
       Position.Y = 113.000000000000000000
       Size.Height = 73.000000000000000000
       inherited LoginEdit: TEdit
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
@@ -42,6 +45,7 @@ inherited FViewing: TFViewing
       Position.Y = 196.000000000000000000
       Size.Height = 96.000000000000000000
       inherited PasswordEdit: TEdit
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
@@ -61,7 +65,9 @@ inherited FViewing: TFViewing
       end
     end
   end
-  inherited CloseBtn: TButton
-    ModalResult = 8
+  inherited CloseBtnPnl: TPanel
+    inherited CloseBtn: TButton
+      ModalResult = 8
+    end
   end
 end

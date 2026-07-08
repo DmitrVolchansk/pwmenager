@@ -105,14 +105,21 @@ object FBase: TFBase
       end
     end
   end
-  object CloseBtn: TButton
+  object CloseBtnPnl: TPanel
     Align = Bottom
-    Position.Y = 524.000000000000000000
+    Position.Y = 520.000000000000000000
     Size.Width = 388.000000000000000000
-    Size.Height = 64.000000000000000000
+    Size.Height = 68.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
-    Text = 'Close'
-    TextSettings.Trimming = None
+    object CloseBtn: TButton
+      Align = Client
+      Size.Width = 388.000000000000000000
+      Size.Height = 68.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Close'
+      TextSettings.Trimming = None
+    end
   end
 end

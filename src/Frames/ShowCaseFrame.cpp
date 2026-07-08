@@ -32,10 +32,15 @@ __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
 	auto data = new TDataHolder;
-	auto viewFrame = std::make_unique<TFViewing>(nullptr, data);
-	auto viewForm = std::make_unique<TFCustomDlg>(nullptr, viewFrame.release());
-	viewForm->ShowModal();
-
+    auto viewFrame = new TFViewing(nullptr, data);
+	delete data;
+    auto viewForm = new TFCustomDlg(nullptr, viewFrame);
+	try {
+		viewForm->ShowModal();
+	} __finally {
+        delete viewFrame;
+    	delete viewForm;
+	}
     // TODO: config connection to db
 }
 //---------------------------------------------------------------------------

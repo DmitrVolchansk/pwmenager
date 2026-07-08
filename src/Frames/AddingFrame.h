@@ -20,7 +20,6 @@ __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFAdding(TComponent* Owner);
-	TDataHolder* __fastcall getReport();
 
 };
 //---------------------------------------------------------------------------

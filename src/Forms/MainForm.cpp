@@ -25,21 +25,27 @@ void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::GenerateClick(TObject *Sender)
 {
-	auto generator = std::make_unique<TFGenerator>(nullptr);
+	auto generator = new TFGenerator(nullptr);
 	generator->ShowModal();
+    delete generator;
 }
 //---------------------------------------------------------------------------
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
 	auto addingFrame = new TFAdding(nullptr);
-	auto addingForm = std::make_unique<TFCustomDlg>(nullptr, addingFrame);
-	if (addingForm->ShowModal() != mrYes) return;
+	auto addingForm = new TFCustomDlg(nullptr, addingFrame);
+	try {
+		if (addingForm->ShowModal() == mrYes) {
 
-	TDataHolder* result = addingFrame->getReport();
-	delete addingFrame;
-	auto newShowCase = new TFShowCase(this, cases_count++,
-								ShowCaseContainer, result->name);
-	delete result;
+			TDataHolder* result = addingFrame->getReport();
+			new TFShowCase(this, cases_count++, ShowCaseContainer, result->name);
+			delete result;
+
+		}
+	} __finally {
+		delete addingFrame;
+        delete addingForm;
+	}
     // TODO: connect to db
 }
 //---------------------------------------------------------------------------

@@ -21,9 +21,11 @@ inherited FAdding: TFAdding
       end
     end
   end
-  inherited CloseBtn: TButton
-    Enabled = False
-    ModalResult = 6
-    Text = 'Complite'
+  inherited CloseBtnPnl: TPanel
+    inherited CloseBtn: TButton
+      Enabled = False
+      ModalResult = 6
+      Text = 'Complite'
+    end
   end
 end

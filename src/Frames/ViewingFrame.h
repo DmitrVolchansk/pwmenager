@@ -19,7 +19,9 @@ class TFViewing : public TFBase
 	TSpeedButton *SpeedButton1;
 	TSpeedButton *SpeedButton2;
 	TSpeedButton *SpeedButton3;
+	void __fastcall SpeedButton1Click(TObject *Sender);
   private: // User declarations
+
   public: // User declarations
 	__fastcall TFViewing(TComponent* Owner, const TDataHolder* data);
 };

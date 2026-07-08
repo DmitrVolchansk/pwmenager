@@ -228,6 +228,13 @@
             <DependentOn>src\Frames\BaseFrame.h</DependentOn>
             <BuildOrder>4</BuildOrder>
         </CppCompile>
+        <CppCompile Include="src\Frames\EditFrame.cpp">
+            <Form>FEdit</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>src\Frames\EditFrame.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
         <CppCompile Include="src\Frames\ShowCaseFrame.cpp">
             <Form>FShowCase</Form>
             <FormType>fmx</FormType>
@@ -247,8 +254,9 @@
         <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
         <FormResources Include="src\Frames\ViewingFrame.fmx"/>
-        <FormResources Include="src\Forms\GeneratorForm.fmx"/>
         <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
+        <FormResources Include="src\Forms\GeneratorForm.fmx"/>
+        <FormResources Include="src\Frames\EditFrame.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
