@@ -8,6 +8,7 @@
 #include "AddingFrame.h"
 #include "ShowCaseFrame.h"
 #include "GeneratorForm.h"
+#include "UDBMenager.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
@@ -38,6 +39,7 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 		if (addingForm->ShowModal() == mrYes) {
 
 			TDataHolder* result = addingFrame->getReport();
+            TDBMenager::addToDB(result);
 			new TFShowCase(this, cases_count++, ShowCaseContainer, result->name);
 			delete result;
 
@@ -47,6 +49,20 @@ void __fastcall TFMain::AddClick(TObject *Sender)
         delete addingForm;
 	}
     // TODO: connect to db
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::FormCreate(TObject *Sender)
+{
+	TStringList* passwordNames = TDBMenager::getAllNames();
+	if (passwordNames->IsEmpty) {
+		delete passwordNames;
+        return;
+	}
+	for (const auto& str: passwordNames){
+		new TFShowCase(this, cases_count++, ShowCaseContainer, str);
+	}
+	delete passwordNames;
 }
 //---------------------------------------------------------------------------
 

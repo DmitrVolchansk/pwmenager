@@ -28,6 +28,7 @@ __published:	// IDE-managed Components
 	void __fastcall SwitchSearchPnlVisible(TObject *Sender);
 	void __fastcall GenerateClick(TObject *Sender);
 	void __fastcall AddClick(TObject *Sender);
+	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
 	int cases_count = 0;
 public:		// User declarations

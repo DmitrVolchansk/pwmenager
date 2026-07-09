@@ -1,14 +1,10 @@
 #ifndef TYPES_H
 #define TYPES_H
 //---------------------------------------------------------------------------
-#include <string>
-//---------------------------------------------------------------------------
-using TString = std::string;
-//---------------------------------------------------------------------------
 struct TDataHolder {
-	const TString name = "name";
-	const TString login = "login";
-	const TString pword = "password";
+	const String name = "name";
+	const String login = "login";
+	const String pword = "password";
 };
 //---------------------------------------------------------------------------
 #endif

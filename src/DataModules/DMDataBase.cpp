@@ -36,13 +36,13 @@ bool TDataModuleDB::CreateTables()
     try
 	{
 		String sql =
-			"CREATE TABLE IF NOT EXISTS users ("
+			"CREATE TABLE IF NOT EXISTS auth ("
 			"  id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			"  name TEXT NOT NULL,"
 			"  login TEXT NOT NULL,"
 			"  password TEXT NOT NULL"
 			");"
-			"CREATE INDEX IF NOT EXISTS idx_users_name ON users(name);";
+			"CREATE INDEX IF NOT EXISTS idx_users_name ON auth(name);";
 
 		FDConnection->ExecSQL(sql);
 		return true;

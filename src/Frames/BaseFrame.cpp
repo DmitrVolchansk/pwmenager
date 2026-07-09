@@ -18,12 +18,11 @@ __fastcall TFBase::TFBase(TComponent* Owner)
 TDataHolder* __fastcall TFBase::getReport()
 {
 	return new TDataHolder {
-		.name = AnsiString(ShortNameEdit->Text).c_str(),
-		.login = AnsiString(LoginEdit->Text).c_str(),
-		.pword = AnsiString(PasswordEdit->Text).c_str()
+		.name = ShortNameEdit->Text,
+		.login = LoginEdit->Text,
+		.pword = PasswordEdit->Text
 	};
 }
-
 //---------------------------------------------------------------------------
 void __fastcall TFBase::SwitchPasswordHide(TObject *Sender)
 {
@@ -32,9 +31,9 @@ void __fastcall TFBase::SwitchPasswordHide(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFBase::LoadData(const TDataHolder* data)
 {
-	this->ShortNameEdit->Text = data->name.c_str();
-	this->LoginEdit->Text = data->login.c_str();
-	this->PasswordEdit->Text = data->pword.c_str();
+	this->ShortNameEdit->Text = data->name;
+	this->LoginEdit->Text = data->login;
+	this->PasswordEdit->Text = data->pword;
 }
 //---------------------------------------------------------------------------
 

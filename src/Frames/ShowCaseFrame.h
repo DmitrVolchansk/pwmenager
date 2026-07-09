@@ -7,8 +7,6 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include <System.Classes.hpp>
-
-#include <string>
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>
@@ -29,7 +27,7 @@ public:		// User declarations
 	std::function<void(TFShowCase*)> OnRequestDelete;
 
 	__fastcall TFShowCase(TComponent* Owner, const int id,
-		TScrollBox* Parent, const std::string& text);
+		TScrollBox* Parent, const String& text);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFShowCase *FShowCase;
