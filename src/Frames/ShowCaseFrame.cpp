@@ -28,6 +28,13 @@ __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
 	};
 }
 //---------------------------------------------------------------------------
+
+System::String TFShowCase::getCaseName() const noexcept
+{
+	return this->OpenViewBtn->Text;
+}
+
+//---------------------------------------------------------------------------
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
 	TUPtrDataHolder data = TDBMenager::getFromDB( id );

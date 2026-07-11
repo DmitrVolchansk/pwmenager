@@ -25,12 +25,15 @@ __published:	// IDE-managed Components
 	TPanel *SearchPanel;
 	TSpeedButton *CloseButton;
 	TEdit *SearchEdit;
+	TSpeedButton *SearchBtn;
 	void __fastcall SwitchSearchPnlVisible(TObject *Sender);
 	void __fastcall GenerateClick(TObject *Sender);
 	void __fastcall AddClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall SearchBtnClick(TObject *Sender);
 private:	// User declarations
 	int cases_count = 0;
+    void allCaseShow() const noexcept;
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);
 };

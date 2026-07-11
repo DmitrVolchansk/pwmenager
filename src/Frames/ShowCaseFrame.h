@@ -29,6 +29,8 @@ public:		// User declarations
 
 	__fastcall TFShowCase(TComponent* Owner, const int id,
 		TScrollBox* Parent, const String& text);
+
+    String getCaseName() const noexcept;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFShowCase *FShowCase;

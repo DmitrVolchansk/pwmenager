@@ -13,6 +13,7 @@
 #pragma package(smart_init)
 #pragma resource "*.fmx"
 TFMain *FMain;
+
 //---------------------------------------------------------------------------
 __fastcall TFMain::TFMain(TComponent* Owner)
 	: TForm(Owner)
@@ -21,7 +22,9 @@ __fastcall TFMain::TFMain(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
 {
-    this->SearchPanel->Visible = !(this->SearchPanel->Visible);
+    if (SearchPanel->Visible)
+		allCaseShow();
+	this->SearchPanel->Visible = !(this->SearchPanel->Visible);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFMain::GenerateClick(TObject *Sender)
@@ -53,9 +56,30 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 void __fastcall TFMain::FormCreate(TObject *Sender)
 {
 	TUPtrMapIntStr passwordNames = std::move( TDBMenager::getAllNames() );
-	for (const auto& pair: *passwordNames){
-		new TFShowCase(this, pair.first, ShowCaseContainer, pair.second);
-	}
+	if (!passwordNames->empty())
+		for (const auto& pair: *passwordNames)
+			new TFShowCase(this, pair.first, ShowCaseContainer, pair.second);
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFMain::SearchBtnClick(TObject *Sender)
+{
+	for (int i = 0; i < ShowCaseContainer->Content->ChildrenCount; i++)
+	{
+		TFmxObject *obj = ShowCaseContainer->Content->Children->Items[i];
+		TFShowCase* shwcs = static_cast<TFShowCase*>(obj);
+
+		if ( shwcs->getCaseName().Pos( SearchEdit->Text ) <= 0 )
+			shwcs->Visible = false;
+	}
+}
+//---------------------------------------------------------------------------
+void TFMain::allCaseShow() const noexcept
+{
+	for (int i = 0; i < ShowCaseContainer->Content->ChildrenCount; i++)
+	{
+		TFmxObject *obj = ShowCaseContainer->Content->Children->Items[i];
+		obj->Visible = true;
+	}
+}
+//---------------------------------------------------------------------------
