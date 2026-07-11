@@ -79,7 +79,8 @@ void TFMain::allCaseShow() const noexcept
 	for (int i = 0; i < ShowCaseContainer->Content->ChildrenCount; i++)
 	{
 		TFmxObject *obj = ShowCaseContainer->Content->Children->Items[i];
-		obj->Visible = true;
+		auto ctrl = static_cast<TControl*>(obj);
+		ctrl->Visible = true;
 	}
 }
 //---------------------------------------------------------------------------
