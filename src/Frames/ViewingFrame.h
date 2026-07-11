@@ -16,14 +16,15 @@
 class TFViewing : public TFBase
 {
   __published: // IDE-managed Components
-	TSpeedButton *SpeedButton1;
-	TSpeedButton *SpeedButton2;
-	TSpeedButton *SpeedButton3;
-	void __fastcall SpeedButton1Click(TObject *Sender);
+	TSpeedButton *EditBtn;
+	TSpeedButton *CopyLoginBtn;
+	TSpeedButton *CopyPWBtn;
+	void __fastcall EditBtnClick(TObject *Sender);
   private: // User declarations
-
+    bool isEdited;
   public: // User declarations
 	__fastcall TFViewing(TComponent* Owner, const TDataHolder* data);
+    bool IsEdited();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFViewing* FViewing;

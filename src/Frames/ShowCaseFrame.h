@@ -23,6 +23,7 @@ __published:	// IDE-managed Components
 	void __fastcall OpenViewBtnClick(TObject *Sender);
 	void __fastcall DeleteBtnClick(TObject *Sender);
 private:	// User declarations
+    const int id;
 public:		// User declarations
 	std::function<void(TFShowCase*)> OnRequestDelete;
 

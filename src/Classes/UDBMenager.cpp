@@ -11,50 +11,57 @@ Firedac::Comp::Client::TFDQuery* TDBMenager::getQRY()
     return qry;
 }
 //---------------------------------------------------------------------------
-System::Classes::TStringList* TDBMenager::getAllNames()
+TMapIntStr* TDBMenager::getAllNames()
 {
 	TFDQuery* qry = getQRY();
-	auto strList = new TStringList();
+	auto result = new TMapIntStr();
 	try
 	{
-		qry->SQL->Text = "SELECT name FROM auth";
-        qry->Open();
+		qry->SQL->Text = "SELECT id, name FROM auth";
+		qry->Open();
 		while (!qry->Eof){
-			strList->Add( qry->FieldByName("name")->AsString );
-            qry->Next();
+            int id = qry->FieldByName("id")->AsInteger;
+			String name = qry->FieldByName("name")->AsString;
+			result->emplace(id, name);
+			qry->Next();
 		}
-	} __finally {
+	}
+	__finally
+	{
 		qry->Close();
-        delete qry;
+		delete qry;
     }
-    return strList;
+	return result;
 }
 //---------------------------------------------------------------------------
-void TDBMenager::addToDB(const TDataHolder* data)
+int TDBMenager::addToDB(const TDataHolder* data)
 {
 	TFDQuery* qry = getQRY();
+    int newId;
 	try
 	{
-		qry->SQL->Text = "INSERT INTO auth (name, login, password) VALUES (:name, :login, :password)";
+		qry->SQL->Text = "INSERT INTO auth (name, login, password) VALUES (:name, :login, :password) RETURNING id";
 		qry->ParamByName("name")->AsString = data->name;
 		qry->ParamByName("login")->AsString = data->login;
 		qry->ParamByName("password")->AsString = data->pword;
-		qry->ExecSQL();
+		qry->Open();
+		newId = qry->FieldByName("id")->AsInteger;
 	}
 	__finally
 	{
 		qry->Close();
 		delete qry;
 	}
+    return newId;
 }
 //---------------------------------------------------------------------------
-void TDBMenager::delFromDB(const String& name)
+void TDBMenager::delFromDB(const int id)
 {
 	TFDQuery* qry = getQRY();
 	try
 	{
-		qry->SQL->Text = "DELETE FROM auth WHERE name = :name";
-		qry->ParamByName("name")->AsString = name;
+		qry->SQL->Text = "DELETE FROM auth WHERE id = :id";
+		qry->ParamByName("id")->AsInteger = id;
 		qry->ExecSQL();
     }
     __finally
@@ -64,22 +71,36 @@ void TDBMenager::delFromDB(const String& name)
 	}
 }
 //---------------------------------------------------------------------------
-void TDBMenager::updDB(const TDataHolder* data)
+void TDBMenager::updDB(const int id, const TDataHolder* data)
 {
-	// TODO: update wth id
+	TFDQuery* qry = getQRY();
+	try
+	{
+		qry->SQL->Text = "UPDATE auth SET name = :name, login = :login, password = :pswrd WHERE id = :id";
+		qry->ParamByName("name")->AsString = data->name;
+		qry->ParamByName("login")->AsString = data->login;
+		qry->ParamByName("pswrd")->AsString = data->pword;
+		qry->ParamByName("id")->AsInteger = id;
+		qry->ExecSQL();
+	}
+	__finally
+	{
+		qry->Close();
+		delete qry;
+	}
 }
 //---------------------------------------------------------------------------
-TDataHolder* TDBMenager::getFromDB(const String& name)
+TDataHolder* TDBMenager::getFromDB(const int id)
 {
     TFDQuery* qry = getQRY();
     TDataHolder* data = nullptr;
 	try
 	{
-		qry->SQL->Text = "SELECT * FROM auth WHERE name = :name" ;
-        qry->ParamByName("name")->AsString = name;
+		qry->SQL->Text = "SELECT name, login, password FROM auth WHERE id = :id";
+		qry->ParamByName("id")->AsInteger = id;
         qry->Open();
 		data = new TDataHolder{
-			.name = name,
+			.name = qry->FieldByName("name")->AsString,
 			.login = qry->FieldByName("login")->AsString,
 			.pword = qry->FieldByName("password")->AsString
 		};

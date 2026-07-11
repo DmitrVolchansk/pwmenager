@@ -13,12 +13,12 @@
 TFShowCase *FShowCase;
 //---------------------------------------------------------------------------
 __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
-		TScrollBox* Parent, const String& text)
-	: TFrame(Owner)
+		TScrollBox* ScllBox, const String& text)
+	: TFrame(Owner), id(id)
 {
-	this->Name = "id" + IntToStr(id);
-	this->Parent = Parent->Content;
-	this->OpenViewBtn->Text = text;
+	Name = "id" + IntToStr(id);
+	Parent = ScllBox->Content;
+	OpenViewBtn->Text = text;
     OnRequestDelete = [this](TFShowCase* f) {
 		auto ref = f;
 		TThread::ForceQueue(nullptr, [ref]() {
@@ -30,12 +30,23 @@ __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
 //---------------------------------------------------------------------------
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
-	TDataHolder* data = TDBMenager::getFromDB( OpenViewBtn->Text );
+	TDataHolder* data = TDBMenager::getFromDB( id );
 	auto viewFrame = new TFViewing(nullptr, data);
 	auto viewForm = new TFCustomDlg(nullptr, viewFrame);
-	try {
+	try
+	{
 		viewForm->ShowModal();
-	} __finally {
+		if ( viewFrame->IsEdited() ) {
+
+			TDataHolder* ediedData = viewFrame->getReport();
+            OpenViewBtn->Text = ediedData->name;
+			TDBMenager::updDB( id, ediedData );
+			delete ediedData;
+
+		}
+	}
+	__finally
+	{
         delete data;
 		delete viewFrame;
 		delete viewForm;
@@ -45,7 +56,7 @@ void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 
 void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
 {
-	TDBMenager::delFromDB( OpenViewBtn->Text );
+	TDBMenager::delFromDB( id );
 	OnRequestDelete(this);
 }
 //---------------------------------------------------------------------------

@@ -13,12 +13,17 @@
 TFViewing *FViewing;
 //---------------------------------------------------------------------------
 __fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder* data) :
-	TFBase(Owner)
+	TFBase(Owner), isEdited(false)
 {
 	LoadData(data);
 }
 //---------------------------------------------------------------------------
-void __fastcall TFViewing::SpeedButton1Click(TObject *Sender)
+bool TFViewing::IsEdited()
+{
+    return this->isEdited;
+}
+//---------------------------------------------------------------------------
+void __fastcall TFViewing::EditBtnClick(TObject *Sender)
 {
 	TDataHolder* data = getReport();
 	auto editFrame = new TFEdit(nullptr, data);
@@ -30,6 +35,7 @@ void __fastcall TFViewing::SpeedButton1Click(TObject *Sender)
 			TDataHolder* updData = editFrame->getReport();
 			LoadData(updData);
 			delete updData;
+            isEdited = true;
 
 		}
 	} __finally {

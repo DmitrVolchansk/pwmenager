@@ -4,12 +4,13 @@ inherited FViewing: TFViewing
     Size.Height = 376.000000000000000000
     inherited NameGBox: TGroupBox
       Size.Height = 73.000000000000000000
+      TabOrder = 37
       inherited ShortNameEdit: TEdit
         ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
-      object SpeedButton1: TSpeedButton
+      object EditBtn: TSpeedButton
         Align = MostRight
         Margins.Top = 10.000000000000000000
         Position.X = 324.000000000000000000
@@ -18,18 +19,19 @@ inherited FViewing: TFViewing
         Size.Height = 63.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Trimming = None
-        OnClick = SpeedButton1Click
+        OnClick = EditBtnClick
       end
     end
     inherited LoginGBox: TGroupBox
       Position.Y = 113.000000000000000000
       Size.Height = 73.000000000000000000
+      TabOrder = 38
       inherited LoginEdit: TEdit
         ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
-      object SpeedButton2: TSpeedButton
+      object CopyLoginBtn: TSpeedButton
         Align = MostRight
         Margins.Top = 10.000000000000000000
         Margins.Bottom = 3.000000000000000000
@@ -44,6 +46,7 @@ inherited FViewing: TFViewing
     inherited PWordGBox: TGroupBox
       Position.Y = 196.000000000000000000
       Size.Height = 96.000000000000000000
+      TabOrder = 39
       inherited PasswordEdit: TEdit
         ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
@@ -52,7 +55,7 @@ inherited FViewing: TFViewing
       inherited PasswordHideCheck: TCheckBox
         Size.Width = 304.000000000000000000
       end
-      object SpeedButton3: TSpeedButton
+      object CopyPWBtn: TSpeedButton
         Align = MostRight
         Margins.Top = 16.000000000000000000
         Margins.Bottom = 16.000000000000000000

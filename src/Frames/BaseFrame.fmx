@@ -114,6 +114,7 @@ object FBase: TFBase
     TabOrder = 1
     object CloseBtn: TButton
       Align = Client
+      Cursor = crHandPoint
       Size.Width = 388.000000000000000000
       Size.Height = 68.000000000000000000
       Size.PlatformDefault = False

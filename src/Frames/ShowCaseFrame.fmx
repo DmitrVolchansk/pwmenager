@@ -5,6 +5,7 @@ object FShowCase: TFShowCase
   Size.PlatformDefault = False
   object OpenViewBtn: TCornerButton
     Align = Top
+    Cursor = crHandPoint
     Sides = [Top, Left, Bottom, Right]
     Size.Width = 488.000000000000000000
     Size.Height = 48.000000000000000000
@@ -17,6 +18,7 @@ object FShowCase: TFShowCase
   end
   object DeleteBtn: TSpeedButton
     Align = MostRight
+    Cursor = crHandPoint
     Position.X = 488.000000000000000000
     Size.Width = 48.000000000000000000
     Size.Height = 48.000000000000000000

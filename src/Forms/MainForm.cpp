@@ -39,8 +39,8 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 		if (addingForm->ShowModal() == mrYes) {
 
 			TDataHolder* result = addingFrame->getReport();
-            TDBMenager::addToDB(result);
-			new TFShowCase(this, cases_count++, ShowCaseContainer, result->name);
+			int id = TDBMenager::addToDB(result);
+			new TFShowCase(this, id, ShowCaseContainer, result->name);
 			delete result;
 
 		}
@@ -48,19 +48,14 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 		delete addingFrame;
         delete addingForm;
 	}
-    // TODO: connect to db
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFMain::FormCreate(TObject *Sender)
 {
-	TStringList* passwordNames = TDBMenager::getAllNames();
-	if (passwordNames->IsEmpty) {
-		delete passwordNames;
-        return;
-	}
-	for (const auto& str: passwordNames){
-		new TFShowCase(this, cases_count++, ShowCaseContainer, str);
+	TMapIntStr* passwordNames = TDBMenager::getAllNames();
+	for (const auto& pair: *passwordNames){
+		new TFShowCase(this, pair.first, ShowCaseContainer, pair.second);
 	}
 	delete passwordNames;
 }
