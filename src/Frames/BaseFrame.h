@@ -29,10 +29,10 @@ __published:	// IDE-managed Components
 private: // User declarations
 
 protected:	// User declarations
-	void __fastcall LoadData(const TDataHolder* data);
+	void LoadData(const TDataHolder* data);
 public:		// User declarations
 	__fastcall TFBase(TComponent* Owner);
-	TDataHolder* __fastcall getReport();
+	TDataHolder* getReport();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFBase *FBase;

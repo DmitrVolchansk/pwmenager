@@ -35,7 +35,7 @@ bool TDataModuleDB::CreateTables()
 {
     try
 	{
-		String sql =
+		String SQL =
 			"CREATE TABLE IF NOT EXISTS auth ("
 			"  id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			"  name TEXT NOT NULL,"
@@ -44,7 +44,7 @@ bool TDataModuleDB::CreateTables()
 			");"
 			"CREATE INDEX IF NOT EXISTS idx_users_name ON auth(name);";
 
-		FDConnection->ExecSQL(sql);
+		FDConnection->ExecSQL(SQL);
 		return true;
 	}
 	catch (Exception& E)

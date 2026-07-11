@@ -15,7 +15,7 @@ __fastcall TFBase::TFBase(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-TDataHolder* __fastcall TFBase::getReport()
+TDataHolder* TFBase::getReport()
 {
 	return new TDataHolder {
 		.name = ShortNameEdit->Text,
@@ -26,10 +26,10 @@ TDataHolder* __fastcall TFBase::getReport()
 //---------------------------------------------------------------------------
 void __fastcall TFBase::SwitchPasswordHide(TObject *Sender)
 {
-    PasswordEdit->Password = !(PasswordEdit->Password);
+    PasswordEdit->Password = PasswordHideCheck->IsChecked;
 }
 //---------------------------------------------------------------------------
-void __fastcall TFBase::LoadData(const TDataHolder* data)
+void TFBase::LoadData(const TDataHolder* data)
 {
 	this->ShortNameEdit->Text = data->name;
 	this->LoginEdit->Text = data->login;

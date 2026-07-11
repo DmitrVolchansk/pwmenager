@@ -32,15 +32,13 @@ class TDataModuleDB : public TDataModule
 __published:	// IDE-managed Components
 	TFDConnection *FDConnection;
 	TFDPhysSQLiteDriverLink *FDPhysSQLiteDriverLink;
-	TFDQuery *FDQuery1;
+	TFDQuery *FDQuery;
 private:	// User declarations
     bool isDBExits;
 public:		// User declarations
 	__fastcall TDataModuleDB(TComponent* Owner);
 	void Initialize();
 	bool CreateTables();
-	int ExecuteSQL(const String& SQL, TFDParams* Params = nullptr);
-	TFDQuery* CreateQuery(const String& SQL);
 };
 //---------------------------------------------------------------------------
 extern TDataModuleDB* DBModule;

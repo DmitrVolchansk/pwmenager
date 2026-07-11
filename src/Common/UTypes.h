@@ -2,9 +2,9 @@
 #define TYPES_H
 //---------------------------------------------------------------------------
 struct TDataHolder {
-	const String name = "name";
-	const String login = "login";
-	const String pword = "password";
+	const String name;
+	const String login;
+	const String pword;
 };
 //---------------------------------------------------------------------------
 #endif
