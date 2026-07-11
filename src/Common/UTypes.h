@@ -7,4 +7,6 @@ struct TDataHolder {
 	const String pword;
 };
 //---------------------------------------------------------------------------
+using TUPtrDataHolder = std::unique_ptr<TDataHolder>;
+//---------------------------------------------------------------------------
 #endif

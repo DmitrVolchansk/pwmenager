@@ -23,8 +23,8 @@ class TFViewing : public TFBase
   private: // User declarations
     bool isEdited;
   public: // User declarations
-	__fastcall TFViewing(TComponent* Owner, const TDataHolder* data);
-    bool IsEdited();
+	__fastcall TFViewing(TComponent* Owner, const TUPtrDataHolder& data);
+    bool IsEdited() const noexcept;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFViewing* FViewing;

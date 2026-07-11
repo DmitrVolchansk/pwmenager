@@ -11,14 +11,15 @@ Firedac::Comp::Client::TFDQuery* TDBMenager::getQRY()
     return qry;
 }
 //---------------------------------------------------------------------------
-TMapIntStr* TDBMenager::getAllNames()
+TUPtrMapIntStr TDBMenager::getAllNames()
 {
 	TFDQuery* qry = getQRY();
-	auto result = new TMapIntStr();
+	auto result = std::make_unique<TMapIntStr>();
 	try
 	{
 		qry->SQL->Text = "SELECT id, name FROM auth";
 		qry->Open();
+
 		while (!qry->Eof){
             int id = qry->FieldByName("id")->AsInteger;
 			String name = qry->FieldByName("name")->AsString;
@@ -34,13 +35,15 @@ TMapIntStr* TDBMenager::getAllNames()
 	return result;
 }
 //---------------------------------------------------------------------------
-int TDBMenager::addToDB(const TDataHolder* data)
+int TDBMenager::addToDB(const TUPtrDataHolder& data)
 {
 	TFDQuery* qry = getQRY();
     int newId;
 	try
 	{
-		qry->SQL->Text = "INSERT INTO auth (name, login, password) VALUES (:name, :login, :password) RETURNING id";
+		qry->SQL->Text = "INSERT INTO auth (name, login, password)"
+						" VALUES (:name, :login, :password)"
+						" RETURNING id";
 		qry->ParamByName("name")->AsString = data->name;
 		qry->ParamByName("login")->AsString = data->login;
 		qry->ParamByName("password")->AsString = data->pword;
@@ -71,7 +74,7 @@ void TDBMenager::delFromDB(const int id)
 	}
 }
 //---------------------------------------------------------------------------
-void TDBMenager::updDB(const int id, const TDataHolder* data)
+void TDBMenager::updDB(const int id, const TUPtrDataHolder& data)
 {
 	TFDQuery* qry = getQRY();
 	try
@@ -90,20 +93,20 @@ void TDBMenager::updDB(const int id, const TDataHolder* data)
 	}
 }
 //---------------------------------------------------------------------------
-TDataHolder* TDBMenager::getFromDB(const int id)
+TUPtrDataHolder TDBMenager::getFromDB(const int id)
 {
     TFDQuery* qry = getQRY();
-    TDataHolder* data = nullptr;
+	TUPtrDataHolder data;
 	try
 	{
 		qry->SQL->Text = "SELECT name, login, password FROM auth WHERE id = :id";
 		qry->ParamByName("id")->AsInteger = id;
-        qry->Open();
-		data = new TDataHolder{
+		qry->Open();
+		data = std::make_unique<TDataHolder>(TDataHolder {
 			.name = qry->FieldByName("name")->AsString,
 			.login = qry->FieldByName("login")->AsString,
 			.pword = qry->FieldByName("password")->AsString
-		};
+		});
 	}
 	__finally
 	{

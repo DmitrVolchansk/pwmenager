@@ -30,7 +30,7 @@ __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
 //---------------------------------------------------------------------------
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
-	TDataHolder* data = TDBMenager::getFromDB( id );
+	TUPtrDataHolder data = TDBMenager::getFromDB( id );
 	auto viewFrame = new TFViewing(nullptr, data);
 	auto viewForm = new TFCustomDlg(nullptr, viewFrame);
 	try
@@ -38,16 +38,14 @@ void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 		viewForm->ShowModal();
 		if ( viewFrame->IsEdited() ) {
 
-			TDataHolder* ediedData = viewFrame->getReport();
+			TUPtrDataHolder ediedData = viewFrame->getReport();
             OpenViewBtn->Text = ediedData->name;
 			TDBMenager::updDB( id, ediedData );
-			delete ediedData;
 
 		}
 	}
 	__finally
 	{
-        delete data;
 		delete viewFrame;
 		delete viewForm;
 	}

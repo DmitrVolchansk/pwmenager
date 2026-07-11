@@ -38,10 +38,9 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 	try {
 		if (addingForm->ShowModal() == mrYes) {
 
-			TDataHolder* result = addingFrame->getReport();
+			TUPtrDataHolder result = std::move( addingFrame->getReport() );
 			int id = TDBMenager::addToDB(result);
 			new TFShowCase(this, id, ShowCaseContainer, result->name);
-			delete result;
 
 		}
 	} __finally {
@@ -53,11 +52,10 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 
 void __fastcall TFMain::FormCreate(TObject *Sender)
 {
-	TMapIntStr* passwordNames = TDBMenager::getAllNames();
+	TUPtrMapIntStr passwordNames = std::move( TDBMenager::getAllNames() );
 	for (const auto& pair: *passwordNames){
 		new TFShowCase(this, pair.first, ShowCaseContainer, pair.second);
 	}
-	delete passwordNames;
 }
 //---------------------------------------------------------------------------
 
