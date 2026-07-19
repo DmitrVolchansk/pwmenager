@@ -37,7 +37,7 @@ private:	// User declarations
     std::string getCharSet() const noexcept;
 public:		// User declarations
 	__fastcall TFGenerator(TComponent* Owner, const String& btnCap = "Close");
-    String getPassword() const noexcept;
+    String getSelection() const noexcept;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFGenerator *FGenerator;

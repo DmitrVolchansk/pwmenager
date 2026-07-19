@@ -1,15 +1,20 @@
 inherited FAdding: TFAdding
-  inherited LoginHolderGroupBox: TGroupBox
-    StyledSettings = []
-    Size.Height = 323.333496093750000000
-    inherited NameGBox: TGroupBox
-      inherited ShortNameEdit: TEdit
+  inherited CloseBtnPnl: TPanel
+    inherited CloseBtn: TButton
+      Enabled = False
+      ModalResult = 6
+      Text = 'Complite'
+    end
+  end
+  inherited AuthLayout: TLayout
+    inherited LoginGBox: TGroupBox
+      inherited LoginEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         OnTyping = switchCompliteBtnEnable
       end
     end
-    inherited LoginGBox: TGroupBox
-      inherited LoginEdit: TEdit
+    inherited NameGBox: TGroupBox
+      inherited ShortNameEdit: TEdit
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         OnTyping = switchCompliteBtnEnable
       end
@@ -19,13 +24,20 @@ inherited FAdding: TFAdding
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         OnTyping = switchCompliteBtnEnable
       end
-    end
-  end
-  inherited CloseBtnPnl: TPanel
-    inherited CloseBtn: TButton
-      Enabled = False
-      ModalResult = 6
-      Text = 'Complite'
+      inherited PWHelpLayout: TLayout
+        object OpenGeneratorButton: TSpeedButton
+          Align = MostRight
+          Cursor = crHandPoint
+          Margins.Left = 20.000000000000000000
+          Position.X = 213.000000000000000000
+          Size.Width = 175.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Open generator'
+          TextSettings.Trimming = None
+          OnClick = OpenGeneratorButtonClick
+        end
+      end
     end
   end
 end

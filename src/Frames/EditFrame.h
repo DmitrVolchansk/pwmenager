@@ -12,6 +12,7 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include "UTypes.h"
+#include <FMX.Layouts.hpp>
 //---------------------------------------------------------------------------
 class TFEdit : public TFAdding
 {

@@ -1,79 +1,79 @@
 inherited FViewing: TFViewing
   Margins.Top = 50.000000000000000000
-  inherited LoginHolderGroupBox: TGroupBox
-    Size.Height = 376.000000000000000000
-    inherited NameGBox: TGroupBox
-      Size.Height = 73.000000000000000000
-      TabOrder = 37
-      inherited ShortNameEdit: TEdit
-        ReadOnly = True
-        TextSettings.Font.StyleExt = {00040000000100000004000000}
-        Size.Width = 304.000000000000000000
-      end
-      object EditBtn: TSpeedButton
-        Align = MostRight
-        Cursor = crHandPoint
-        Margins.Top = 10.000000000000000000
-        Position.X = 324.000000000000000000
-        Position.Y = 10.000000000000000000
-        Size.Width = 64.000000000000000000
-        Size.Height = 63.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Trimming = None
-        OnClick = EditBtnClick
-      end
-    end
-    inherited LoginGBox: TGroupBox
-      Position.Y = 113.000000000000000000
-      Size.Height = 73.000000000000000000
-      TabOrder = 38
-      inherited LoginEdit: TEdit
-        ReadOnly = True
-        TextSettings.Font.StyleExt = {00040000000100000004000000}
-        Size.Width = 304.000000000000000000
-      end
-      object CopyLoginBtn: TSpeedButton
-        Align = MostRight
-        Cursor = crHandPoint
-        Margins.Top = 10.000000000000000000
-        Margins.Bottom = 3.000000000000000000
-        Position.X = 324.000000000000000000
-        Position.Y = 10.000000000000000000
-        Size.Width = 64.000000000000000000
-        Size.Height = 60.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Trimming = None
-      end
-    end
-    inherited PWordGBox: TGroupBox
-      Position.Y = 196.000000000000000000
-      Size.Height = 96.000000000000000000
-      TabOrder = 39
-      inherited PasswordEdit: TEdit
-        ReadOnly = True
-        TextSettings.Font.StyleExt = {00040000000100000004000000}
-        Size.Width = 304.000000000000000000
-      end
-      inherited PasswordHideCheck: TCheckBox
-        Size.Width = 304.000000000000000000
-      end
-      object CopyPWBtn: TSpeedButton
-        Align = MostRight
-        Cursor = crHandPoint
-        Margins.Top = 16.000000000000000000
-        Margins.Bottom = 16.000000000000000000
-        Position.X = 324.000000000000000000
-        Position.Y = 16.000000000000000000
-        Size.Width = 64.000000000000000000
-        Size.Height = 64.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Trimming = None
-      end
-    end
-  end
   inherited CloseBtnPnl: TPanel
     inherited CloseBtn: TButton
       ModalResult = 8
+    end
+  end
+  inherited AuthLayout: TLayout
+    inherited LoginGBox: TGroupBox
+      inherited LoginEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 304.000000000000000000
+      end
+      object CopyLoginBtn: TCornerButton
+        Align = MostRight
+        Cursor = crHandPoint
+        Position.X = 324.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 64.000000000000000000
+        Size.Height = 64.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 37
+        TextSettings.Trimming = None
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
+    end
+    inherited NameGBox: TGroupBox
+      inherited ShortNameEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 304.000000000000000000
+      end
+      object EditBtn: TCornerButton
+        Align = MostRight
+        Cursor = crHandPoint
+        Position.X = 324.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 64.000000000000000000
+        Size.Height = 64.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 37
+        TextSettings.Trimming = None
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+        OnClick = EditBtnClick
+      end
+    end
+    inherited PWordGBox: TGroupBox
+      inherited PasswordEdit: TEdit
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Size.Width = 304.000000000000000000
+      end
+      inherited PWHelpLayout: TLayout
+        Position.Y = 57.000000000000000000
+        Size.Width = 324.000000000000000000
+        Size.Height = 30.000000000000000000
+        TabOrder = 35
+        inherited PasswordHideCheck: TCheckBox
+          Size.Width = 125.000000000000000000
+          Size.Height = 30.000000000000000000
+        end
+      end
+      object CopyPWBtn: TCornerButton
+        Align = MostRight
+        Cursor = crHandPoint
+        Margins.Bottom = 23.000000000000000000
+        Position.X = 324.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 64.000000000000000000
+        Size.Height = 64.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 37
+        TextSettings.Trimming = None
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+      end
     end
   end
 end

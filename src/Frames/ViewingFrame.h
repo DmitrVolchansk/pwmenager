@@ -12,13 +12,14 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include "UTypes.h"
+#include <FMX.Layouts.hpp>
 //---------------------------------------------------------------------------
 class TFViewing : public TFBase
 {
   __published: // IDE-managed Components
-	TSpeedButton *EditBtn;
-	TSpeedButton *CopyLoginBtn;
-	TSpeedButton *CopyPWBtn;
+	TCornerButton *EditBtn;
+	TCornerButton *CopyLoginBtn;
+	TCornerButton *CopyPWBtn;
 	void __fastcall EditBtnClick(TObject *Sender);
   private: // User declarations
     bool isEdited;

@@ -11,11 +11,11 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include "Utypes.h"
+#include <FMX.Layouts.hpp>
 //---------------------------------------------------------------------------
 class TFBase : public TFrame
 {
 __published:	// IDE-managed Components
-	TGroupBox *LoginHolderGroupBox;
 	TEdit *LoginEdit;
 	TEdit *ShortNameEdit;
 	TEdit *PasswordEdit;
@@ -25,6 +25,8 @@ __published:	// IDE-managed Components
 	TGroupBox *PWordGBox;
 	TButton *CloseBtn;
 	TPanel *CloseBtnPnl;
+	TLayout *AuthLayout;
+	TLayout *PWHelpLayout;
 	void __fastcall SwitchPasswordHide(TObject *Sender);
 private: // User declarations
 

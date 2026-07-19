@@ -2,38 +2,30 @@ object FBase: TFBase
   Size.Width = 388.000000000000000000
   Size.Height = 588.000000000000000000
   Size.PlatformDefault = False
-  object LoginHolderGroupBox: TGroupBox
-    Align = Fit
+  object CloseBtnPnl: TPanel
+    Align = Bottom
+    Position.Y = 520.000000000000000000
     Size.Width = 388.000000000000000000
-    Size.Height = 474.000000000000000000
+    Size.Height = 68.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object NameGBox: TGroupBox
-      Align = Top
-      Margins.Bottom = 40.000000000000000000
+    object CloseBtn: TButton
+      Align = Client
+      Cursor = crHandPoint
       Size.Width = 388.000000000000000000
-      Size.Height = 64.000000000000000000
+      Size.Height = 68.000000000000000000
       Size.PlatformDefault = False
-      Text = 'Name'
-      TabOrder = 38
-      object ShortNameEdit: TEdit
-        Touch.InteractiveGestures = [LongTap, DoubleTap]
-        Align = Top
-        TabOrder = 0
-        TextSettings.Font.Family = 'Arial'
-        TextSettings.Font.Size = 14.000000000000000000
-        TextSettings.Font.StyleExt = {00040000000100000004000000}
-        Position.X = 10.000000000000000000
-        Position.Y = 20.000000000000000000
-        Margins.Left = 10.000000000000000000
-        Margins.Top = 20.000000000000000000
-        Margins.Right = 10.000000000000000000
-        Size.Width = 368.000000000000000000
-        Size.Height = 37.000000000000000000
-        Size.PlatformDefault = False
-        StyledSettings = [FontColor]
-      end
+      TabOrder = 1
+      Text = 'Close'
+      TextSettings.Trimming = None
     end
+  end
+  object AuthLayout: TLayout
+    Align = Fit
+    Size.Width = 388.000000000000000000
+    Size.Height = 470.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
     object LoginGBox: TGroupBox
       Align = Top
       Margins.Bottom = 10.000000000000000000
@@ -63,11 +55,37 @@ object FBase: TFBase
         ShowHint = False
       end
     end
+    object NameGBox: TGroupBox
+      Align = Top
+      Margins.Bottom = 40.000000000000000000
+      Size.Width = 388.000000000000000000
+      Size.Height = 64.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Name'
+      TabOrder = 38
+      object ShortNameEdit: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Top
+        TabOrder = 0
+        TextSettings.Font.Family = 'Arial'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00040000000100000004000000}
+        Position.X = 10.000000000000000000
+        Position.Y = 20.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 368.000000000000000000
+        Size.Height = 37.000000000000000000
+        Size.PlatformDefault = False
+        StyledSettings = [FontColor]
+      end
+    end
     object PWordGBox: TGroupBox
       Align = Top
       Position.Y = 178.000000000000000000
       Size.Width = 388.000000000000000000
-      Size.Height = 64.000000000000000000
+      Size.Height = 87.000000000000000000
       Size.PlatformDefault = False
       Text = 'Password'
       TabOrder = 40
@@ -89,38 +107,26 @@ object FBase: TFBase
         Size.PlatformDefault = False
         StyledSettings = [FontColor]
       end
-      object PasswordHideCheck: TCheckBox
-        Align = Top
-        IsChecked = True
-        Margins.Left = 20.000000000000000000
-        Margins.Top = 5.000000000000000000
-        Position.X = 20.000000000000000000
-        Position.Y = 62.000000000000000000
-        Size.Width = 368.000000000000000000
-        Size.Height = 19.000000000000000000
+      object PWHelpLayout: TLayout
+        Align = Bottom
+        Position.Y = 56.000000000000000000
+        Size.Width = 388.000000000000000000
+        Size.Height = 31.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 3
-        Text = 'Hide password'
-        OnChange = SwitchPasswordHide
+        TabOrder = 36
+        object PasswordHideCheck: TCheckBox
+          Align = MostLeft
+          IsChecked = True
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 173.000000000000000000
+          Size.Height = 31.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Hide password'
+          OnChange = SwitchPasswordHide
+        end
       end
-    end
-  end
-  object CloseBtnPnl: TPanel
-    Align = Bottom
-    Position.Y = 520.000000000000000000
-    Size.Width = 388.000000000000000000
-    Size.Height = 68.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    object CloseBtn: TButton
-      Align = Client
-      Cursor = crHandPoint
-      Size.Width = 388.000000000000000000
-      Size.Height = 68.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 1
-      Text = 'Close'
-      TextSettings.Trimming = None
     end
   end
 end

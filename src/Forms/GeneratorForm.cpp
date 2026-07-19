@@ -24,7 +24,7 @@ __fastcall TFGenerator::TFGenerator(TComponent* Owner, const String& btnCap)
     SelectButton->Text = btnCap;
 }
 //---------------------------------------------------------------------------
-System::String TFGenerator::getPassword() const noexcept
+System::String TFGenerator::getSelection() const noexcept
 {
 	return this->GeneratorEdit->Text;
 }
