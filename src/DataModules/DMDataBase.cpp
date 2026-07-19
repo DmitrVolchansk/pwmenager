@@ -9,6 +9,7 @@
 #pragma resource "*.dfm"
 TDataModuleDB *DBModule = nullptr;
 //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 __fastcall TDataModuleDB::TDataModuleDB(TComponent* Owner)
 	: TDataModule(Owner), isDBExits(false)
 {
@@ -16,7 +17,8 @@ __fastcall TDataModuleDB::TDataModuleDB(TComponent* Owner)
 
 void TDataModuleDB::Initialize()
 {
-	try {
+	try
+	{
 		String dbFile = FDConnection->Params->Values["Database"];
 		isDBExits = FileExists(dbFile);
 
@@ -26,9 +28,10 @@ void TDataModuleDB::Initialize()
 			CreateTables();
 		}
 	}
-	catch (Exception& e) {
+	catch (Exception& e)
+	{
 		ShowMessage("Error: " + e.Message);
-	}
+    }
 }
 
 bool TDataModuleDB::CreateTables()

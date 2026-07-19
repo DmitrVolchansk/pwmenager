@@ -23,9 +23,12 @@ extern "C" int FMXmain()
 	try
 	{
 		Application->Initialize();
-		Application->CreateForm(__classid(TFMain), &FMain);
+
 		DBModule = new TDataModuleDB(Application);
 		DBModule->Initialize();
+
+        Application->CreateForm(__classid(TFMain), &FMain);
+
 		Application->Run();
 	}
 	catch (Exception &exception)

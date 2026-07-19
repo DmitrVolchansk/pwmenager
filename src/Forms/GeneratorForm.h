@@ -31,9 +31,13 @@ __published:	// IDE-managed Components
 	TCornerButton *SelectButton;
 	TEdit *SeedEdit;
 	void __fastcall SwitchSeedVisible(TObject *Sender);
+	void __fastcall ReroleBtnClick(TObject *Sender);
 private:	// User declarations
+	void generate();
+    std::string getCharSet() const noexcept;
 public:		// User declarations
-	__fastcall TFGenerator(TComponent* Owner);
+	__fastcall TFGenerator(TComponent* Owner, const String& btnCap = "Close");
+    String getPassword() const noexcept;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFGenerator *FGenerator;
