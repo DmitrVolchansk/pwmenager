@@ -8,6 +8,7 @@ inherited FViewing: TFViewing
   inherited AuthLayout: TLayout
     inherited LoginGBox: TGroupBox
       inherited LoginEdit: TEdit
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
@@ -23,10 +24,12 @@ inherited FViewing: TFViewing
         TextSettings.Trimming = None
         XRadius = 3.000000000000000000
         YRadius = 3.000000000000000000
+        OnClick = CopyLoginBtnClick
       end
     end
     inherited NameGBox: TGroupBox
       inherited ShortNameEdit: TEdit
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
@@ -47,6 +50,7 @@ inherited FViewing: TFViewing
     end
     inherited PWordGBox: TGroupBox
       inherited PasswordEdit: TEdit
+        ReadOnly = True
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
@@ -73,6 +77,7 @@ inherited FViewing: TFViewing
         TextSettings.Trimming = None
         XRadius = 3.000000000000000000
         YRadius = 3.000000000000000000
+        OnClick = CopyPWBtnClick
       end
     end
   end

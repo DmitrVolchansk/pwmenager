@@ -36,6 +36,7 @@ object FGenerator: TFGenerator
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Trimming = None
+      OnClick = CopyBtnClick
     end
     object ReroleBtn: TSpeedButton
       Align = Right

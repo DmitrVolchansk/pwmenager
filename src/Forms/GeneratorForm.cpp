@@ -72,4 +72,10 @@ void __fastcall TFGenerator::ReroleBtnClick(TObject *Sender)
 	generate();
 }
 //---------------------------------------------------------------------------
+void __fastcall TFGenerator::CopyBtnClick(TObject *Sender)
+{
+	GeneratorEdit->SelectAll();
+    GeneratorEdit->CopyToClipboard();
+}
+//---------------------------------------------------------------------------
 

@@ -32,6 +32,7 @@ __published:	// IDE-managed Components
 	TEdit *SeedEdit;
 	void __fastcall SwitchSeedVisible(TObject *Sender);
 	void __fastcall ReroleBtnClick(TObject *Sender);
+	void __fastcall CopyBtnClick(TObject *Sender);
 private:	// User declarations
 	void generate();
     std::string getCharSet() const noexcept;

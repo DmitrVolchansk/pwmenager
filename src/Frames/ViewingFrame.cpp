@@ -42,4 +42,16 @@ void __fastcall TFViewing::EditBtnClick(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
+void __fastcall TFViewing::CopyLoginBtnClick(TObject *Sender)
+{
+	LoginEdit->SelectAll();
+	LoginEdit->CopyToClipboard();
+}
+//---------------------------------------------------------------------------
+void __fastcall TFViewing::CopyPWBtnClick(TObject *Sender)
+{
+	PasswordEdit->SelectAll();
+    PasswordEdit->CopyToClipboard();
+}
+//---------------------------------------------------------------------------
 

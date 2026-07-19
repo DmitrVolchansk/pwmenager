@@ -21,6 +21,8 @@ class TFViewing : public TFBase
 	TCornerButton *CopyLoginBtn;
 	TCornerButton *CopyPWBtn;
 	void __fastcall EditBtnClick(TObject *Sender);
+	void __fastcall CopyLoginBtnClick(TObject *Sender);
+	void __fastcall CopyPWBtnClick(TObject *Sender);
   private: // User declarations
     bool isEdited;
   public: // User declarations
