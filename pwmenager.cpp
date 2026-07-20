@@ -6,7 +6,7 @@
 #endif
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
-#include "DMDataBase.h"
+#include "DMdb.h"
 //---------------------------------------------------------------------------
 USEFORM("src\Frames\BaseFrame.cpp", FBase); /* TFrame: File Type */
 USEFORM("src\Frames\AddingFrame.cpp", FAdding); /* TFrame: File Type */
@@ -16,7 +16,7 @@ USEFORM("src\Frames\ShowCaseFrame.cpp", FShowCase); /* TFrame: File Type */
 USEFORM("src\Frames\EditFrame.cpp", FEdit); /* TFrame: File Type */
 USEFORM("src\Forms\GeneratorForm.cpp", FGenerator);
 USEFORM("src\Forms\CustomDlgForm.cpp", FCustomDlg);
-USEFORM("src\DataModules\DMDataBase.cpp", DataModuleDB); /* TDataModule: File Type */
+USEFORM("src\DataModules\DMdb.cpp", DataBaseModule); /* TDataModule: File Type */
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
@@ -24,11 +24,11 @@ extern "C" int FMXmain()
 	{
 		Application->Initialize();
 
-		DBModule = new TDataModuleDB(Application);
-		DBModule->Initialize();
+		DataBaseModule = new TDataBaseModule(Application);
+		DataBaseModule->Initialize();
 
         Application->CreateForm(__classid(TFMain), &FMain);
-
+		Application->CreateForm(__classid(TDataBaseModule), &DataBaseModule);
 		Application->Run();
 	}
 	catch (Exception &exception)

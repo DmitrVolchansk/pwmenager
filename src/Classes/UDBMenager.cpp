@@ -7,7 +7,7 @@
 Firedac::Comp::Client::TFDQuery* TDBMenager::getQRY()
 {
 	TFDQuery* qry = new TFDQuery(nullptr);
-	qry->Connection = DBModule->FDConnection;
+	qry->Connection = DataBaseModule->FDConnection;
     return qry;
 }
 //---------------------------------------------------------------------------

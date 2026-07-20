@@ -1,21 +1,21 @@
 //---------------------------------------------------------------------------
 
+
 #pragma hdrstop
 
-#include "DMDataBase.h"
+#include "DMdb.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma classgroup "FMX.Controls.TControl"
 #pragma resource "*.dfm"
-TDataModuleDB *DBModule = nullptr;
+TDataBaseModule *DataBaseModule;
 //---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
-__fastcall TDataModuleDB::TDataModuleDB(TComponent* Owner)
+__fastcall TDataBaseModule::TDataBaseModule(TComponent* Owner)
 	: TDataModule(Owner), isDBExits(false)
 {
 }
 
-void TDataModuleDB::Initialize()
+void TDataBaseModule::Initialize()
 {
 	try
 	{
@@ -34,7 +34,7 @@ void TDataModuleDB::Initialize()
     }
 }
 
-bool TDataModuleDB::CreateTables()
+bool TDataBaseModule::CreateTables()
 {
     try
 	{
@@ -56,5 +56,4 @@ bool TDataModuleDB::CreateTables()
         return false;
 	}
 }
-
 //---------------------------------------------------------------------------
