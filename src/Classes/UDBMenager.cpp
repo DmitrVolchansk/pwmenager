@@ -11,19 +11,22 @@ Firedac::Comp::Client::TFDQuery* TDBMenager::getQRY()
     return qry;
 }
 //---------------------------------------------------------------------------
-TUPtrMapIntStr TDBMenager::getAllNames()
+TInfoVector TDBMenager::getAllNames()
 {
 	TFDQuery* qry = getQRY();
-	auto result = std::make_unique<TMapIntStr>();
+	TInfoVector result;
 	try
 	{
 		qry->SQL->Text = "SELECT id, name FROM auth";
 		qry->Open();
 
 		while (!qry->Eof){
-            int id = qry->FieldByName("id")->AsInteger;
-			String name = qry->FieldByName("name")->AsString;
-			result->emplace(id, name);
+
+			result.emplace_back( TMetaData {
+				.id = qry->FieldByName("id")->AsInteger,
+				.name = qry->FieldByName("name")->AsString
+			});
+
 			qry->Next();
 		}
 	}
@@ -35,7 +38,7 @@ TUPtrMapIntStr TDBMenager::getAllNames()
 	return result;
 }
 //---------------------------------------------------------------------------
-int TDBMenager::addToDB(const TUPtrDataHolder& data)
+int TDBMenager::addToDB(const TUPtrDataHolder data)
 {
 	TFDQuery* qry = getQRY();
     int newId;
@@ -74,7 +77,7 @@ void TDBMenager::delFromDB(const int id)
 	}
 }
 //---------------------------------------------------------------------------
-void TDBMenager::updDB(const int id, const TUPtrDataHolder& data)
+void TDBMenager::updDB(const int id, const TUPtrDataHolder data)
 {
 	TFDQuery* qry = getQRY();
 	try

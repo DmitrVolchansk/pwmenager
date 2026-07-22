@@ -55,10 +55,9 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 
 void __fastcall TFMain::FormCreate(TObject *Sender)
 {
-	TUPtrMapIntStr passwordNames = std::move( TDBMenager::getAllNames() );
-	if (!passwordNames->empty())
-		for (const auto& pair: *passwordNames)
-			new TFShowCase(this, pair.first, ShowCaseContainer, pair.second);
+	TInfoVector passwordNames = TDBMenager::getAllNames();
+	for (const auto& item: passwordNames)
+		new TFShowCase(this, item.id, ShowCaseContainer, item.name);
 }
 //---------------------------------------------------------------------------
 
