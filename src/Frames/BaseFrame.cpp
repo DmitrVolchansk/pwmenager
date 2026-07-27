@@ -29,7 +29,7 @@ void __fastcall TFBase::SwitchPasswordHide(TObject *Sender)
     PasswordEdit->Password = PasswordHideCheck->IsChecked;
 }
 //---------------------------------------------------------------------------
-void TFBase::LoadData(const TUPtrDataHolder& data)
+void TFBase::LoadData(const TDataHolder* data)
 {
 	this->ShortNameEdit->Text = data->name;
 	this->LoginEdit->Text = data->login;

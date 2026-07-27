@@ -29,9 +29,8 @@ __published:	// IDE-managed Components
 	TLayout *PWHelpLayout;
 	void __fastcall SwitchPasswordHide(TObject *Sender);
 private: // User declarations
-
 protected:	// User declarations
-	void LoadData(const TUPtrDataHolder& data);
+	void LoadData(const TDataHolder* data);
 public:		// User declarations
 	__fastcall TFBase(TComponent* Owner);
 	TUPtrDataHolder getReport() const;

@@ -4,7 +4,6 @@
 #pragma hdrstop
 
 #include "MainForm.h"
-#include "CustomDlgForm.h"
 #include "AddingFrame.h"
 #include "ShowCaseFrame.h"
 #include "GeneratorForm.h"
@@ -37,18 +36,18 @@ void __fastcall TFMain::GenerateClick(TObject *Sender)
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
 	auto addingFrame = new TFAdding(nullptr);
-	auto addingForm = new TFCustomDlg(nullptr, addingFrame);
+	this->customDlg = new TFCustomDlg(nullptr, addingFrame);
 	try {
-		if (addingForm->ShowModal() == mrYes) {
+		if (customDlg->ShowModal() == mrYes) {
 
 			TUPtrDataHolder result = std::move( addingFrame->getReport() );
-			int id = TDBMenager::addToDB(result);
+			int id = TDBMenager::addToDB(result.get());
 			new TFShowCase(this, id, ShowCaseContainer, result->name);
 
 		}
 	} __finally {
 		delete addingFrame;
-        delete addingForm;
+		delete customDlg;
 	}
 }
 //---------------------------------------------------------------------------

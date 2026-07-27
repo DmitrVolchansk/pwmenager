@@ -38,7 +38,7 @@ TInfoVector TDBMenager::getAllNames()
 	return result;
 }
 //---------------------------------------------------------------------------
-int TDBMenager::addToDB(const TUPtrDataHolder data)
+int TDBMenager::addToDB(const TDataHolder* data)
 {
 	TFDQuery* qry = getQRY();
     int newId;
@@ -77,7 +77,7 @@ void TDBMenager::delFromDB(const int id)
 	}
 }
 //---------------------------------------------------------------------------
-void TDBMenager::updDB(const int id, const TUPtrDataHolder data)
+void TDBMenager::updDB(const int id, const TDataHolder* data)
 {
 	TFDQuery* qry = getQRY();
 	try

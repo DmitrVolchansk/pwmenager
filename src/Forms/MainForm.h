@@ -12,6 +12,7 @@
 #include <FMX.Controls.Presentation.hpp>
 #include <FMX.Edit.hpp>
 #include <FMX.StdCtrls.hpp>
+#include "CustomDlgForm.h"
 //---------------------------------------------------------------------------
 class TFMain : public TForm
 {
@@ -32,7 +33,7 @@ __published:	// IDE-managed Components
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall SearchBtnClick(TObject *Sender);
 private:	// User declarations
-	int cases_count = 0;
+	TFCustomDlg* customDlg;
     void allCaseShow() const noexcept;
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);

@@ -20,7 +20,7 @@ __published:	// IDE-managed Components
 	TButton *CancelBtn;
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFEdit(TComponent* Owner, const TUPtrDataHolder& data);
+	__fastcall TFEdit(TComponent* Owner, const TDataHolder* data);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFEdit *FEdit;
