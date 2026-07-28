@@ -12,18 +12,15 @@ inherited FViewing: TFViewing
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
-      object CopyLoginBtn: TCornerButton
+      object CopyLoginBtn: TSpeedButton
         Align = MostRight
-        Cursor = crHandPoint
         Position.X = 324.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
         Size.Width = 64.000000000000000000
         Size.Height = 64.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 37
+        StyleLookup = 'pagecurltoolbutton'
+        Text = 'pagecurltoolbutton'
         TextSettings.Trimming = None
-        XRadius = 3.000000000000000000
-        YRadius = 3.000000000000000000
         OnClick = CopyLoginBtnClick
       end
     end
@@ -33,18 +30,15 @@ inherited FViewing: TFViewing
         TextSettings.Font.StyleExt = {00040000000100000004000000}
         Size.Width = 304.000000000000000000
       end
-      object EditBtn: TCornerButton
+      object EditBtn: TSpeedButton
         Align = MostRight
-        Cursor = crHandPoint
         Position.X = 324.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
         Size.Width = 64.000000000000000000
         Size.Height = 64.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 37
+        StyleLookup = 'composetoolbuttonbordered'
+        Text = 'composetoolbuttonbordered'
         TextSettings.Trimming = None
-        XRadius = 3.000000000000000000
-        YRadius = 3.000000000000000000
         OnClick = EditBtnClick
       end
     end
@@ -64,19 +58,16 @@ inherited FViewing: TFViewing
           Size.Height = 30.000000000000000000
         end
       end
-      object CopyPWBtn: TCornerButton
+      object CopyPWBtn: TSpeedButton
         Align = MostRight
-        Cursor = crHandPoint
         Margins.Bottom = 23.000000000000000000
         Position.X = 324.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
         Size.Width = 64.000000000000000000
         Size.Height = 64.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 37
+        StyleLookup = 'pagecurltoolbutton'
+        Text = 'pagecurltoolbutton'
         TextSettings.Trimming = None
-        XRadius = 3.000000000000000000
-        YRadius = 3.000000000000000000
         OnClick = CopyPWBtnClick
       end
     end

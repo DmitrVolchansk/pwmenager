@@ -31,20 +31,26 @@ object FGenerator: TFGenerator
     object CopyBtn: TSpeedButton
       Align = Right
       Cursor = crHandPoint
+      ImageIndex = 0
       Position.X = 363.000000000000000000
       Size.Width = 49.000000000000000000
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
+      StyleLookup = 'pagecurltoolbutton'
+      Text = 'pagecurltoolbutton'
       TextSettings.Trimming = None
       OnClick = CopyBtnClick
     end
     object ReroleBtn: TSpeedButton
       Align = Right
       Cursor = crHandPoint
+      ImageIndex = 0
       Position.X = 314.000000000000000000
       Size.Width = 49.000000000000000000
       Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
+      StyleLookup = 'refreshtoolbutton'
+      Text = 'refreshtoolbutton'
       TextSettings.Trimming = None
       OnClick = ReroleBtnClick
     end

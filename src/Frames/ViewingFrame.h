@@ -17,9 +17,9 @@
 class TFViewing : public TFBase
 {
   __published: // IDE-managed Components
-	TCornerButton *EditBtn;
-	TCornerButton *CopyLoginBtn;
-	TCornerButton *CopyPWBtn;
+	TSpeedButton *EditBtn;
+	TSpeedButton *CopyLoginBtn;
+	TSpeedButton *CopyPWBtn;
 	void __fastcall EditBtnClick(TObject *Sender);
 	void __fastcall CopyLoginBtnClick(TObject *Sender);
 	void __fastcall CopyPWBtnClick(TObject *Sender);

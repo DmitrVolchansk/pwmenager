@@ -12,6 +12,8 @@
 #include <FMX.SpinBox.hpp>
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
+#include <FMX.ImgList.hpp>
+#include <System.ImageList.hpp>
 //---------------------------------------------------------------------------
 class TFGenerator : public TForm
 {

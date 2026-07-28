@@ -19,10 +19,12 @@ object FShowCase: TFShowCase
   object DeleteBtn: TSpeedButton
     Align = MostRight
     Cursor = crHandPoint
+    ImageIndex = 0
     Position.X = 488.000000000000000000
     Size.Width = 48.000000000000000000
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
+    StyleLookup = 'trashtoolbutton'
     TextSettings.Trimming = None
     OnClick = DeleteBtnClick
   end

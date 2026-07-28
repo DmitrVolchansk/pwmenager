@@ -260,6 +260,22 @@
             <DependentOn>src\Frames\ViewingFrame.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
+        <RcItem Include="src\Resources\Images\copy.bmp">
+            <ResourceType>BITMAP</ResourceType>
+            <ResourceId>Bitmap_1</ResourceId>
+        </RcItem>
+        <RcItem Include="src\Resources\Images\edition.bmp">
+            <ResourceType>BITMAP</ResourceType>
+            <ResourceId>Bitmap_2</ResourceId>
+        </RcItem>
+        <RcItem Include="src\Resources\Images\mymysorka.bmp">
+            <ResourceType>BITMAP</ResourceType>
+            <ResourceId>Bitmap_3</ResourceId>
+        </RcItem>
+        <RcItem Include="src\Resources\Images\reload.bmp">
+            <ResourceType>BITMAP</ResourceType>
+            <ResourceId>Bitmap_4</ResourceId>
+        </RcItem>
         <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\Frames\AddingFrame.fmx"/>
         <FormResources Include="src\Forms\MainForm.fmx"/>
@@ -375,6 +391,30 @@
                 <DeployFile LocalName=".\Win32\Debug\pwmenager.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
                         <RemoteName>pwmenager.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="src\Resources\Images\copy.bmp" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="src\Resources\Images\edition.bmp" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="src\Resources\Images\mymysorka.bmp" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="src\Resources\Images\reload.bmp" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
