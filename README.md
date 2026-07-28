@@ -68,4 +68,4 @@
 ### Сборка
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/ваш-логин/pwmenager.git
+   git clone https://github.com/DmitrVolchansk/pwmenager.git
