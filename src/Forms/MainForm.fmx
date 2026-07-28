@@ -53,6 +53,7 @@ object FMain: TFMain
       Size.Width = 49.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
+      StyleLookup = 'stoptoolbutton'
       TextSettings.Trimming = None
       OnClick = SwitchSearchPnlVisible
     end
@@ -77,6 +78,7 @@ object FMain: TFMain
       Size.Width = 49.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
+      StyleLookup = 'searchtoolbuttonbordered'
       TextSettings.Trimming = None
       OnClick = SearchBtnClick
     end
