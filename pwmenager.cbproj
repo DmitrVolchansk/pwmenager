@@ -205,6 +205,10 @@
             <DependentOn>src\Classes\UDBMenager.h</DependentOn>
             <BuildOrder>12</BuildOrder>
         </CppCompile>
+        <CppCompile Include="src\Common\USearcher.cpp">
+            <DependentOn>src\Common\USearcher.h</DependentOn>
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
         <None Include="src\Common\UTypes.h">
             <BuildOrder>10</BuildOrder>
         </None>
@@ -380,9 +384,9 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\pwmenager.tds" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName=".\Win32\Release\pwmenager.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>pwmenager.tds</RemoteName>
+                        <RemoteName>pwmenager.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

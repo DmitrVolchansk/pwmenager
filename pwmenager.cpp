@@ -8,12 +8,12 @@
 #include <System.StartUpCopy.hpp>
 #include "DMdb.h"
 //---------------------------------------------------------------------------
-USEFORM("src\Frames\ViewingFrame.cpp", FViewing); /* TFrame: File Type */
-USEFORM("src\Frames\ShowCaseFrame.cpp", FShowCase); /* TFrame: File Type */
-USEFORM("src\Frames\EditFrame.cpp", FEdit); /* TFrame: File Type */
 USEFORM("src\Frames\BaseFrame.cpp", FBase); /* TFrame: File Type */
 USEFORM("src\Frames\AddingFrame.cpp", FAdding); /* TFrame: File Type */
 USEFORM("src\Forms\MainForm.cpp", FMain);
+USEFORM("src\Frames\ViewingFrame.cpp", FViewing); /* TFrame: File Type */
+USEFORM("src\Frames\ShowCaseFrame.cpp", FShowCase); /* TFrame: File Type */
+USEFORM("src\Frames\EditFrame.cpp", FEdit); /* TFrame: File Type */
 USEFORM("src\Forms\GeneratorForm.cpp", FGenerator);
 USEFORM("src\Forms\CustomDlgForm.cpp", FCustomDlg);
 USEFORM("src\DataModules\DMdb.cpp", DataBaseModule); /* TDataModule: File Type */

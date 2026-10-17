@@ -5,9 +5,9 @@
 
 #include "MainForm.h"
 #include "AddingFrame.h"
-#include "ShowCaseFrame.h"
 #include "GeneratorForm.h"
 #include "UDBMenager.h"
+#include "USearcher.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
@@ -22,7 +22,7 @@ __fastcall TFMain::TFMain(TComponent* Owner)
 void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
 {
     if (SearchPanel->Visible)
-		allCaseShow();
+		Searcher::reset(showCases);
 	this->SearchPanel->Visible = !(this->SearchPanel->Visible);
 }
 //---------------------------------------------------------------------------
@@ -35,20 +35,20 @@ void __fastcall TFMain::GenerateClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
-	auto addingFrame = new TFAdding(nullptr);
-	this->customDlg = new TFCustomDlg(nullptr, addingFrame);
-	try {
-		if (customDlg->ShowModal() == mrYes) {
-
-			TUPtrDataHolder result = std::move( addingFrame->getReport() );
-			int id = TDBMenager::addToDB(result.get());
-			new TFShowCase(this, id, ShowCaseContainer, result->name);
-
-		}
-	} __finally {
-		delete addingFrame;
-		delete customDlg;
-	}
+//	auto addingFrame = new TFAdding(nullptr);
+//	this->customDlg = new TFCustomDlg(nullptr, addingFrame);
+//	try {
+//		if (customDlg->ShowModal() == mrYes) {
+//
+//			TUPtrDataHolder result = std::move( addingFrame->getReport() );
+//			int id = TDBMenager::addToDB(result.get());
+//			new TFShowCase(this, id, ShowCaseContainer, result->name);
+//
+//		}
+//	} __finally {
+//		delete addingFrame;
+//		delete customDlg;
+//	}
 }
 //---------------------------------------------------------------------------
 
@@ -56,29 +56,12 @@ void __fastcall TFMain::FormCreate(TObject *Sender)
 {
 	TInfoVector passwordNames = TDBMenager::getAllNames();
 	for (const auto& item: passwordNames)
-		new TFShowCase(this, item.id, ShowCaseContainer, item.name);
+		showCases.push_back(new TFShowCase(this, item.id, ShowCaseLayout, item.name));
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFMain::SearchBtnClick(TObject *Sender)
 {
-	for (int i = 0; i < ShowCaseContainer->Content->ChildrenCount; i++)
-	{
-		TFmxObject *obj = ShowCaseContainer->Content->Children->Items[i];
-		TFShowCase* shwcs = static_cast<TFShowCase*>(obj);
-
-		if ( shwcs->getCaseName().Pos( SearchEdit->Text ) <= 0 )
-			shwcs->Visible = false;
-	}
-}
-//---------------------------------------------------------------------------
-void TFMain::allCaseShow() const noexcept
-{
-	for (int i = 0; i < ShowCaseContainer->Content->ChildrenCount; i++)
-	{
-		TFmxObject *obj = ShowCaseContainer->Content->Children->Items[i];
-		auto ctrl = static_cast<TControl*>(obj);
-		ctrl->Visible = true;
-	}
+	Searcher::searchByName(showCases, SearchEdit->Text);
 }
 //---------------------------------------------------------------------------

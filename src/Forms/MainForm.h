@@ -12,6 +12,8 @@
 #include <FMX.Controls.Presentation.hpp>
 #include <FMX.Edit.hpp>
 #include <FMX.StdCtrls.hpp>
+#include <vector>
+#include "ShowCaseFrame.h"
 #include "CustomDlgForm.h"
 //---------------------------------------------------------------------------
 class TFMain : public TForm
@@ -22,7 +24,7 @@ __published:	// IDE-managed Components
 	TMenuItem *Search;
 	TMenuItem *Generate;
 	TMenuItem *Settings;
-	TScrollBox *ShowCaseContainer;
+	TScrollBox *ShowCaseLayout;
 	TPanel *SearchPanel;
 	TSpeedButton *CloseButton;
 	TEdit *SearchEdit;
@@ -34,7 +36,7 @@ __published:	// IDE-managed Components
 	void __fastcall SearchBtnClick(TObject *Sender);
 private:	// User declarations
 	TFCustomDlg* customDlg;
-    void allCaseShow() const noexcept;
+	std::vector<TFShowCase*> showCases;
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);
 };

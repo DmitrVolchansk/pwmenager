@@ -10,7 +10,7 @@ object FMain: TFMain
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object ShowCaseContainer: TScrollBox
+  object ShowCaseLayout: TScrollBox
     Align = Client
     Size.Width = 640.000000000000000000
     Size.Height = 480.000000000000000000
