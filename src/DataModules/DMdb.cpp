@@ -41,6 +41,7 @@ bool TDataBaseModule::CreateTables()
 		String SQL =
 			"CREATE TABLE IF NOT EXISTS auth ("
 			"  id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            "  last_update TEXT NOT NULL,"
 			"  name TEXT NOT NULL,"
 			"  login TEXT NOT NULL,"
 			"  password TEXT NOT NULL"
