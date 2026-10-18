@@ -26,7 +26,7 @@ class TFViewing : public TFBase
   private: // User declarations
     bool isEdited;
   public: // User declarations
-	__fastcall TFViewing(TComponent* Owner, const TDataHolder* data);
+	__fastcall TFViewing(TComponent* Owner, const TDataHolder& data);
     bool IsEdited() const noexcept;
 };
 //---------------------------------------------------------------------------

@@ -14,10 +14,10 @@ class TDBMenager {
         static TFDQuery* getQRY();
 	public:
 		static TInfoVector getAllNames();
-		static int addToDB(const TDataHolder* data);
+		static int addToDB(const TDataHolder& data);
 		static void delFromDB(const int id);
-		static void updDB(const int id, const TDataHolder* data);
-		static TUPtrDataHolder getFromDB(const int id);
+		static void updDB(const int id, const TDataHolder& data);
+		static TDataHolder getFromDB(const int id);
 };
 //---------------------------------------------------------------------------
 #endif

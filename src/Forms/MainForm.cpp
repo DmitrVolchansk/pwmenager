@@ -42,9 +42,9 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 	try {
 		if (customDlg->ShowModal() == mrYes) {
 
-			TUPtrDataHolder result = addingFrame->getReport();
-			int id = TDBMenager::addToDB(result.get());
-			showCases.push_back(new TFShowCase(this, id, ShowCaseLayout, result->name));
+			TDataHolder result = addingFrame->getReport();
+			int id = TDBMenager::addToDB(result);
+			showCases.push_back(new TFShowCase(this, id, ShowCaseLayout, result.name));
 
 		}
 	} __finally {

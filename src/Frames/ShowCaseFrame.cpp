@@ -38,17 +38,17 @@ System::String TFShowCase::getCaseName() const noexcept
 //---------------------------------------------------------------------------
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
-	TUPtrDataHolder data = TDBMenager::getFromDB( id );
-	auto viewFrame = new TFViewing(nullptr, data.get());
+	TDataHolder data = TDBMenager::getFromDB( id );
+	auto viewFrame = new TFViewing(nullptr, data);
 	auto viewForm = new TFCustomDlg(nullptr, viewFrame);
 	try
 	{
 		viewForm->ShowModal();
 		if ( viewFrame->IsEdited() ) {
 
-			TUPtrDataHolder ediedData = viewFrame->getReport();
-            OpenViewBtn->Text = ediedData->name;
-			TDBMenager::updDB( id, ediedData.get() );
+			TDataHolder ediedData = viewFrame->getReport();
+            OpenViewBtn->Text = ediedData.name;
+			TDBMenager::updDB( id, ediedData);
 
 		}
 	}

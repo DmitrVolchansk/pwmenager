@@ -41,7 +41,7 @@ TInfoVector TDBMenager::getAllNames()
 	return result;
 }
 //---------------------------------------------------------------------------
-int TDBMenager::addToDB(const TDataHolder* data)
+int TDBMenager::addToDB(const TDataHolder& data)
 {
 	TFDQuery* qry = getQRY();
 	int newId;
@@ -49,12 +49,12 @@ int TDBMenager::addToDB(const TDataHolder* data)
 	try
 	{
 		qry->SQL->Text = "INSERT INTO auth (name, login, password, last_update)"
-						" VALUES (:name, :login, :password, :lu)"
+						" VALUES (:name, :login, :password, :last_update)"
 						" RETURNING id";
-		qry->ParamByName("name")->AsString = data->name;
-		qry->ParamByName("login")->AsString = data->login;
-		qry->ParamByName("password")->AsString = data->pword;
-		qry->ParamByName("lu")->AsString = dataValidater.getCurrentDateToString();
+		qry->ParamByName("name")->AsString = data.name;
+		qry->ParamByName("login")->AsString = data.login;
+		qry->ParamByName("password")->AsString = data.pword;
+		qry->ParamByName("last_update")->AsString = dataValidater.getCurrentDateToString();
 		qry->Open();
 		newId = qry->FieldByName("id")->AsInteger;
 	}
@@ -82,17 +82,17 @@ void TDBMenager::delFromDB(const int id)
 	}
 }
 //---------------------------------------------------------------------------
-void TDBMenager::updDB(const int id, const TDataHolder* data)
+void TDBMenager::updDB(const int id, const TDataHolder& data)
 {
 	TFDQuery* qry = getQRY();
-    DataValidater dataValidater{};
+	DataValidater dataValidater{};
+	ShowMessage( dataValidater.getCurrentDateToString() );
 	try
 	{
-		qry->SQL->Text = "UPDATE auth SET name = :name, login = :login, password = :pswrd, last_update = :lu"
-							"WHERE id = :id";
-		qry->ParamByName("name")->AsString = data->name;
-		qry->ParamByName("login")->AsString = data->login;
-		qry->ParamByName("pswrd")->AsString = data->pword;
+		qry->SQL->Text = "UPDATE auth SET name = :name, login = :login, password = :pswrd, last_update = :lu WHERE id = :id";
+		qry->ParamByName("name")->AsString = data.name;
+		qry->ParamByName("login")->AsString = data.login;
+		qry->ParamByName("pswrd")->AsString = data.pword;
 		qry->ParamByName("lu")->AsString = dataValidater.getCurrentDateToString();
 		qry->ParamByName("id")->AsInteger = id;
 
@@ -105,27 +105,26 @@ void TDBMenager::updDB(const int id, const TDataHolder* data)
 	}
 }
 //---------------------------------------------------------------------------
-TUPtrDataHolder TDBMenager::getFromDB(const int id)
+TDataHolder TDBMenager::getFromDB(const int id)
 {
-    TFDQuery* qry = getQRY();
-	TUPtrDataHolder data;
+	TFDQuery* qry = getQRY();
 	try
 	{
 		qry->SQL->Text = "SELECT name, login, password FROM auth WHERE id = :id";
 		qry->ParamByName("id")->AsInteger = id;
 		qry->Open();
-		data = std::make_unique<TDataHolder>(TDataHolder {
+		return TDataHolder {
 			.name = qry->FieldByName("name")->AsString,
 			.login = qry->FieldByName("login")->AsString,
 			.pword = qry->FieldByName("password")->AsString
-		});
+		};
 	}
 	__finally
 	{
 		qry->Close();
 		delete qry;
 	}
-    return data;
+	return TDataHolder{};
 }
 
 //---------------------------------------------------------------------------

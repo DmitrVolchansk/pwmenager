@@ -30,10 +30,10 @@ __published:	// IDE-managed Components
 	void __fastcall SwitchPasswordHide(TObject *Sender);
 private: // User declarations
 protected:	// User declarations
-	void LoadData(const TDataHolder* data);
+	void LoadData(const TDataHolder& data);
 public:		// User declarations
 	__fastcall TFBase(TComponent* Owner);
-	TUPtrDataHolder getReport() const;
+	TDataHolder getReport() const;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFBase *FBase;

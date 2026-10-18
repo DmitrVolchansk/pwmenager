@@ -12,7 +12,7 @@
 #pragma resource "*.fmx"
 TFViewing *FViewing;
 //---------------------------------------------------------------------------
-__fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder* data) :
+__fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder& data) :
 	TFBase(Owner), isEdited(false)
 {
 	LoadData( data );
@@ -25,14 +25,14 @@ bool TFViewing::IsEdited() const noexcept
 //---------------------------------------------------------------------------
 void __fastcall TFViewing::EditBtnClick(TObject *Sender)
 {
-	TUPtrDataHolder data = std::move( getReport() );
-	auto editFrame = new TFEdit(nullptr, data.get());
+	TDataHolder data = getReport();
+	auto editFrame = new TFEdit(nullptr, data);
 	auto editForm = new TFCustomDlg(nullptr, editFrame);
 	try{
 		if (editForm->ShowModal() == mrYes) {
 
-			TUPtrDataHolder updData = std::move( editFrame->getReport() );
-			LoadData(updData.get());
+			TDataHolder updData = editFrame->getReport();
+			LoadData(updData);
             isEdited = true;
 
 		}
