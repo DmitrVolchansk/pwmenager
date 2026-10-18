@@ -13,15 +13,10 @@
 #pragma resource "*.fmx"
 TFViewing *FViewing;
 //---------------------------------------------------------------------------
-__fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder& data) :
-	TFBase(Owner), isEdited(false)
+__fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder& data, const int id) :
+	TFBase(Owner), id(id)
 {
 	LoadData( data );
-}
-//---------------------------------------------------------------------------
-bool TFViewing::IsEdited() const noexcept
-{
-    return this->isEdited;
 }
 //---------------------------------------------------------------------------
 void __fastcall TFViewing::CopyLoginBtnClick(TObject *Sender)
@@ -39,10 +34,9 @@ void __fastcall TFViewing::CopyPWBtnClick(TObject *Sender)
 
 void __fastcall TFViewing::EditBtnClick(TObject *Sender)
 {
-	auto data = getReport();
-	data = NavigationService::openEditing(id, data);
-	if (data != TDataHolder{})
-		LoadData(data);
+	auto upData = NavigationService::openEditing(id, getReport());
+	if (upData.has_value())
+		LoadData(*upData);
 }
 //---------------------------------------------------------------------------
 

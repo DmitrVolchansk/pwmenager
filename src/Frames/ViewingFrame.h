@@ -24,10 +24,9 @@ class TFViewing : public TFBase
 	void __fastcall CopyPWBtnClick(TObject *Sender);
 	void __fastcall EditBtnClick(TObject *Sender);
   private: // User declarations
-    bool isEdited;
+    int id;
   public: // User declarations
-	__fastcall TFViewing(TComponent* Owner, const TDataHolder& data);
-    bool IsEdited() const noexcept;
+	__fastcall TFViewing(TComponent* Owner, const TDataHolder& data, const int id);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFViewing* FViewing;

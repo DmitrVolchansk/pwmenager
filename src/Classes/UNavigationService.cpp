@@ -32,30 +32,31 @@ void NavigationService::openAdding(TShowCaseService& ShowCaseService)
 	}
 }
 //---------------------------------------------------------------------------
-void NavigationService::openReading(const int id, TCornerButton* OpenViewBtn)
+std::optional<String> NavigationService::openReading(const int id)
 {
-    TDataHolder data = dbmenager::getFromDB( id );
-	auto viewFrame = new TFViewing(nullptr, data);
+	auto data = dbmenager::getFromDB( id );
+	if (!data.has_value()){
+		ShowMessage("Sorry, no record in data base");
+        return std::nullopt;
+	}
+	String name;
+	auto viewFrame = new TFViewing(nullptr, *data, id);
 	auto viewForm = new TFCustomDlg(nullptr, viewFrame);
 	try
 	{
 		viewForm->ShowModal();
-		if ( viewFrame->IsEdited() ) {
-
-			TDataHolder ediedData = viewFrame->getReport();
-            OpenViewBtn->Text = ediedData.name;
-			dbmenager::updDB( id, ediedData);
-
-		}
+		auto ediedData = viewFrame->getReport();
+		name = ediedData.name;
 	}
 	__finally
 	{
 		delete viewFrame;
 		delete viewForm;
 	}
+	return name;
 }
 //---------------------------------------------------------------------------
-void NavigationService::openEditing(const id, const TDataHolder& data)
+std::optional<TDataHolder> NavigationService::openEditing(const int id, const TDataHolder& data)
 {
 	auto editFrame = new TFEdit(nullptr, data);
 	auto editForm = new TFCustomDlg(nullptr, editFrame);
@@ -72,7 +73,7 @@ void NavigationService::openEditing(const id, const TDataHolder& data)
 		delete editFrame;
         delete editForm;
 	}
-    return TDataHolder{};
+    return std::nullopt;
 }
 //---------------------------------------------------------------------------
 void NavigationService::openGenerator()

@@ -105,7 +105,7 @@ namespace dbmenager {
 		}
 	}
 	//-----------------------------------------------------------------------
-	TDataHolder getFromDB(const int id)
+	std::optional<TDataHolder> getFromDB(const int id)
 	{
 		TFDQuery* qry = getQRY();
 		try
@@ -124,7 +124,7 @@ namespace dbmenager {
 			qry->Close();
 			delete qry;
 		}
-		return TDataHolder{};
+		return std::nullopt;
 	}
 }
 //---------------------------------------------------------------------------
