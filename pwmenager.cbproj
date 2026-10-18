@@ -271,7 +271,7 @@
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
             <DependentOn>src\Frames\ShowCaseFrame.h</DependentOn>
-            <BuildOrder>7</BuildOrder>
+            <BuildOrder>14</BuildOrder>
         </CppCompile>
         <CppCompile Include="src\Frames\ViewingFrame.cpp">
             <Form>FViewing</Form>
@@ -283,12 +283,12 @@
         <FormResources Include="src\Frames\AddingFrame.fmx"/>
         <FormResources Include="src\Forms\MainForm.fmx"/>
         <FormResources Include="src\Forms\GeneratorForm.fmx"/>
-        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
-        <FormResources Include="src\Frames\ViewingFrame.fmx"/>
-        <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
-        <FormResources Include="src\Frames\EditFrame.fmx"/>
         <FormResources Include="src\Frames\BaseFrame.fmx"/>
+        <FormResources Include="src\Frames\ViewingFrame.fmx"/>
+        <FormResources Include="src\Frames\EditFrame.fmx"/>
+        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <FormResources Include="src\DataModules\DMdb.dfm"/>
+        <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

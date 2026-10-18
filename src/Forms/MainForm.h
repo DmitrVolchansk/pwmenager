@@ -15,6 +15,7 @@
 #include <vector>
 #include "ShowCaseFrame.h"
 #include "CustomDlgForm.h"
+#include "ShowCaseService.h"
 //---------------------------------------------------------------------------
 class TFMain : public TForm
 {
@@ -36,6 +37,7 @@ __published:	// IDE-managed Components
 	void __fastcall SearchBtnClick(TObject *Sender);
 private:	// User declarations
 	TFCustomDlg* customDlg;
+	TShowCaseService ShowCaseService;
 	std::vector<TFShowCase*> showCases;
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);

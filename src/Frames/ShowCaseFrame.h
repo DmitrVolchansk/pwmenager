@@ -12,7 +12,6 @@
 //---------------------------------------------------------------------------
 struct TShowCaseParam {
 	int id;
-	TScrollBox* Parent;
 	const String& text;
 	bool isOld = false;
 };
@@ -30,7 +29,7 @@ private:	// User declarations
 public:		// User declarations
 	std::function<void(TFShowCase*)> OnFrameDeleted;
 	void RequestDelete();
-	__fastcall TFShowCase(const TShowCaseParam& params);
+	__fastcall TFShowCase(TScrollBox* Owner, const TShowCaseParam& params);
 
     String getCaseName() const noexcept;
 };

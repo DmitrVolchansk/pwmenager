@@ -12,10 +12,10 @@
 #pragma resource "*.fmx"
 TFShowCase *FShowCase;
 //---------------------------------------------------------------------------
-__fastcall TFShowCase::TFShowCase(const TShowCaseParam& params)
-	: TFrame(params.Parent), id(params.id)
+__fastcall TFShowCase::TFShowCase(TScrollBox* Owner, const TShowCaseParam& params)
+	: TFrame(Owner), id(params.id)
 {
-    Parent = params.Parent->Content;
+    Parent = Owner->Content;
 	Name = "id" + IntToStr(id);
 	ActionLbl->Visible = params.isOld;
 	OpenViewBtn->Text = params.text;
