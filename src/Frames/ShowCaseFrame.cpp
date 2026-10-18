@@ -38,7 +38,7 @@ System::String TFShowCase::getCaseName() const noexcept
 //---------------------------------------------------------------------------
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
-	TDataHolder data = TDBMenager::getFromDB( id );
+	TDataHolder data = dbmenager::getFromDB( id );
 	auto viewFrame = new TFViewing(nullptr, data);
 	auto viewForm = new TFCustomDlg(nullptr, viewFrame);
 	try
@@ -48,7 +48,7 @@ void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 
 			TDataHolder ediedData = viewFrame->getReport();
             OpenViewBtn->Text = ediedData.name;
-			TDBMenager::updDB( id, ediedData);
+			dbmenager::updDB( id, ediedData);
 
 		}
 	}
@@ -62,7 +62,7 @@ void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 
 void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
 {
-	TDBMenager::delFromDB( id );
+	dbmenager::delFromDB( id );
 	OnRequestDelete(this);
 }
 //---------------------------------------------------------------------------

@@ -22,7 +22,7 @@ __fastcall TFMain::TFMain(TComponent* Owner)
 void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
 {
 	if (SearchPanel->Visible) {
-		Searcher::reset(showCases);
+		searcher::reset(showCases);
         SearchEdit->Text = EmptyStr;
 	}
 	this->SearchPanel->Visible = !(this->SearchPanel->Visible);
@@ -43,7 +43,7 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 		if (customDlg->ShowModal() == mrYes) {
 
 			TDataHolder result = addingFrame->getReport();
-			int id = TDBMenager::addToDB(result);
+			int id = dbmenager::addToDB(result);
 			showCases.push_back(new TFShowCase(this, id, ShowCaseLayout, result.name));
 
 		}
@@ -56,7 +56,7 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 
 void __fastcall TFMain::FormCreate(TObject *Sender)
 {
-	TInfoVector passwordNames = TDBMenager::getAllNames();
+	TInfoVector passwordNames = dbmenager::getAllNames();
 	for (const auto& item: passwordNames)
 		showCases.push_back(new TFShowCase(this, item.id, ShowCaseLayout, item.name, item.isOld));
 }
@@ -64,6 +64,6 @@ void __fastcall TFMain::FormCreate(TObject *Sender)
 
 void __fastcall TFMain::SearchBtnClick(TObject *Sender)
 {
-	Searcher::searchByName(showCases, SearchEdit->Text);
+	searcher::searchByName(showCases, SearchEdit->Text);
 }
 //---------------------------------------------------------------------------
