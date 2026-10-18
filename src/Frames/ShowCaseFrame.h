@@ -35,7 +35,7 @@ private:	// User declarations
 public:		// User declarations
 	std::function<void(TFShowCase*)> OnRequestDelete;
 
-	__fastcall TFShowCase(TComponent* Owner, const TShowCaseParam& param);
+	__fastcall TFShowCase(const TShowCaseParam& params);
 
     String getCaseName() const noexcept;
 };

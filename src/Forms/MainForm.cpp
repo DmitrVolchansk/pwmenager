@@ -58,7 +58,7 @@ void __fastcall TFMain::FormCreate(TObject *Sender)
 {
 	TInfoVector passwordNames = dbmenager::getAllNames();
 	for (const auto& item: passwordNames){
-		showCases.push_back(new TFShowCase(this, TShowCaseParam {
+		showCases.push_back(new TFShowCase(TShowCaseParam {
 			.id = item.id,
 			.Parent = ShowCaseLayout,
 			.text = item.name,

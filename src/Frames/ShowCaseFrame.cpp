@@ -12,8 +12,8 @@
 #pragma resource "*.fmx"
 TFShowCase *FShowCase;
 //---------------------------------------------------------------------------
-__fastcall TFShowCase::TFShowCase(TComponent* Owner, const TShowCaseParam& param)
-	: TFrame(Owner), id(param.id)
+__fastcall TFShowCase::TFShowCase(const TShowCaseParam& params)
+	: TFrame(param.Parent), id(param.id)
 {
 	Name = "id" + IntToStr(param.id);
 	ActionLbl->Visible = param.isOld;
