@@ -12,14 +12,14 @@
 #pragma resource "*.fmx"
 TFShowCase *FShowCase;
 //---------------------------------------------------------------------------
-__fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
-		TScrollBox* ScllBox, const String& text, const bool isOld)
-	: TFrame(Owner), id(id)
+__fastcall TFShowCase::TFShowCase(TComponent* Owner, const TShowCaseParam& param)
+	: TFrame(Owner), id(param.id)
 {
-	Name = "id" + IntToStr(id);
-    ActionLbl->Visible = isOld;
-	Parent = ScllBox->Content;
-	OpenViewBtn->Text = text;
+	Name = "id" + IntToStr(param.id);
+	ActionLbl->Visible = param.isOld;
+	Parent = param.Parent->Content;
+	OpenViewBtn->Text = param.text;
+
 	OnRequestDelete = [this](TFShowCase* f) {
 		auto ref = f;
 		TThread::ForceQueue(nullptr, [ref]() {

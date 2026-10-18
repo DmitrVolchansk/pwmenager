@@ -44,7 +44,7 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 
 			TDataHolder result = addingFrame->getReport();
 			int id = dbmenager::addToDB(result);
-			showCases.push_back(new TFShowCase(this, id, ShowCaseLayout, result.name));
+//			showCases.push_back(new TFShowCase(this, id, ShowCaseLayout, result.name));
 
 		}
 	} __finally {
@@ -57,8 +57,20 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 void __fastcall TFMain::FormCreate(TObject *Sender)
 {
 	TInfoVector passwordNames = dbmenager::getAllNames();
-	for (const auto& item: passwordNames)
-		showCases.push_back(new TFShowCase(this, item.id, ShowCaseLayout, item.name, item.isOld));
+	for (const auto& item: passwordNames){
+//		auto p = TShowCaseParam {
+//			.id = item.id,
+//			.Parent = ShowCaseLayout,
+//			.text = item.name,
+//			.isOld = item.isOld
+//		};
+		showCases.push_back(new TFShowCase(this, TShowCaseParam {
+		item.id,
+		ShowCaseLayout,
+		item.name,
+		item.isOld
+		}));
+	}
 }
 //---------------------------------------------------------------------------
 

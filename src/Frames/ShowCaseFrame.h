@@ -15,6 +15,13 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 //---------------------------------------------------------------------------
+struct TShowCaseParam {
+	int id;
+	TScrollBox* Parent;
+	const String& text;
+    bool isOld = false;
+};
+//---------------------------------------------------------------------------
 class TFShowCase : public TFrame
 {
 __published:	// IDE-managed Components
@@ -28,8 +35,7 @@ private:	// User declarations
 public:		// User declarations
 	std::function<void(TFShowCase*)> OnRequestDelete;
 
-	__fastcall TFShowCase(TComponent* Owner, const int id,
-		TScrollBox* Parent, const String& text, const bool isOld = false);
+	__fastcall TFShowCase(TComponent* Owner, const TShowCaseParam& param);
 
     String getCaseName() const noexcept;
 };
