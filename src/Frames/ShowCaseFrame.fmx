@@ -4,16 +4,18 @@ object FShowCase: TFShowCase
   Size.Height = 48.000000000000000000
   Size.PlatformDefault = False
   object OpenViewBtn: TCornerButton
-    Align = Top
+    Align = Client
     Cursor = crHandPoint
     Sides = [Top, Left, Bottom, Right]
-    Size.Width = 488.000000000000000000
+    Size.Width = 440.000000000000000000
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     TextSettings.Trimming = None
     XRadius = 3.000000000000000000
     YRadius = 3.000000000000000000
+    ParentShowHint = False
+    ShowHint = False
     OnClick = OpenViewBtnClick
   end
   object DeleteBtn: TSpeedButton
@@ -27,5 +29,22 @@ object FShowCase: TFShowCase
     StyleLookup = 'trashtoolbutton'
     TextSettings.Trimming = None
     OnClick = DeleteBtnClick
+  end
+  object ActionLbl: TLabel
+    Align = FitLeft
+    Cursor = crHelp
+    StyledSettings = [Family, Style, FontColor]
+    Hint = 
+      'The password hasn'#39't been updated for a long time. Please change ' +
+      'it.'
+    HitTest = True
+    Size.Width = 48.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 36.000000000000000000
+    Text = #9888#65039
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
   end
 end

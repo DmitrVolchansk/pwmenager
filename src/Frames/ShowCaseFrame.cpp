@@ -13,13 +13,14 @@
 TFShowCase *FShowCase;
 //---------------------------------------------------------------------------
 __fastcall TFShowCase::TFShowCase(TComponent* Owner, const int id,
-		TScrollBox* ScllBox, const String& text)
+		TScrollBox* ScllBox, const String& text, const bool isOld)
 	: TFrame(Owner), id(id)
 {
 	Name = "id" + IntToStr(id);
+    ActionLbl->Visible = isOld;
 	Parent = ScllBox->Content;
 	OpenViewBtn->Text = text;
-    OnRequestDelete = [this](TFShowCase* f) {
+	OnRequestDelete = [this](TFShowCase* f) {
 		auto ref = f;
 		TThread::ForceQueue(nullptr, [ref]() {
 			ref->Parent = nullptr;

@@ -11,7 +11,8 @@ using TUPtrDataHolder = std::unique_ptr<TDataHolder>;
 //---------------------------------------------------------------------------
 struct TMetaData {
 	const int id;
-    const String name;
+	const String name;
+    const bool isOld;
 };
 //---------------------------------------------------------------------------
 #endif

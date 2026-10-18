@@ -201,13 +201,17 @@
             <BuildOrder>2</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="src\Classes\UDataValidater.cpp">
+            <DependentOn>src\Classes\UDataValidater.h</DependentOn>
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
         <CppCompile Include="src\Classes\UDBMenager.cpp">
             <DependentOn>src\Classes\UDBMenager.h</DependentOn>
             <BuildOrder>12</BuildOrder>
         </CppCompile>
-        <CppCompile Include="src\Common\USearcher.cpp">
-            <DependentOn>src\Common\USearcher.h</DependentOn>
-            <BuildOrder>13</BuildOrder>
+        <CppCompile Include="src\Classes\USearcher.cpp">
+            <DependentOn>src\Classes\USearcher.h</DependentOn>
+            <BuildOrder>14</BuildOrder>
         </CppCompile>
         <None Include="src\Common\UTypes.h">
             <BuildOrder>10</BuildOrder>
@@ -272,13 +276,13 @@
             <DependentOn>src\Frames\ViewingFrame.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
-        <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\Frames\AddingFrame.fmx"/>
         <FormResources Include="src\Forms\MainForm.fmx"/>
+        <FormResources Include="src\Forms\GeneratorForm.fmx"/>
+        <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\Frames\ViewingFrame.fmx"/>
         <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
         <FormResources Include="src\Frames\EditFrame.fmx"/>
-        <FormResources Include="src\Forms\GeneratorForm.fmx"/>
         <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <FormResources Include="src\DataModules\DMdb.dfm"/>
         <BuildConfiguration Include="Base">

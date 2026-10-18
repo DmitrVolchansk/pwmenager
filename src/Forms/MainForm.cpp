@@ -21,8 +21,10 @@ __fastcall TFMain::TFMain(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::SwitchSearchPnlVisible(TObject *Sender)
 {
-    if (SearchPanel->Visible)
+	if (SearchPanel->Visible) {
 		Searcher::reset(showCases);
+        SearchEdit->Text = EmptyStr;
+	}
 	this->SearchPanel->Visible = !(this->SearchPanel->Visible);
 }
 //---------------------------------------------------------------------------
@@ -35,20 +37,20 @@ void __fastcall TFMain::GenerateClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
-//	auto addingFrame = new TFAdding(nullptr);
-//	this->customDlg = new TFCustomDlg(nullptr, addingFrame);
-//	try {
-//		if (customDlg->ShowModal() == mrYes) {
-//
-//			TUPtrDataHolder result = std::move( addingFrame->getReport() );
-//			int id = TDBMenager::addToDB(result.get());
-//			new TFShowCase(this, id, ShowCaseContainer, result->name);
-//
-//		}
-//	} __finally {
-//		delete addingFrame;
-//		delete customDlg;
-//	}
+	auto addingFrame = new TFAdding(nullptr);
+	this->customDlg = new TFCustomDlg(nullptr, addingFrame);
+	try {
+		if (customDlg->ShowModal() == mrYes) {
+
+			TUPtrDataHolder result = addingFrame->getReport();
+			int id = TDBMenager::addToDB(result.get());
+			showCases.push_back(new TFShowCase(this, id, ShowCaseLayout, result->name));
+
+		}
+	} __finally {
+		delete addingFrame;
+		delete customDlg;
+	}
 }
 //---------------------------------------------------------------------------
 
@@ -56,7 +58,7 @@ void __fastcall TFMain::FormCreate(TObject *Sender)
 {
 	TInfoVector passwordNames = TDBMenager::getAllNames();
 	for (const auto& item: passwordNames)
-		showCases.push_back(new TFShowCase(this, item.id, ShowCaseLayout, item.name));
+		showCases.push_back(new TFShowCase(this, item.id, ShowCaseLayout, item.name, item.isOld));
 }
 //---------------------------------------------------------------------------
 

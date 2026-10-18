@@ -20,6 +20,7 @@ class TFShowCase : public TFrame
 __published:	// IDE-managed Components
 	TCornerButton *OpenViewBtn;
 	TSpeedButton *DeleteBtn;
+	TLabel *ActionLbl;
 	void __fastcall OpenViewBtnClick(TObject *Sender);
 	void __fastcall DeleteBtnClick(TObject *Sender);
 private:	// User declarations
@@ -28,7 +29,7 @@ public:		// User declarations
 	std::function<void(TFShowCase*)> OnRequestDelete;
 
 	__fastcall TFShowCase(TComponent* Owner, const int id,
-		TScrollBox* Parent, const String& text);
+		TScrollBox* Parent, const String& text, const bool isOld = false);
 
     String getCaseName() const noexcept;
 };

@@ -3,6 +3,7 @@
 #pragma hdrstop
 
 #include "UDBMenager.h"
+#include "UDataValidater.h"
 //---------------------------------------------------------------------------
 Firedac::Comp::Client::TFDQuery* TDBMenager::getQRY()
 {
@@ -15,16 +16,18 @@ TInfoVector TDBMenager::getAllNames()
 {
 	TFDQuery* qry = getQRY();
 	TInfoVector result;
+	DataValidater validater{};
 	try
 	{
-		qry->SQL->Text = "SELECT id, name FROM auth";
+		qry->SQL->Text = "SELECT id, name, last_update FROM auth";
 		qry->Open();
 
 		while (!qry->Eof){
 
-			result.emplace_back( TMetaData {
+			result.push_back( TMetaData {
 				.id = qry->FieldByName("id")->AsInteger,
-				.name = qry->FieldByName("name")->AsString
+				.name = qry->FieldByName("name")->AsString,
+				.isOld = validater.isDateOld( qry->FieldByName("last_update")->AsString )
 			});
 
 			qry->Next();
@@ -41,15 +44,17 @@ TInfoVector TDBMenager::getAllNames()
 int TDBMenager::addToDB(const TDataHolder* data)
 {
 	TFDQuery* qry = getQRY();
-    int newId;
+	int newId;
+	DataValidater dataValidater{};
 	try
 	{
-		qry->SQL->Text = "INSERT INTO auth (name, login, password)"
-						" VALUES (:name, :login, :password)"
+		qry->SQL->Text = "INSERT INTO auth (name, login, password, last_update)"
+						" VALUES (:name, :login, :password, :lu)"
 						" RETURNING id";
 		qry->ParamByName("name")->AsString = data->name;
 		qry->ParamByName("login")->AsString = data->login;
 		qry->ParamByName("password")->AsString = data->pword;
+		qry->ParamByName("lu")->AsString = dataValidater.getCurrentDateToString();
 		qry->Open();
 		newId = qry->FieldByName("id")->AsInteger;
 	}
@@ -80,13 +85,17 @@ void TDBMenager::delFromDB(const int id)
 void TDBMenager::updDB(const int id, const TDataHolder* data)
 {
 	TFDQuery* qry = getQRY();
+    DataValidater dataValidater{};
 	try
 	{
-		qry->SQL->Text = "UPDATE auth SET name = :name, login = :login, password = :pswrd WHERE id = :id";
+		qry->SQL->Text = "UPDATE auth SET name = :name, login = :login, password = :pswrd, last_update = :lu"
+							"WHERE id = :id";
 		qry->ParamByName("name")->AsString = data->name;
 		qry->ParamByName("login")->AsString = data->login;
 		qry->ParamByName("pswrd")->AsString = data->pword;
+		qry->ParamByName("lu")->AsString = dataValidater.getCurrentDateToString();
 		qry->ParamByName("id")->AsInteger = id;
+
 		qry->ExecSQL();
 	}
 	__finally
