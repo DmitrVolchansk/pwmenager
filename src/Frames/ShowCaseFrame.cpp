@@ -15,9 +15,9 @@ TFShowCase *FShowCase;
 __fastcall TFShowCase::TFShowCase(const TShowCaseParam& params)
 	: TFrame(params.Parent), id(params.id)
 {
-	Name = "id" + IntToStr(params.id);
+    Parent = params.Parent->Content;
+	Name = "id" + IntToStr(id);
 	ActionLbl->Visible = params.isOld;
-	Parent = params.Parent->Content;
 	OpenViewBtn->Text = params.text;
 
 	OnRequestDelete = [this](TFShowCase* f) {
