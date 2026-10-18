@@ -5,6 +5,9 @@ struct TDataHolder {
 	const String name;
 	const String login;
 	const String pword;
+//	String name;
+//	String login;
+//	String pword;
 };
 //---------------------------------------------------------------------------
 struct TMetaData {

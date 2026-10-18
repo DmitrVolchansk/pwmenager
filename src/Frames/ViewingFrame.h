@@ -20,9 +20,9 @@ class TFViewing : public TFBase
 	TSpeedButton *EditBtn;
 	TSpeedButton *CopyLoginBtn;
 	TSpeedButton *CopyPWBtn;
-	void __fastcall EditBtnClick(TObject *Sender);
 	void __fastcall CopyLoginBtnClick(TObject *Sender);
 	void __fastcall CopyPWBtnClick(TObject *Sender);
+	void __fastcall EditBtnClick(TObject *Sender);
   private: // User declarations
     bool isEdited;
   public: // User declarations

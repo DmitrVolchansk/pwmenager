@@ -32,9 +32,9 @@ __published:	// IDE-managed Components
 	TSpeedButton *SearchBtn;
 	void __fastcall SwitchSearchPnlVisible(TObject *Sender);
 	void __fastcall GenerateClick(TObject *Sender);
-	void __fastcall AddClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall SearchBtnClick(TObject *Sender);
+	void __fastcall AddClick(TObject *Sender);
 private:	// User declarations
 	TFCustomDlg* customDlg;
 	TShowCaseService ShowCaseService;

@@ -3,7 +3,6 @@
 #pragma hdrstop
 
 #include "ShowCaseService.h"
-#include "USearcher.h"
 
 //---------------------------------------------------------------------------
 TShowCaseService::TShowCaseService(std::vector<TFShowCase*>& vector, TScrollBox* pare) :

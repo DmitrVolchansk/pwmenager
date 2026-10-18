@@ -6,6 +6,7 @@
 #include "ViewingFrame.h"
 #include "EditFrame.h"
 #include "CustomDlgForm.h"
+#include "UNavigationService.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "BaseFrame"
@@ -23,25 +24,6 @@ bool TFViewing::IsEdited() const noexcept
     return this->isEdited;
 }
 //---------------------------------------------------------------------------
-void __fastcall TFViewing::EditBtnClick(TObject *Sender)
-{
-	TDataHolder data = getReport();
-	auto editFrame = new TFEdit(nullptr, data);
-	auto editForm = new TFCustomDlg(nullptr, editFrame);
-	try{
-		if (editForm->ShowModal() == mrYes) {
-
-			TDataHolder updData = editFrame->getReport();
-			LoadData(updData);
-            isEdited = true;
-
-		}
-	} __finally {
-		delete editFrame;
-        delete editForm;
-	}
-}
-//---------------------------------------------------------------------------
 void __fastcall TFViewing::CopyLoginBtnClick(TObject *Sender)
 {
 	LoginEdit->SelectAll();
@@ -52,6 +34,15 @@ void __fastcall TFViewing::CopyPWBtnClick(TObject *Sender)
 {
 	PasswordEdit->SelectAll();
     PasswordEdit->CopyToClipboard();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFViewing::EditBtnClick(TObject *Sender)
+{
+	auto data = getReport();
+	data = NavigationService::openEditing(id, data);
+	if (data != TDataHolder{})
+		LoadData(data);
 }
 //---------------------------------------------------------------------------
 

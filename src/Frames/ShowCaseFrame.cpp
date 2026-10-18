@@ -4,9 +4,8 @@
 #pragma hdrstop
 
 #include "ShowCaseFrame.h"
-#include "CustomDlgForm.h"
-#include "ViewingFrame.h"
 #include "UDBMenager.h"
+#include "UNavigationService.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
@@ -28,29 +27,6 @@ System::String TFShowCase::getCaseName() const noexcept
 }
 
 //---------------------------------------------------------------------------
-void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
-{
-	TDataHolder data = dbmenager::getFromDB( id );
-	auto viewFrame = new TFViewing(nullptr, data);
-	auto viewForm = new TFCustomDlg(nullptr, viewFrame);
-	try
-	{
-		viewForm->ShowModal();
-		if ( viewFrame->IsEdited() ) {
-
-			TDataHolder ediedData = viewFrame->getReport();
-            OpenViewBtn->Text = ediedData.name;
-			dbmenager::updDB( id, ediedData);
-
-		}
-	}
-	__finally
-	{
-		delete viewFrame;
-		delete viewForm;
-	}
-}
-//---------------------------------------------------------------------------
 
 void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
 {
@@ -63,6 +39,12 @@ void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
 		}
 		delete ref;
 	});
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
+{
+    NavigationService::openReading(id, OpenViewBtn);
 }
 //---------------------------------------------------------------------------
 

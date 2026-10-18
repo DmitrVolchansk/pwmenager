@@ -13,10 +13,10 @@ USEFORM("src\Forms\MainForm.cpp", FMain);
 USEFORM("src\Forms\GeneratorForm.cpp", FGenerator);
 USEFORM("src\Frames\BaseFrame.cpp", FBase); /* TFrame: File Type */
 USEFORM("src\Frames\ViewingFrame.cpp", FViewing); /* TFrame: File Type */
+USEFORM("src\Frames\ShowCaseFrame.cpp", FShowCase); /* TFrame: File Type */
 USEFORM("src\Frames\EditFrame.cpp", FEdit); /* TFrame: File Type */
 USEFORM("src\Forms\CustomDlgForm.cpp", FCustomDlg);
 USEFORM("src\DataModules\DMdb.cpp", DataBaseModule); /* TDataModule: File Type */
-USEFORM("src\Frames\ShowCaseFrame.cpp", FShowCase); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {

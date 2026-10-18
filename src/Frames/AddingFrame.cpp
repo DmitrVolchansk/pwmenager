@@ -5,7 +5,7 @@
 
 #include "AddingFrame.h"
 //---------------------------------------------------------------------------
-#include "GeneratorForm.h"
+#include "UNavigationService.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "BaseFrame"
@@ -26,11 +26,7 @@ void __fastcall TFAdding::switchCompliteBtnEnable(TObject* Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFAdding::OpenGeneratorButtonClick(TObject *Sender)
 {
-	auto generator = new TFGenerator(nullptr, "Select");
-	if ( generator->ShowModal() == mrYes ) {
-		PasswordEdit->Text = generator->getSelection();
-		switchCompliteBtnEnable(Sender);
-	}
-	delete generator;
+	NavigationService::openGenerator(PasswordEdit);
+    switchCompliteBtnEnable(Sender);
 }
 //---------------------------------------------------------------------------

@@ -22,8 +22,8 @@ __published:	// IDE-managed Components
 	TCornerButton *OpenViewBtn;
 	TSpeedButton *DeleteBtn;
 	TLabel *ActionLbl;
-	void __fastcall OpenViewBtnClick(TObject *Sender);
 	void __fastcall DeleteBtnClick(TObject *Sender);
+	void __fastcall OpenViewBtnClick(TObject *Sender);
 private:	// User declarations
     const int id;
 public:		// User declarations
