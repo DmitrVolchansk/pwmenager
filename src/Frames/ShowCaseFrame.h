@@ -7,20 +7,14 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include <System.Classes.hpp>
-//---------------------------------------------------------------------------
-#include <System.Classes.hpp>
-#include <FMX.Controls.hpp>
 #include <FMX.Forms.hpp>
-#include <FMX.Controls.Presentation.hpp>
-#include <FMX.StdCtrls.hpp>
-#include <FMX.Types.hpp>
 #include <System.SysUtils.hpp>
 //---------------------------------------------------------------------------
 struct TShowCaseParam {
 	int id;
 	TScrollBox* Parent;
 	const String& text;
-    bool isOld = false;
+	bool isOld = false;
 };
 //---------------------------------------------------------------------------
 class TFShowCase : public TFrame

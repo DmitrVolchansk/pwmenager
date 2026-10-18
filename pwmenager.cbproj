@@ -201,6 +201,10 @@
             <BuildOrder>2</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="src\Classes\ShowCaseService.cpp">
+            <DependentOn>src\Classes\ShowCaseService.h</DependentOn>
+            <BuildOrder>15</BuildOrder>
+        </CppCompile>
         <CppCompile Include="src\Common\UDateValidation.cpp">
             <DependentOn>src\Common\UDateValidation.h</DependentOn>
             <BuildOrder>12</BuildOrder>
@@ -279,11 +283,11 @@
         <FormResources Include="src\Frames\AddingFrame.fmx"/>
         <FormResources Include="src\Forms\MainForm.fmx"/>
         <FormResources Include="src\Forms\GeneratorForm.fmx"/>
-        <FormResources Include="src\Frames\BaseFrame.fmx"/>
+        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
         <FormResources Include="src\Frames\ViewingFrame.fmx"/>
         <FormResources Include="src\Frames\ShowCaseFrame.fmx"/>
         <FormResources Include="src\Frames\EditFrame.fmx"/>
-        <FormResources Include="src\Forms\CustomDlgForm.fmx"/>
+        <FormResources Include="src\Frames\BaseFrame.fmx"/>
         <FormResources Include="src\DataModules\DMdb.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
