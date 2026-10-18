@@ -13,12 +13,12 @@
 TFShowCase *FShowCase;
 //---------------------------------------------------------------------------
 __fastcall TFShowCase::TFShowCase(const TShowCaseParam& params)
-	: TFrame(param.Parent), id(param.id)
+	: TFrame(params.Parent), id(param.id)
 {
-	Name = "id" + IntToStr(param.id);
-	ActionLbl->Visible = param.isOld;
-	Parent = param.Parent->Content;
-	OpenViewBtn->Text = param.text;
+	Name = "id" + IntToStr(params.id);
+	ActionLbl->Visible = params.isOld;
+	Parent = params.Parent->Content;
+	OpenViewBtn->Text = params.text;
 
 	OnRequestDelete = [this](TFShowCase* f) {
 		auto ref = f;
