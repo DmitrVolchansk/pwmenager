@@ -14,6 +14,7 @@
 #include <FMX.Controls.Presentation.hpp>
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
+#include <System.SysUtils.hpp>
 //---------------------------------------------------------------------------
 struct TShowCaseParam {
 	int id;
@@ -33,8 +34,8 @@ __published:	// IDE-managed Components
 private:	// User declarations
     const int id;
 public:		// User declarations
-	std::function<void(TFShowCase*)> OnRequestDelete;
-
+	std::function<void(TFShowCase*)> OnFrameDeleted;
+	void RequestDelete();
 	__fastcall TFShowCase(const TShowCaseParam& params);
 
     String getCaseName() const noexcept;

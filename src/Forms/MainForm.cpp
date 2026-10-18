@@ -41,11 +41,21 @@ void __fastcall TFMain::AddClick(TObject *Sender)
 	this->customDlg = new TFCustomDlg(nullptr, addingFrame);
 	try {
 		if (customDlg->ShowModal() == mrYes) {
-
-			TDataHolder result = addingFrame->getReport();
+            TDataHolder result = addingFrame->getReport();
 			int id = dbmenager::addToDB(result);
-//			showCases.push_back(new TFShowCase(this, id, ShowCaseLayout, result.name));
 
+			auto showCase = new TFShowCase( TShowCaseParam {
+				.id = id,
+				.Parent = ShowCaseLayout,
+				.text = result.name
+			});
+			showCase->OnFrameDeleted = [this](TFShowCase* f) {
+				auto it = std::find(showCases.begin(), showCases.end(), f);
+				if (it != showCases.end()) {
+					showCases.erase(it);
+				}
+			};
+			showCases.push_back(showCase);
 		}
 	} __finally {
 		delete addingFrame;
@@ -58,12 +68,19 @@ void __fastcall TFMain::FormCreate(TObject *Sender)
 {
 	TInfoVector passwordNames = dbmenager::getAllNames();
 	for (const auto& item: passwordNames){
-		showCases.push_back(new TFShowCase(TShowCaseParam {
+		auto t = new TFShowCase(TShowCaseParam {
 			.id = item.id,
 			.Parent = ShowCaseLayout,
 			.text = item.name,
 			.isOld = item.isOld
-		}));
+		});
+		t->OnFrameDeleted = [this](TFShowCase* f) {
+			auto it = std::find(showCases.begin(), showCases.end(), f);
+			if (it != showCases.end()) {
+				showCases.erase(it);
+			}
+		};
+		showCases.push_back(t);
 	}
 }
 //---------------------------------------------------------------------------

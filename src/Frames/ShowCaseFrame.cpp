@@ -19,14 +19,6 @@ __fastcall TFShowCase::TFShowCase(const TShowCaseParam& params)
 	Name = "id" + IntToStr(id);
 	ActionLbl->Visible = params.isOld;
 	OpenViewBtn->Text = params.text;
-
-	OnRequestDelete = [this](TFShowCase* f) {
-		auto ref = f;
-		TThread::ForceQueue(nullptr, [ref]() {
-			ref->Parent = nullptr;
-			delete ref;
-		});
-	};
 }
 //---------------------------------------------------------------------------
 
@@ -63,7 +55,14 @@ void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
 {
 	dbmenager::delFromDB( id );
-	OnRequestDelete(this);
+	auto ref = this;
+	TThread::ForceQueue(nullptr, [ref]() {
+		ref->Parent = nullptr;
+		if (ref->OnFrameDeleted) {
+			ref->OnFrameDeleted(ref);
+		}
+		delete ref;
+	});
 }
 //---------------------------------------------------------------------------
 
