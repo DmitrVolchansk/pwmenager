@@ -13,7 +13,7 @@
 TFShowCase *FShowCase;
 //---------------------------------------------------------------------------
 __fastcall TFShowCase::TFShowCase(const TShowCaseParam& params)
-	: TFrame(params.Parent), id(param.id)
+	: TFrame(params.Parent), id(params.id)
 {
 	Name = "id" + IntToStr(params.id);
 	ActionLbl->Visible = params.isOld;
