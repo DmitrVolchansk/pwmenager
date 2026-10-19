@@ -13,8 +13,6 @@
 #include <FMX.Edit.hpp>
 #include <FMX.StdCtrls.hpp>
 #include <vector>
-#include "ShowCaseFrame.h"
-#include "CustomDlgForm.h"
 #include "ShowCaseService.h"
 //---------------------------------------------------------------------------
 class TFMain : public TForm
@@ -36,7 +34,6 @@ __published:	// IDE-managed Components
 	void __fastcall SearchBtnClick(TObject *Sender);
 	void __fastcall AddClick(TObject *Sender);
 private:	// User declarations
-	TFCustomDlg* customDlg;
 	TShowCaseService ShowCaseService;
 	std::vector<TFShowCase*> showCases;
 public:		// User declarations
