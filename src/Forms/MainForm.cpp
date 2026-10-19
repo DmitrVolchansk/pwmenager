@@ -36,15 +36,7 @@ void __fastcall TFMain::GenerateClick(TObject *Sender)
 
 void __fastcall TFMain::FormCreate(TObject *Sender)
 {
-	TInfoVector passwordNames = dbmenager::getAllNames();
-	for (const auto& item: passwordNames){
-		auto showCaseData = TShowCaseParam {
-			.id = item.id,
-			.text = item.name,
-			.isOld = item.isOld
-		};
-        ShowCaseService.addNew(showCaseData);
-	}
+	ShowCaseService.load();
 }
 //---------------------------------------------------------------------------
 

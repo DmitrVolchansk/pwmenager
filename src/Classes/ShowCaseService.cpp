@@ -4,6 +4,7 @@
 
 #include "ShowCaseService.h"
 
+#include "UDBMenager.h"
 //---------------------------------------------------------------------------
 TShowCaseService::TShowCaseService(std::vector<TFShowCase*>& vector, TScrollBox* pare) :
 	showCaseVector(vector), layout(pare)
@@ -42,5 +43,19 @@ void TShowCaseService::resetShowCaseFilter() const noexcept
     for (auto showCase: showCaseVector)
 		showCase->Visible = true;
 }
+
+void TShowCaseService::load()
+{
+    TInfoVector records = dbmenager::getAllNames();
+	for (const auto& item: records){
+		auto showCaseData = TShowCaseParam {
+			.id = item.id,
+			.text = item.name,
+			.isOld = item.isOld
+		};
+        addNew(showCaseData);
+	}
+}
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)

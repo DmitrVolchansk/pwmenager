@@ -19,5 +19,6 @@ class TShowCaseService{
 		void addNew(const TShowCaseParam& params);
 		void filterBy(const String& name) const noexcept;
 		void resetShowCaseFilter() const noexcept;
+        void load();
 };
 #endif
