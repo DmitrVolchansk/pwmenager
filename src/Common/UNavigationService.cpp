@@ -4,33 +4,26 @@
 
 #include "UNavigationService.h"
 
-#include "AddingFrame.h"
+#include "UFormShowMenager.h"
 #include "ViewingFrame.h"
 #include "EditFrame.h"
-#include "UDBMenager.h"
 #include "GeneratorForm.h"
+
+#include "UDBMenager.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 namespace NavigationService {
 
-	void NavigationService::openAdding(TShowCaseService& ShowCaseService)
+	void NavigationService::openAdding(TShowCaseService& scs)
 	{
 		auto addingFrame = new TFAdding(nullptr);
 		auto customDlg = new TFCustomDlg(nullptr, addingFrame);
 		try {
-			if (customDlg->ShowModal() == mrYes) {
-				TDataHolder result = addingFrame->getReport();
-				int id = dbmenager::addToDB(result);
-
-				auto showCaseData = TShowCaseParam {
-					.id = id,
-					.text = result.name
-				};
-				ShowCaseService.addNew(showCaseData);
-			}
+			FormShowMenager::openForAddition(scs, customDlg, addingFrame);
 		} __finally {
 			delete addingFrame;
+            delete customDlg;
 		}
 	}
 	//-----------------------------------------------------------------------
