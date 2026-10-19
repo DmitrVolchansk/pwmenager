@@ -205,10 +205,6 @@
             <DependentOn>src\Classes\ShowCaseService.h</DependentOn>
             <BuildOrder>15</BuildOrder>
         </CppCompile>
-        <CppCompile Include="src\Classes\UNavigationService.cpp">
-            <DependentOn>src\Classes\UNavigationService.h</DependentOn>
-            <BuildOrder>15</BuildOrder>
-        </CppCompile>
         <CppCompile Include="src\Common\UDateValidation.cpp">
             <DependentOn>src\Common\UDateValidation.h</DependentOn>
             <BuildOrder>12</BuildOrder>
@@ -216,6 +212,14 @@
         <CppCompile Include="src\Common\UDBMenager.cpp">
             <DependentOn>src\Common\UDBMenager.h</DependentOn>
             <BuildOrder>13</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="src\Common\UFormShowMenager.cpp">
+            <DependentOn>src\Common\UFormShowMenager.h</DependentOn>
+            <BuildOrder>16</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="src\Common\UNavigationService.cpp">
+            <DependentOn>src\Common\UNavigationService.h</DependentOn>
+            <BuildOrder>15</BuildOrder>
         </CppCompile>
         <None Include="src\Common\UTypes.h">
             <BuildOrder>10</BuildOrder>
