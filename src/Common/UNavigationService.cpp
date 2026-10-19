@@ -13,77 +13,73 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
-namespace NavigationService {
-
-	void NavigationService::openAdding(TShowCaseService& scs)
-	{
-		auto addingFrame = new TFAdding(nullptr);
-		auto customDlg = new TFCustomDlg(nullptr, addingFrame);
-		try {
-			FormShowMenager::openForAddition(scs, customDlg, addingFrame);
-		} __finally {
-			delete addingFrame;
-            delete customDlg;
-		}
+void NavigationService::openAdding(TShowCaseService& scs)
+{
+	TFAdding* addingFrame = nullptr;
+	TFCustomDlg* customDlg = nullptr;
+	try {
+		addingFrame = new TFAdding(nullptr);
+		customDlg = new TFCustomDlg(nullptr, addingFrame);
+		FormShowMenager::openForAddition(scs, customDlg, addingFrame);
+	} __finally {
+		delete addingFrame;
+		delete customDlg;
 	}
-	//-----------------------------------------------------------------------
-	std::optional<String> NavigationService::openReading(const int id)
-	{
-		auto data = dbmenager::getFromDB( id );
-		if (!data.has_value()){
-			ShowMessage("Sorry, no record in data base");
-			return std::nullopt;
-		}
-		String name;
-		auto viewFrame = new TFViewing(nullptr, *data, id);
-		auto viewForm = new TFCustomDlg(nullptr, viewFrame);
-		try
-		{
-			viewForm->ShowModal();
-			auto ediedData = viewFrame->getReport();
-			name = ediedData.name;
-		}
-		__finally
-		{
-			delete viewFrame;
-			delete viewForm;
-		}
-		return name;
-	}
-	//-----------------------------------------------------------------------
-	std::optional<TDataHolder> NavigationService::openEditing(const int id, const TDataHolder& data)
-	{
-		auto editFrame = new TFEdit(nullptr, data);
-		auto editForm = new TFCustomDlg(nullptr, editFrame);
-		try
-		{
-			if (editForm->ShowModal() == mrYes) {
-
-				auto updData = editFrame->getReport();
-				dbmenager::updDB(id, updData);
-				return updData;
-
-			}
-		} __finally {
-			delete editFrame;
-			delete editForm;
-		}
-		return std::nullopt;
-	}
-	//-----------------------------------------------------------------------
-	void NavigationService::openGenerator()
-	{
-		auto generator = new TFGenerator(nullptr);
-		generator->ShowModal();
-		delete generator;
-	}
-	//-----------------------------------------------------------------------
-	void NavigationService::openGenerator(TEdit* Edit)
-	{
-		auto generator = new TFGenerator(nullptr, "Select");
-		if ( generator->ShowModal() == mrYes )
-			Edit->Text = generator->getSelection();
-		delete generator;
-	}
-//---------------------------------------------------------------------------
 }
+//-----------------------------------------------------------------------
+String NavigationService::openReading(const int id)
+{
+	auto data = dbmenager::getFromDB( id );
+	TFViewing* viewFrame = nullptr;
+	TFCustomDlg* viewForm = nullptr;
+	try
+	{
+		viewFrame = new TFViewing(nullptr, data, id);
+		viewForm = new TFCustomDlg(nullptr, viewFrame);
+		return FormShowMenager::openForReading(viewForm, viewFrame);
+	}
+	__finally
+	{
+		delete viewFrame;
+		delete viewForm;
+	}
+}
+//-----------------------------------------------------------------------
+std::optional<TDataHolder> NavigationService::openEditing(const int id, const TDataHolder& data)
+{
+	TFEdit* editFrame = nullptr;
+	TFCustomDlg* editForm = nullptr;
+	try
+	{
+		editFrame = new TFEdit(nullptr, data, id);
+		editForm = new TFCustomDlg(nullptr, editFrame);
+		return FormShowMenager::openForEditing(editForm, editFrame);
+	} __finally {
+		delete editFrame;
+		delete editForm;
+	}
+}
+//-----------------------------------------------------------------------
+void NavigationService::openGenerator()
+{
+	TFGenerator* generator = nullptr;
+	try {
+		generator = new TFGenerator(nullptr);
+		generator->ShowModal();
+	} __finally {
+		delete generator;
+	}
+}
+//-----------------------------------------------------------------------
+std::optional<String> NavigationService::openGenerator(const String& mode)
+{
+	TFGenerator* generator = nullptr;
+	try {
+		generator = new TFGenerator(nullptr, mode);
+		return FormShowMenager::openForGeneration(generator);
+	}
+	__finally {
+		delete generator;
+	}
+}
+//---------------------------------------------------------------------------

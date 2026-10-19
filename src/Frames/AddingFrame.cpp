@@ -26,7 +26,9 @@ void __fastcall TFAdding::switchCompliteBtnEnable(TObject* Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFAdding::OpenGeneratorButtonClick(TObject *Sender)
 {
-	NavigationService::openGenerator(PasswordEdit);
+	auto genPword = NavigationService::openGenerator("Select");
+	if (!genPword.has_value()) return;
+    PasswordEdit->Text = *genPword;
     switchCompliteBtnEnable(Sender);
 }
 //---------------------------------------------------------------------------

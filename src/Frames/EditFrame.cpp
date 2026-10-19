@@ -10,9 +10,15 @@
 #pragma resource "*.fmx"
 TFEdit *FEdit;
 //---------------------------------------------------------------------------
-__fastcall TFEdit::TFEdit(TComponent* Owner, const TDataHolder& data)
-	: TFAdding(Owner)
+__fastcall TFEdit::TFEdit(TComponent* Owner, const TDataHolder& data, const int id)
+	: TFAdding(Owner), id(id)
 {
     LoadData(data);
 }
+
+int TFEdit::getID() const noexcept
+{
+    return this->id;
+}
+
 //---------------------------------------------------------------------------

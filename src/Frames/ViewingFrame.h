@@ -27,6 +27,7 @@ class TFViewing : public TFBase
     int id;
   public: // User declarations
 	__fastcall TFViewing(TComponent* Owner, const TDataHolder& data, const int id);
+    int getID() const noexcept;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFViewing* FViewing;

@@ -19,8 +19,10 @@ class TFEdit : public TFAdding
 __published:	// IDE-managed Components
 	TButton *CancelBtn;
 private:	// User declarations
+    const int id;
 public:		// User declarations
-	__fastcall TFEdit(TComponent* Owner, const TDataHolder& data);
+	__fastcall TFEdit(TComponent* Owner, const TDataHolder& data, const int id);
+    int getID() const noexcept;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFEdit *FEdit;

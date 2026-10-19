@@ -19,6 +19,12 @@ __fastcall TFViewing::TFViewing(TComponent* Owner, const TDataHolder& data, cons
 	LoadData( data );
 }
 //---------------------------------------------------------------------------
+int TFViewing::getID() const noexcept
+{
+    return this->id;
+}
+
+//---------------------------------------------------------------------------
 void __fastcall TFViewing::CopyLoginBtnClick(TObject *Sender)
 {
 	LoginEdit->SelectAll();
