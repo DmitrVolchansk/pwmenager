@@ -40,7 +40,7 @@ void __fastcall TFViewing::CopyPWBtnClick(TObject *Sender)
 
 void __fastcall TFViewing::EditBtnClick(TObject *Sender)
 {
-	auto upData = NavigationService::openEditing(id, getReport());
+	auto upData = NavigationService::openEditing<TFEdit>(id, getReport());
 	if (upData.has_value())
 		LoadData(*upData);
 }

@@ -7,11 +7,11 @@
 //---------------------------------------------------------------------------
 namespace FrameMenager {
 
-	enum mode {
+	enum mode_t {
 		lgn
 	};
 
-	void launch(TShowCaseService& scs, const mode mode);
+	void launch(TShowCaseService& scs, const mode_t mode);
 }
 
 #endif

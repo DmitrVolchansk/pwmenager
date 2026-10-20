@@ -44,7 +44,7 @@ void __fastcall TFShowCase::DeleteBtnClick(TObject *Sender)
 
 void __fastcall TFShowCase::OpenViewBtnClick(TObject *Sender)
 {
-	auto name_text = NavigationService::openReading(id);
+	auto name_text = NavigationService::openReading<TFViewing>(id);
 	if (name_text != OpenViewBtn->Text)
 		OpenViewBtn->Text = name_text;
 }

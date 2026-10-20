@@ -10,7 +10,7 @@
 #pragma package(smart_init)
 
 
-void FrameMenager::launch(TShowCaseService& scs, const mode mode)
+void FrameMenager::launch(TShowCaseService& scs, const mode_t mode)
 {
-	NavigationService::openAdding(scs);
+	NavigationService::openAdding<TFAdding>(scs);
 }

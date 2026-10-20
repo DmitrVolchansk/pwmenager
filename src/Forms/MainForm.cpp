@@ -46,7 +46,7 @@ void __fastcall TFMain::SearchBtnClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
-    FrameMenager::launch(ShowCaseService, FrameMenager::mode::lgn);
+    FrameMenager::launch(ShowCaseService, FrameMenager::mode_t::lgn);
 }
 //---------------------------------------------------------------------------
 

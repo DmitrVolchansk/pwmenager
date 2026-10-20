@@ -213,14 +213,16 @@
             <DependentOn>src\Common\UDBMenager.h</DependentOn>
             <BuildOrder>13</BuildOrder>
         </CppCompile>
-        <CppCompile Include="src\Common\UFormShowMenager.cpp">
-            <DependentOn>src\Common\UFormShowMenager.h</DependentOn>
-            <BuildOrder>16</BuildOrder>
+        <None Include="src\Common\UFormShowMenager.h">
+            <BuildOrder>18</BuildOrder>
+        </None>
+        <CppCompile Include="src\Common\UFrameMenager.cpp">
+            <DependentOn>src\Common\UFrameMenager.h</DependentOn>
+            <BuildOrder>17</BuildOrder>
         </CppCompile>
-        <CppCompile Include="src\Common\UNavigationService.cpp">
-            <DependentOn>src\Common\UNavigationService.h</DependentOn>
-            <BuildOrder>15</BuildOrder>
-        </CppCompile>
+        <None Include="src\Common\UNavigationService.h">
+            <BuildOrder>18</BuildOrder>
+        </None>
         <None Include="src\Common\UTypes.h">
             <BuildOrder>10</BuildOrder>
         </None>
@@ -393,6 +395,12 @@
                 <DeployFile LocalName=".\Win32\Debug\pwmenager.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>pwmenager.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\pwmenager.tds" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win32">
+                        <RemoteName>pwmenager.tds</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
