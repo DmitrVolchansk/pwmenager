@@ -18,7 +18,7 @@ namespace dbmenager {
 
 	TMetaDTOVector getAllNames()
 	{
-		TFDQuery* qry = getQRY();
+		std::unique_ptr<TFDQuery> qry{getQRY()};
 		TMetaDTOVector result;
         qry->Connection->StartTransaction();
 		try
@@ -44,13 +44,12 @@ namespace dbmenager {
             qry->Connection->Rollback();
 		}
         qry->Close();
-		delete qry;
 		return result;
 	}
 	//-----------------------------------------------------------------------
 	int addToDB(const TDataHolder& data)
 	{
-		TFDQuery* qry = getQRY();
+		std::unique_ptr<TFDQuery> qry{getQRY()};
 		int newId;
         qry->Connection->StartTransaction();
 		try
@@ -81,13 +80,12 @@ namespace dbmenager {
 			qry->Connection->Rollback();
 		}
 		qry->Close();
-		delete qry;
-        return newId;
+		return newId;
 	}
 	//-----------------------------------------------------------------------
 	void delFromDB(const int id)
 	{
-		TFDQuery* qry = getQRY();
+		std::unique_ptr<TFDQuery> qry{getQRY()};
 		qry->Connection->StartTransaction();
 		try
 		{
@@ -102,12 +100,11 @@ namespace dbmenager {
 			qry->Connection->Rollback();
 		}
 		qry->Close();
-		delete qry;
 	}
 	//-----------------------------------------------------------------------
 	void updDB(const int id, const TDataHolder& data)
 	{
-		TFDQuery* qry = getQRY();
+		std::unique_ptr<TFDQuery> qry{getQRY()};
 		qry->Connection->StartTransaction();
 		try
 		{
@@ -137,12 +134,11 @@ namespace dbmenager {
             qry->Connection->Rollback();
 		}
 		qry->Close();
-		delete qry;
 	}
 	//-----------------------------------------------------------------------
 	TDataHolder getFromDB(const int id)
 	{
-		TFDQuery* qry = getQRY();
+		std::unique_ptr<TFDQuery> qry{getQRY()};
 		try
 		{
 			qry->SQL->Text = "SELECT metadata.name, logins.login, passwords.password "
@@ -161,7 +157,6 @@ namespace dbmenager {
 		__finally
 		{
             qry->Close();
-			delete qry;
 		}
 	}
 }
