@@ -4,9 +4,8 @@
 #pragma hdrstop
 
 #include "MainForm.h"
+#include "UFrameMenager.h"
 #include "UNavigationService.h"
-#include "UDBMenager.h"
-#include "ShowCaseService.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
@@ -47,7 +46,7 @@ void __fastcall TFMain::SearchBtnClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::AddClick(TObject *Sender)
 {
-    NavigationService::openAdding(ShowCaseService);
+    FrameMenager::launch(ShowCaseService, FrameMenager::mode::lgn);
 }
 //---------------------------------------------------------------------------
 
