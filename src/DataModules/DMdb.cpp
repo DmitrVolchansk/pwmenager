@@ -43,8 +43,8 @@ bool TDataBaseModule::CreateTables()
 			"CREATE TABLE IF NOT EXISTS metadata ("
 			"  id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			"  name TEXT NOT NULL,"
-			"  last_update TEXT NOT NULL"
-//			"  kind INTEGER NOT NULL"
+			"  last_update TEXT NOT NULL,"
+			"  kind INTEGER NOT NULL"
 			");"
 
 			"CREATE TABLE IF NOT EXISTS passwords ("
