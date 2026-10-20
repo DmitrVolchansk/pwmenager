@@ -22,11 +22,14 @@ namespace NavigationService {
 	{
 		T* addingFrame = nullptr;
 		TFCustomDlg* customDlg = nullptr;
-		try {
+		try
+		{
 			addingFrame = new T(nullptr);
 			customDlg = new TFCustomDlg(nullptr, addingFrame);
 			FormShowMenager::openForAddition(scs, customDlg, addingFrame);
-		} __finally {
+		}
+		__finally
+		{
 			delete addingFrame;
 			delete customDlg;
 		}
@@ -62,7 +65,9 @@ namespace NavigationService {
 			editFrame = new T(nullptr, data, id);
 			editForm = new TFCustomDlg(nullptr, editFrame);
 			return FormShowMenager::openForEditing(editForm, editFrame);
-		} __finally {
+		}
+		__finally
+		{
 			delete editFrame;
 			delete editForm;
 		}
@@ -74,7 +79,9 @@ namespace NavigationService {
 		try {
 			generator = new TFGenerator(nullptr);
 			generator->ShowModal();
-		} __finally {
+		}
+		__finally
+		{
 			delete generator;
 		}
 	}
@@ -86,7 +93,8 @@ namespace NavigationService {
 			generator = new TFGenerator(nullptr, mode);
 			return FormShowMenager::openForGeneration(generator);
 		}
-		__finally {
+		__finally
+		{
 			delete generator;
 		}
 	}

@@ -46,7 +46,7 @@ void TShowCaseService::resetShowCaseFilter() const noexcept
 
 void TShowCaseService::load()
 {
-    TInfoVector records = dbmenager::getAllNames();
+    TMetaDTOVector records = dbmenager::getAllNames();
 	for (const auto& item: records){
 		auto showCaseData = TShowCaseParam {
 			.id = item.id,

@@ -7,10 +7,10 @@
 #include "DMdb.h"
 #include "UTypes.h"
 //---------------------------------------------------------------------------
-using TInfoVector = std::vector<TMetaData>;
+using TMetaDTOVector = std::vector<TMetaData>;
 //---------------------------------------------------------------------------
 namespace dbmenager {
-	TInfoVector getAllNames();
+	TMetaDTOVector getAllNames();
 	int addToDB(const TDataHolder& data);
 	void delFromDB(const int id);
 	void updDB(const int id, const TDataHolder& data);

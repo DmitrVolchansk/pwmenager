@@ -16,13 +16,14 @@ namespace {
 //---------------------------------------------------------------------------
 namespace dbmenager {
 
-	TInfoVector getAllNames()
+	TMetaDTOVector getAllNames()
 	{
 		TFDQuery* qry = getQRY();
-		TInfoVector result;
+		TMetaDTOVector result;
+        qry->Connection->StartTransaction();
 		try
 		{
-			qry->SQL->Text = "SELECT id, name, last_update FROM auth";
+			qry->SQL->Text = "SELECT id, name, last_update FROM metadata";
 			qry->Open();
 
 			while (!qry->Eof){
@@ -35,12 +36,15 @@ namespace dbmenager {
 
 				qry->Next();
 			}
+
+            qry->Connection->Commit();
 		}
-		__finally
+		catch (...)
 		{
-			qry->Close();
-			delete qry;
+            qry->Connection->Rollback();
 		}
+        qry->Close();
+		delete qry;
 		return result;
 	}
 	//-----------------------------------------------------------------------
@@ -48,61 +52,92 @@ namespace dbmenager {
 	{
 		TFDQuery* qry = getQRY();
 		int newId;
+        qry->Connection->StartTransaction();
 		try
 		{
-			qry->SQL->Text = "INSERT INTO auth (name, login, password, last_update)"
-							" VALUES (:name, :login, :password, :last_update)"
-							" RETURNING id";
+			qry->SQL->Text = "INSERT INTO metadata (name, last_update)"
+							 "VALUES (:name, :lu);";
 			qry->ParamByName("name")->AsString = data.name;
+			qry->ParamByName("lu")->AsString = datevalidation::getCurrentDateToString();
+			qry->ExecSQL();
+			newId = qry->Connection->ExecSQLScalar("SELECT last_insert_rowid()");
+
+			qry->SQL->Text = "INSERT INTO logins "
+							 "VALUES (:id, :login);";
+			qry->ParamByName("id")->AsInteger = newId;
 			qry->ParamByName("login")->AsString = data.login;
+			qry->ExecSQL();
+
+			qry->SQL->Text = "INSERT INTO passwords "
+							 "VALUES (:id, :password);";
+			qry->ParamByName("id")->AsInteger = newId;
 			qry->ParamByName("password")->AsString = data.pword;
-			qry->ParamByName("last_update")->AsString = datevalidation::getCurrentDateToString();
-			qry->Open();
-			newId = qry->FieldByName("id")->AsInteger;
+			qry->ExecSQL();
+
+			qry->Connection->Commit();
 		}
-		__finally
+		catch (...)
 		{
-			qry->Close();
-			delete qry;
+			qry->Connection->Rollback();
 		}
-		return newId;
+		qry->Close();
+		delete qry;
+        return newId;
 	}
 	//-----------------------------------------------------------------------
 	void delFromDB(const int id)
 	{
 		TFDQuery* qry = getQRY();
+		qry->Connection->StartTransaction();
 		try
 		{
-			qry->SQL->Text = "DELETE FROM auth WHERE id = :id";
+			qry->SQL->Text = "DELETE FROM metadata WHERE id = :id;";
 			qry->ParamByName("id")->AsInteger = id;
 			qry->ExecSQL();
+
+			qry->Connection->Commit();
 		}
-		__finally
+		catch (...)
 		{
-			qry->Close();
-			delete qry;
+			qry->Connection->Rollback();
 		}
+		qry->Close();
+		delete qry;
 	}
 	//-----------------------------------------------------------------------
 	void updDB(const int id, const TDataHolder& data)
 	{
 		TFDQuery* qry = getQRY();
+		qry->Connection->StartTransaction();
 		try
 		{
-			qry->SQL->Text = "UPDATE auth SET name = :name, login = :login, password = :pswrd, last_update = :lu WHERE id = :id";
+			qry->SQL->Text = "UPDATE metadata SET name = :name, last_update = :lu "
+							 "WHERE id = :id;";
 			qry->ParamByName("name")->AsString = data.name;
-			qry->ParamByName("login")->AsString = data.login;
-			qry->ParamByName("pswrd")->AsString = data.pword;
 			qry->ParamByName("lu")->AsString = datevalidation::getCurrentDateToString();
 			qry->ParamByName("id")->AsInteger = id;
-
 			qry->ExecSQL();
+
+			qry->SQL->Text = "UPDATE logins SET login = :login "
+							 "WHERE id = :id;";
+			qry->ParamByName("login")->AsString = data.login;
+            qry->ParamByName("id")->AsInteger = id;
+            qry->ExecSQL();
+
+			qry->SQL->Text = "UPDATE passwords SET password = :psword "
+							 "WHERE id = :id";
+			qry->ParamByName("psword")->AsString = data.pword;
+            qry->ParamByName("id")->AsInteger = id;
+			qry->ExecSQL();
+
+            qry->Connection->Commit();
 		}
-		__finally
+		catch (...)
 		{
-			qry->Close();
-			delete qry;
+            qry->Connection->Rollback();
 		}
+		qry->Close();
+		delete qry;
 	}
 	//-----------------------------------------------------------------------
 	TDataHolder getFromDB(const int id)
@@ -110,7 +145,11 @@ namespace dbmenager {
 		TFDQuery* qry = getQRY();
 		try
 		{
-			qry->SQL->Text = "SELECT name, login, password FROM auth WHERE id = :id";
+			qry->SQL->Text = "SELECT metadata.name, logins.login, passwords.password "
+							 "FROM metadata "
+							 "INNER JOIN logins ON metadata.id = logins.id "
+							 "INNER JOIN passwords ON metadata.id = passwords.id "
+							 "WHERE metadata.id = :id;";
 			qry->ParamByName("id")->AsInteger = id;
 			qry->Open();
 			return TDataHolder {
@@ -121,7 +160,7 @@ namespace dbmenager {
 		}
 		__finally
 		{
-			qry->Close();
+            qry->Close();
 			delete qry;
 		}
 	}
