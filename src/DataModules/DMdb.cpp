@@ -39,14 +39,37 @@ bool TDataBaseModule::CreateTables()
     try
 	{
 		String SQL =
-			"CREATE TABLE IF NOT EXISTS auth ("
+
+			"CREATE TABLE IF NOT EXISTS metadata ("
 			"  id INTEGER PRIMARY KEY AUTOINCREMENT,"
-            "  last_update TEXT NOT NULL,"
 			"  name TEXT NOT NULL,"
-			"  login TEXT NOT NULL,"
-			"  password TEXT NOT NULL"
+			"  last_update TEXT NOT NULL,"
+			"  kind INTEGER NOT NULL"
 			");"
-			"CREATE INDEX IF NOT EXISTS idx_users_name ON auth(name);";
+
+			"CREATE TABLE IF NOT EXISTS passwords ("
+			"  id INTEGER PRIMARY KEY"
+			"  REFERENCES metadata(id)"
+			"		ON DELETE CASCADE"
+			"		ON UPDATE CASCADE,"
+			"  passw TEXT NOT NULL"
+			");"
+
+			"CREATE TABLE IF NOT EXISTS logins ("
+			"  id INTEGER PRIMARY KEY"
+			"  REFERENCES metadata(id)"
+			"  		ON DELETE CASCADE"
+			"		ON UPDATE CASCADE,"
+			"  login TEXT NOT NULL"
+			");"
+
+			"CREATE TABLE IF NOT EXISTS urls ("
+			"  id INTEGER PRIMARY KEY"
+			"  REFERENCES metadata(id)"
+			"		ON DELETE CASCADE"
+            "		ON UPDATE CASCADE,"
+			"  url TEXT NOT NULL"
+			");";
 
 		FDConnection->ExecSQL(SQL);
 		return true;
